@@ -1,0 +1,488 @@
+<div class="modal-container">
+  <div class="modal-window">
+    <div class="modal-content">
+    <!--페이지 타이틀-->
+			<div class="dialog-title1" style="position: absolute">
+      <ul>
+        <li>
+            <h5 id="dialog-title1-dialog_container_main">환경 설정</h5>
+        </li>
+        <li style="float:right">
+            <!-- <img id="dialog-close-id_dialog_config" class="dialog-close" src="file:///android_asset/www/images/close2.png" /> -->
+            <img id="dialog-close-id_dialog_config" class="dialog-close" />
+        </li>
+      </ul>
+    </div>
+
+    <div class="margin_33px"></div>
+    
+    <div>
+      <div class="margin_10px"></div>
+      <!-- <div id="dialog-title2-dialog_container_main" class="dialog-title2">제품의 데이터를 추가하여 주시기 바랍니다.</div> -->
+      <div class="stretch_wrap layout_max1000" style="height:40px;">
+        <div class="stretch_left_100percent" style="right:80px;">
+          <div id="dialog-title2-dialog_container_main" class="dialog-title2">환경 설정 정보입니다.</div>
+        </div>
+        <div class="stretch_right_100px" style="max-width:80px">
+          <!-- <img id="dialog_write_image_1" src="file:///android_asset/www/images/user3.png" class="round_image" data-magnify="gallery"> -->
+        </div>
+      </div>
+      <div class="margin_10px"></div>
+    </div>
+
+    <div id="container" class="layout_max1000">
+      <!--content//-->
+      <div id="content">
+          <div id="dialog_write">
+            <table cellspacing="0" cellpadding="0" class="table_layout">
+              <colgroup>
+                <col width="25%" style="min-width:100px">
+                <col width="75%">
+              </colgroup>
+              
+              <tbody>
+              <tr>
+              </tr>
+              <tr style="display:none">
+                <th>아이디</th>
+                <td>
+                    <div class="stretch_wrap" style="height:36px">
+                      <div id="dialog_write_user_id_wrap" class="stretch_left_100percent" style="right:80px;">
+                        <input id="dialog_write_user_id" type="text" size="30" maxlength="20" class="inputbox1 mustimage" value="test" style="white-space:nowrap">
+                      </div>
+                      <div id="dialog_write_check_user_wrap" class="stretch_right_100px" style="max-width:80px">
+                        <a id="dialog_write_check_user" href="#" class="button_style1">중복 확인</a>
+                      </div>
+                    </div>
+                </td>
+              </tr>
+              <tr style="display:none">
+                <th>비밀번호</th>
+                <td>
+                  <div class="stretch_wrap" style="height:36px">
+                    <div id="dialog_write_password_wrap" class="stretch_left_100percent" style="right:80px;">
+                      <input id="dialog_write_password" type="password" class="inputbox1 mustimage" maxlength="30">
+                    </div>
+                    <div id="dialog_write_password_change_warp" class="stretch_right_100px" style="max-width:80px">
+                      <a id="dialog_write_password_change" href="#" class="button_style1">변경</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>Main Content</th>
+                <td>
+                  <select id="dialog_write_rotate_page_menu" class="select1" title="디스플레이 주기적 회전시간 (메인 페이지 회전)">
+                    <option value="notuse">디스플레이 주기적 회전기능 사용안함</option>
+                    <option value="5">5초</option>
+                    <option value="10">10초</option>
+                    <option value="15">15초</option>
+                    <option value="20">20초</option>
+                    <option value="25">25초</option>
+                    <option value="30">30초</option>
+                    <option value="35">35초</option>
+                    <option value="40">40초</option>
+                    <option value="45">45초</option>
+                    <option value="50">50초</option>
+                    <option value="55">55초</option>
+                    <option value="60">1분</option>
+                    <option value="60">1분 30초</option>
+                    <option value="120">2분</option>
+                    <option value="180">3분</option>
+                    <option value="240">4분</option>
+                    <option value="300">5분</option>
+                    <option value="360">6분</option>
+                    <option value="420">7분</option>
+                    <option value="480">8분</option>
+                    <option value="540">9분</option>
+                    <option value="600">10분</option>
+                    <option value="1200">20분</option>
+                    <option value="1800">30분</option>
+                    <option value="3600">60분</option>
+                    <option value="7200">120분</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>Sub Content</th>
+                <td>
+                  <select id="dialog_write_rotate_page_contents" class="select1" title="디스플레이 주기적 회전시간 (페이지 안에 존재하는 여러 이미지 회전)">
+                    <option value="notuse">디스플레이 주기적 회전기능 사용안함</option>
+                    <option value="5">5초</option>
+                    <option value="10">10초</option>
+                    <option value="15">15초</option>
+                    <option value="20">20초</option>
+                    <option value="25">25초</option>
+                    <option value="30">30초</option>
+                    <option value="35">35초</option>
+                    <option value="40">40초</option>
+                    <option value="45">45초</option>
+                    <option value="50">50초</option>
+                    <option value="55">55초</option>
+                    <option value="60">1분</option>
+                    <option value="60">1분 30초</option>
+                    <option value="120">2분</option>
+                    <option value="180">3분</option>
+                    <option value="240">4분</option>
+                    <option value="300">5분</option>
+                    <option value="360">6분</option>
+                    <option value="420">7분</option>
+                    <option value="480">8분</option>
+                    <option value="540">9분</option>
+                    <option value="600">10분</option>
+                    <option value="1200">20분</option>
+                    <option value="1800">30분</option>
+                    <option value="3600">60분</option>
+                    <option value="7200">120분</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>Touch Pause</th>
+                <td>
+                  <select id="dialog_write_rotate_page_usertouch" class="select1" title="사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)">
+                    <option value="notuse">디스플레이 주기적 회전 대기기능 사용안함 (일반 사용자)</option>
+                    <option value="5">5초</option>
+                    <option value="10">10초</option>
+                    <option value="15">15초</option>
+                    <option value="20">20초</option>
+                    <option value="25">25초</option>
+                    <option value="30">30초</option>
+                    <option value="35">35초</option>
+                    <option value="40">40초</option>
+                    <option value="45">45초</option>
+                    <option value="50">50초</option>
+                    <option value="55">55초</option>
+                    <option value="60">1분</option>
+                    <option value="60">1분 30초</option>
+                    <option value="120">2분</option>
+                    <option value="180">3분</option>
+                    <option value="240">4분</option>
+                    <option value="300">5분</option>
+                    <option value="360">6분</option>
+                    <option value="420">7분</option>
+                    <option value="480">8분</option>
+                    <option value="540">9분</option>
+                    <option value="600">10분</option>
+                    <option value="1200">20분</option>
+                    <option value="1800">30분</option>
+                    <option value="3600">60분</option>
+                    <option value="7200">120분</option>
+                  </select>
+                </td>
+              </tr>
+              <tr style="display: none;">
+                <th>사용자 터치 시 디스플레이 주기적 회전 대기시간 (관리자)</th>
+                <td>
+                  <select id="dialog_write_rotate_page_managertouch" class="select1">
+                    <option value="notuse">디스플레이 주기적 회전 대기기능 사용안함 (관리자)</option>
+                    <option value="5">5초</option>
+                    <option value="10">10초</option>
+                    <option value="15">15초</option>
+                    <option value="20">20초</option>
+                    <option value="25">25초</option>
+                    <option value="30">30초</option>
+                    <option value="35">35초</option>
+                    <option value="40">40초</option>
+                    <option value="45">45초</option>
+                    <option value="50">50초</option>
+                    <option value="55">55초</option>
+                    <option value="60">1분</option>
+                    <option value="60">1분 30초</option>
+                    <option value="120">2분</option>
+                    <option value="180">3분</option>
+                    <option value="240">4분</option>
+                    <option value="300">5분</option>
+                    <option value="360">6분</option>
+                    <option value="420">7분</option>
+                    <option value="480">8분</option>
+                    <option value="540">9분</option>
+                    <option value="600">10분</option>
+                    <option value="1200">20분</option>
+                    <option value="1800">30분</option>
+                    <option value="3600">60분</option>
+                    <option value="7200">120분</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>Canvas Snap Size</th>
+                <td>
+                  <select id="dialog_write_snapsize" class="select1" title="캔버스의 모눈 크기 설정">
+                    <option value="0">Snap 기능 사용안함</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                    <option value="35">35</option>
+                    <option value="40">40</option>
+                    <option value="45">45</option>
+                    <option value="50">50</option>
+                    <option value="60">60</option>
+                    <option value="70">70</option>
+                    <option value="80">80</option>
+                    <option value="90">90</option>
+                    <option value="100">100</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th>Element Margin Left, top</th>
+                <td>
+                    <div class="stretch_wrap" style="height:36px" >
+                      <div id="dialog_write_user_id_wrap" class="stretch_left_100percent" style="right:50%;">
+                        <input id="dialog_write_canvasmarginleft" type="text" size="30" maxlength="20" class="inputbox1 image_attention" value="0" style="white-space:nowrap" title="캔버스에 그려지는 각 Element 들의 Left Margin  설정">
+                      </div>
+                      <div id="dialog_write_check_user_wrap" class="stretch_right_100px" style="max-width:50%">
+                        <input id="dialog_write_canvasmargintop" type="text" size="30" maxlength="20" class="inputbox1 image_attention" value="0" style="white-space:nowrap" title="캔버스에 그려지는 각 Element 들의 Top Margin  설정">
+                      </div>
+                    </div>
+                </td>
+              </tr>
+            </tbody></table>
+          </div>
+        
+          <div class="dialog-buttons">
+            <button id="btnSave_dialog_config" class="button">저장</button>
+            <button id="btnCancel_dialog_config" class="button">취소</button>
+          </div>
+        </div>
+          <!--//content-->
+      </div>
+    </div>
+  </div>
+</div>
+  
+<!-- loading message -->
+<div class="loading-container div_center_horizontally_vertically" style="position:fixed;margin:auto;display:none;">
+    <div class="loading"></div>
+    <div id="loading-text">기다려주세요</div>
+</div>
+
+<script>
+  //inputbox 포커스
+  $(document).ready(function() {
+    var sendRead_checkID = false;
+
+    ////////////////////////////
+    //GUI 설정
+    ////////////////////////////
+    selectConfig(function(e) {
+      if (e.length > 0){ 
+        document.getElementById("dialog_write_rotate_page_menu").value = e[0].co_menu;
+        document.getElementById("dialog_write_rotate_page_contents").value = e[0].co_contents;
+        document.getElementById("dialog_write_rotate_page_usertouch").value = e[0].co_usertouch;
+        document.getElementById("dialog_write_rotate_page_managertouch").value = e[0].co_managertouch;
+        document.getElementById("dialog_write_snapsize").value = e[0].co_snapsize;
+        document.getElementById("dialog_write_canvasmarginleft").value = e[0].co_canvasmarginleft;
+        document.getElementById("dialog_write_canvasmargintop").value = e[0].co_canvasmargintop;
+      }
+    });
+
+    ////////////////////////////
+    //창 종료
+    ////////////////////////////
+    //저장 (확인버튼)
+    var os_value = getOS();
+    if(os_value == "Windows") {
+      document.getElementById('btnSave_dialog_config').addEventListener('click', function() {
+        save_start();
+      });    
+    } else {
+      document.getElementById('btnSave_dialog_config').addEventListener('touchstart', function() {
+        save_start();
+      });
+    }
+
+    function save_start() {
+      selectConfig(function(e) {
+        var sendData = {
+          //no: parseInt(document.getElementById("dialog_write_no").value) || 0,
+          no: 2,    //환경설정 2번 row는 content_config.html 페이지(dialog_config.html) 의 설정 정보 저장
+          select: false,
+          co_menu: document.getElementById("dialog_write_rotate_page_menu").value,
+          co_contents: document.getElementById("dialog_write_rotate_page_contents").value,
+          co_usertouch: document.getElementById("dialog_write_rotate_page_usertouch").value,
+          co_managertouch: document.getElementById("dialog_write_rotate_page_managertouch").value,
+          co_snapsize: document.getElementById("dialog_write_snapsize").value,
+          co_canvasmarginleft: document.getElementById("dialog_write_canvasmarginleft").value,
+          co_canvasmargintop: document.getElementById("dialog_write_canvasmargintop").value,
+          co_etc: "",
+      }
+
+        if (e.length > 0){
+          saveConfig_indexedDB_store(false, sendData);
+        } else {
+          saveConfig_indexedDB_store(true, sendData);
+        }
+      });
+
+      setTimeout(function() {
+        selectConfigration();
+      }, 300);
+    }
+
+    function selectConfig(result) {
+      //indexed db select all
+      var list_Configinfo = new Array();
+      indexedDB_open(function(e) {
+        var transaction = e.transaction(["yj_config"], "readwrite");
+        var store = transaction.objectStore("yj_config");
+
+        store.openCursor().onsuccess = function(event) {
+          var cursor = event.target.result;
+          if (cursor) {
+            if (cursor.value.no == 2) {
+              var configinfo = {
+                //no: cursor.key,
+                no: cursor.value.no,							//환경설정 2번 row는 프로그램 좌측 상단 로고 저장
+                co_menu: cursor.value.co_menu,
+                co_contents: cursor.value.co_contents,
+                co_usertouch: cursor.value.co_usertouch,
+                co_managertouch: cursor.value.co_managertouch,
+                co_snapsize: cursor.value.co_snapsize,
+                co_canvasmarginleft: cursor.value.co_canvasmarginleft,
+                co_canvasmargintop: cursor.value.co_canvasmargintop,
+              };
+              list_Configinfo.push(configinfo);
+            }
+
+            cursor.continue();
+          } else {
+            result(list_Configinfo);
+          }
+        };
+      });
+    }
+
+
+	
+    function saveConfig_indexedDB_store(isAdd, sendData) {
+      //indexed db create, edit
+      indexedDB_open(function(e) {
+        var transaction = e.transaction(["yj_config"], "readwrite");
+        var store = transaction.objectStore("yj_config");
+
+        var request;
+        if (isAdd) {
+          request = store.add(sendData);
+        } else {
+          request = store.openCursor();
+        }
+        
+        request.onerror = function(e) {
+          //  console.log("Error",e.target.error.name);
+        }
+        
+        request.onsuccess = function(e) {
+          var cursor = e.target.result;
+          if (cursor) {
+            if (isAdd) {
+                messagebox_show(false, "데이터 저장", "설정 정보가 저장되었습니다.", null, false, true);
+            } else {
+              if (cursor.value.no == sendData.no) {
+                //db update
+                const updateData = cursor.value;
+                updateData.co_menu = sendData.co_menu;
+                updateData.co_contents = sendData.co_contents;
+                updateData.co_usertouch = sendData.co_usertouch;
+                updateData.co_managertouch = sendData.co_managertouch;
+                updateData.co_snapsize = sendData.co_snapsize;
+                updateData.co_canvasmarginleft = sendData.co_canvasmarginleft;
+                updateData.co_canvasmargintop = sendData.co_canvasmargintop;
+                
+                var res = cursor.update(updateData);
+
+                res.onsuccess = function(e) {
+                  messagebox_show(false, "데이터 저장", "설정 정보가 저장되었습니다.", null, false, true);
+                }
+                res.onerror = function(e) {
+                  
+                }										
+              }
+
+              cursor.continue();
+            }
+          }
+        }
+      });
+    }
+  
+
+    // //창 닫기 (종료버튼)
+    // document.getElementById('btnCancel_dialog_config').addEventListener('click', function() {
+    //   dialog_close();
+    // });
+
+    // document.getElementById('dialog-close-id_dialog_config').addEventListener('click', function() {
+    //   dialog_close();
+    // });
+
+    // document.getElementById('dialog-close-id_dialog_config').addEventListener('mouseover', function() {
+    //   var closeButton = document.getElementById('dialog-close-id_dialog_config');
+    //   closeButton.src = "/www/images/close4.png";
+    // });
+
+    // document.getElementById('dialog-close-id_dialog_config').addEventListener('mouseleave', function() {
+    //   var closeButton = document.getElementById('dialog-close-id_dialog_config');
+    //   closeButton.src = "/www/images/close2.png";
+    // });
+
+    // //윈도우 닫기 아이콘
+    // window.addEventListener("keydown", function(e){
+    //   if (e.keyCode == 27) {                    //esc
+    //     if (check_dialog_visible("dialog_messagebox") == true) {
+    //       messagebox_close();                   //dialog_messagebox.html 페이지 함수
+    //     } else if (check_dialog_visible("dialog_password_change") == true) {
+    //       dialog_password_change_close();       //dialog_password_change.html 페이지 함수
+    //     } else if (check_dialog_visible("dialog_container_pop") == true) {
+    //       if (document.getElementById("dialog_auth_pop") != null) {
+    //         dialog_close_auth_pop();       //dialog_password_change.html 페이지 함수
+    //       }
+    //       if (document.getElementById("dialog_dept_pop") != null) {
+    //         dialog_close_dept_pop();       //dialog_password_change.html 페이지 함수
+    //       }
+    //       if (document.getElementById("dialog_position_pop") != null) {
+    //         dialog_close_position_pop();       //dialog_password_change.html 페이지 함수
+    //       }
+    //       if (document.getElementById("dialog_statususer_pop") != null) {
+    //         dialog_close_statususer_pop();       //dialog_password_change.html 페이지 함수
+    //       }
+    //     } else {
+    //       dialog_close();
+    //     }
+    //   }
+    // });
+
+
+    // function change_top_margin_users() {
+    //   //모바일일 경우 다이어로그 top 변경
+    //   if (matchMedia("screen and (max-width:480px)").matches) {           //스마트폰이 세로인 경우
+    //     $("#dialog_container_main .dialog").css("marginTop", "550px");
+    //   } else {
+    //     $("#dialog_container_main .dialog").css("marginTop", "20px");
+    //   }
+      
+    //   if (matchMedia("screen and (max-height:480px)").matches) {          //스마트폰을 가로로 눕힌 경우
+    //     $("#dialog_container_main .dialog").css("marginTop", "550px");
+    //   }
+    // };
+
+    // function dialog_close(){
+    //   //var app = document.querySelector('.dialog-container');
+    //   var dialog_container_main = document.getElementById("dialog_container_main");
+    //   if (dialog_container_main != null) {
+    //     dialog_container_main.classList.remove('dialog-container--visible');                
+
+    //     //body scoll on
+    //     scroll_body_on_off(true);
+
+    //     $('#dialog_write_position').css('pointer-events','none');
+    //   }
+    // };
+
+    
+  });
+</script>

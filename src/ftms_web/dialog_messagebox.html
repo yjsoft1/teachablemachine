@@ -1,0 +1,162 @@
+<!-- <div class="dialog" style="max-width:400px"> -->
+<div class="modal-container">
+  <div class="modal-window">
+      <div class="modal-content" style="max-width:400px">
+          <!--페이지 타이틀-->
+          <div class="dialog-title1" style="max-width:400px">
+              <ul>
+                  <li>
+                      <h5 id="dialog-title1-messagebox1">데이터 삭제</h5>
+                  </li>
+                  <li style="float:right">
+                      <img id="dialog-close-id_remove" class="dialog-close" src="/images/close2.png" />
+                  </li>
+              </ul>
+          </div>
+
+          <div class="margin_33px"></div>
+
+          <div class="margin_10px"></div>
+          <div style="width:100%;text-align: center">
+              <div id="loading_spinner" style="background:rgb(255, 255, 255)"></div>
+          </div>
+          <div id="dialog-title2-messagebox" class="dialog-title2">선택하신 데이터를 삭제 하시겠습니까?</div>
+          <div id="dialog-title2-messagebox_hidden_status" class="dialog-title2" style="display:none">hidden_message</div>
+          <!-- <div id="dialog-title2-messagebox-selectedvalue" ></div> -->
+          <div class="margin_10px"></div>
+          <div id="dialog_messagebox_inputbox1_frame" style="display: none; position: relative; padding-left: 10px; padding-right: 10px;">
+              <input id="dialog_messagebox_inputbox1" type="password" class="inputbox1" maxlength="30">
+          </div>
+
+          <div id="container" class="layout_max1000">
+              <!--content//-->
+              <div id="content">
+                  <div class="dialog-buttons">
+                      <button id="btnSave_messagebox" class="button">확인</button>
+                      <button id="btnCancel_messagebox" class="button">취소</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+  
+
+
+
+
+
+
+<script>
+  ////////////////////////////
+  //창 종료
+  ////////////////////////////
+  //창 닫기 (확인버튼)
+  var os_value = getOS();
+  if(os_value == "Windows") {
+    document.getElementById('btnSave_messagebox').addEventListener('click', function(e) {
+      //utill.js  messagebox_show 이벤트 리스너로 버튼 클릭결과 전달
+      saveMessagebox(this);
+    });
+
+    document.getElementById('btnCancel_messagebox').addEventListener('click', function(e) {    
+      messagebox_close();
+      checkSignPage();
+    });
+
+    document.getElementById('dialog-close-id_remove').addEventListener('click', function() {
+      messagebox_close();
+      checkSignPage();
+    });
+
+    document.getElementById('dialog-close-id_remove').addEventListener('mouseover', function() {
+      var closeButton = document.getElementById('dialog-close-id_remove');
+      closeButton.src = "/images/close4.png";
+    });
+
+    document.getElementById('dialog-close-id_remove').addEventListener('mouseleave', function() {
+      var closeButton = document.getElementById('dialog-close-id_remove');
+      closeButton.src = "/images/close2.png";
+    });
+  } else {
+    document.getElementById('btnSave_messagebox').addEventListener('touchstart', function() {
+      saveMessagebox(this);
+    });
+
+    document.getElementById('btnCancel_messagebox').addEventListener('touchstart', function(e) {    
+      messagebox_close();
+      checkSignPage();
+    });
+
+    document.getElementById('dialog-close-id_remove').addEventListener('touchstart', function() {
+      messagebox_close();
+      checkSignPage();
+    });
+
+  }
+
+  function saveMessagebox(e) {
+    //custom event message
+    var event = new CustomEvent(
+      "event_messagebox", 
+      {
+        detail: {
+          message: "ok",
+          time: new Date(),
+        },
+        bubbles: true,
+        cancelable: true
+      }
+    );
+
+    e.dispatchEvent(event);
+
+    messagebox_close();
+  }
+
+
+
+  function checkSignPage() {
+    //히든 메시지 박스에 5959(사용자 로그인이 되지 않음)가 출력되어 있다면 로그인을 할 수 있는 페이지로 이동
+    var hidden_message = document.getElementById('dialog-title2-messagebox_hidden_status').textContent;
+    if (hidden_message != "") {
+      switch (hidden_message) {
+        case "5959":
+          window.location.href = "/index.html";
+          break;
+      }
+    }
+
+    document.getElementById('dialog-title2-messagebox_hidden_status').textContent = "";
+  }
+
+  // dialog1에서 윈도우 이벤트를 등록했기 때문에 여기서는 삭제
+  // window.addEventListener("keydown", function(e){
+  //   if (e.keyCode == 27) {
+  //     messagebox_close();
+  //   }
+  // });
+
+  function messagebox_close(){
+    var getDialog = document.getElementById("dialog_messagebox");
+
+    if (getDialog != null) {
+      getDialog.classList.remove('dialog-container--visible');
+
+      //body scoll on
+      //content_userscanvas.html 페이지일 경우 생성하지 않음
+      var isRunScrollbodyonoff = true;
+      switch (getPageName()) {
+        case "content_userscanvas.html":
+          isRunScrollbodyonoff = false;
+          break;
+      }
+
+      if (isRunScrollbodyonoff == true) {
+        scroll_body_on_off(true); 
+      }        
+    }      
+  }
+
+  
+</script>

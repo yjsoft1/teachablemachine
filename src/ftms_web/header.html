@@ -1,0 +1,1243 @@
+
+<!--header//-->
+<div id="header" style="overflow: hidden;">
+	<div id="header_top_background">
+		<div class="layout_max1000" style="position:relative">
+			<div id="menu_top_left">
+				<div>
+					<ul>
+						<!-- <li class="start"><a href="/" >홈으로</a></li> -->
+						<!-- <li><a href="http://www.itiscj.com/itiscj/" target="_blank">GOODSOFTWARE</a></li>
+						<li class="end"><a href="/customer5.html">CONTACT US</a></li> -->
+					</ul>
+				</div>
+			</div>
+
+			<div id="menu_top_right">
+                <ul>
+                    <!-- <li class="start"><a href="index.html" id="sign_top_right">로그인</a></li> -->
+                    <!-- <li class="indexeddb_import" style="display: none;margin-right:10px;" title="프로그램 종료">
+                        <a id="close_application" class="close_application_default" style="cursor:pointer;width:20px;height:20px;overflow: hidden;" >
+                        </a>
+                    </li> -->
+                    <li class="indexeddb_import" style="display: none;margin-right:10px;" title="데모 데이터 다운로드">
+                        <a class="file_find_default" style="cursor:pointer;width:20px;height:20px;overflow: hidden;" href="/ref/db/ftmsdb" download="ftmsdb">
+                        </a>
+                    </li>
+                    <li class="start indexeddb_import" style="display: none;margin-right:10px;">
+                        <div class="file_find" style="position:relative;max-width:50px;width:20px;height:20px;overflow: hidden;" title="데이터 업로드">
+                            <input id="input_indexeddb_import" type="file" style="font-size: 23px;left:0px;">
+                        </div>
+                    </li>
+                    <!-- <li class="start indexeddb_import" style="display: none;"><a style="cursor:pointer;">데이터 가져오기</a></li> -->
+                    <li class="indexeddb_export" style="display: none;margin-right:10px;" title="데이터 다운로드">
+                        <a class="file_export" style="cursor:pointer;width:20px;height:20px;overflow: hidden;">
+                        </a>
+                    </li>
+
+                    <li>
+                        <a id="sign_top_right" style="cursor:pointer;">
+                            로그인
+                        </a>
+                        <script>
+                            $(document).ready(function () {
+                                //로그인 후 사용자 정보 편집
+                                document.getElementById('sign_top_right').addEventListener('click', function () {
+                                    user_login_desktop(this.textContent);
+                                });
+                                document.getElementById('sign_top_right').addEventListener('touchstart', function () {
+                                    user_login_desktop(this.textContent);
+                                });
+
+                                function user_login_desktop(input_text) {
+                                    if (input_text != "로그인") {
+                                        var getUserInfo = parseJwt(sessionStorage.getItem(token_yj_rfms));		//로그인된 사용자 정보 가져오기
+                                        window.location.href = "/content_signin_userinfo.html";		//show login page
+                                    } else {
+                                        window.location.href = "/index.html";		//show login page
+                                    }
+                                }
+
+                                function user_logout_desktop() {
+                                    sessionStorage.removeItem(token_yj_rfms);
+                                    window.location.href = "/index.html";		//show login page
+                                }
+
+                                //로그아웃 이벤트
+                                document.getElementById('btnSignout_top_right').addEventListener('click', function () {
+                                    user_logout_desktop();
+                                });
+                                document.getElementById('btnSignout_top_right').addEventListener('touchstart', function () {
+                                    user_logout_desktop();
+                                });
+
+
+
+
+                                //우측 상단 로그인 표시
+                                set_sign_top_right();
+
+                                //우측 상단 로그인 표시
+                                function set_sign_top_right() {
+                                    //로그인
+                                    if ((sessionStorage.getItem(token_yj_rfms) != "") && (sessionStorage.getItem(token_yj_rfms) != null)) {
+                                        var getUserInfo = parseJwt(sessionStorage.getItem(token_yj_rfms));
+
+                                        //pc
+                                        document.getElementById("sign_top_right").style.display = "none";
+                                        document.getElementById("sign_top_right").textContent = getUserInfo.mb_id + "님 로그인";
+                                        document.getElementById("btnSignout_top_right").style.display = "inline-block";
+
+                                        //mobile
+                                        document.getElementById("sign_top_right_mobile").textContent = getUserInfo.mb_id + "님 로그인";
+                                        document.getElementById("btnSignout_top_right_mobile").style.display = "inline-block";
+
+                                        //indexed db
+                                        document.getElementsByClassName("indexeddb_import")[0].style.display = "inline-block";
+                                        document.getElementsByClassName("indexeddb_import")[1].style.display = "inline-block";
+                                        document.getElementsByClassName("indexeddb_export")[0].style.display = "inline-block";
+                                    } else {
+                                        //pc
+                                        //document.getElementById("sign_top_right").style.display = "inline-block";
+                                        document.getElementById("sign_top_right").style.display = "none";
+                                        document.getElementById("sign_top_right").textContent = "로그인";
+                                        document.getElementById("btnSignout_top_right").style.display = "none";
+
+                                        //mobile
+                                        document.getElementById("sign_top_right_mobile").textContent = "로그인";
+                                        document.getElementById("btnSignout_top_right_mobile").style.display = "none";
+
+                                        //indexed db
+                                        document.getElementsByClassName("indexeddb_import")[0].style.display = "none";
+                                        document.getElementsByClassName("indexeddb_import")[1].style.display = "none";
+                                        document.getElementsByClassName("indexeddb_export")[0].style.display = "none";
+                                    }
+                                }
+                            });
+                        </script>
+                    </li>
+                    <li>
+                        <a id="btnSignout_top_right" style="top:-6px;position:relative;cursor:pointer;border-radius:5px;border:1px solid #ffffff;line-height:15px;display:none;">Logout</a>
+                    </li>
+                    <!-- <li><a href="http://www.itiscj.com/itiscj/" target="_blank">회원가입</a></li>
+    <li class="end"><a href="/customer5.html">CONTACT US</a></li> -->
+                </ul>				
+			</div>
+		</div>
+	</div>
+
+	<div id="header_middel">
+		<div id="header_layout" class="layout_max1000" style="max-width:1860px">		
+			<!-- <a href="/index.html"><h1 class="logo"></h1></a>		 -->
+			<!-- <h1 class="logo">
+			</h1> -->
+			<!-- <h1 class="logo"></h1> -->
+			<div class="header_layout_wrap_logo">
+				<img class="logo"/>
+				<input id="input_logo_import" type="file" name="name" style="display: none;" />
+			</div>
+			<!-- <div class="file_find" style="position:relative;max-width:50px;width:20px;height:20px;overflow: hidden;" title="로고 업로드">
+				<input id="input_logo_import" type="file" style="font-size: 23px;left:0px;" >
+			</div> -->
+			<!-- <div class="file_find" style="position:relative;max-width:50px;width:20px;height:20px;overflow: hidden;" title="데이터 업로드">
+				<input id="input_indexeddb_import" type="file" style="font-size: 23px;left:0px;" >
+			</div> -->
+
+			<!-- <div class="language">
+				<img style="display:inline-block;margin:auto" src="/images/worldmap1.png" width="25" height="25" alt=""/>
+				<div class="layout_language">
+					<ul class="header_layout_second">
+						<li><a href="/" class="selected">Korean</a></li>
+						<li class="end"><a href="/eng">English</a></li>
+					</ul>
+				</div>
+			</div> -->
+				
+			<!--menu_main//-->
+			<div id="menu_main">
+				<ul class="menu">
+					<li class="mainmenu_hidden_1_li start" style="display:none;cursor: pointer;">
+						<a id="mainmenu_hidden_1" >DB 가져오기</a>
+						<div class="submenu" style="overflow: hidden; height: 0px;">
+							<ul>
+								<!-- <li><a href="/content_device.html">프린터</a></li>
+								<li><a href="/sw_board/board.php?type=board&amp;code=sw_board&amp;cate=recruit">사이트</a></li> -->
+							</ul>
+						</div>
+					</li>
+					<li class="mainmenu_hidden_2_li" style="display:none;cursor: pointer;">
+						<a id="mainmenu_hidden_2">DB 내보내기</a>
+						<div class="submenu" style="overflow: hidden; height: 0px;">
+							<ul>
+								<!-- <li><a href="/content_device.html">프린터</a></li>
+								<li><a href="/sw_board/board.php?type=board&amp;code=sw_board&amp;cate=recruit">사이트</a></li> -->
+							</ul>
+						</div>
+					</li>
+					<li class="mainmenu_basic_li" style="display:none">
+						<a id="mainmenu_basic" href="/content_users.html">기초정보관리</a>
+						<div class="submenu" style="overflow: hidden; height: 0px;">
+							<ul>
+								<li><a id="mainmenu_basic_content_users" style="cursor: pointer">사용자관리</a></li>
+								<li><a id="mainmenu_basic_content_dept" style="cursor: pointer">부서관리</a></li>
+								<!-- <li><a href="/content_auth.html">권한관리</a></li> -->
+								<li><a id="mainmenu_basic_content_position" style="cursor: pointer">직책관리</a></li>
+								<li><a id="mainmenu_basic_content_statususer" style="cursor: pointer">메뉴관리</a></li>
+								<hr class="hr_mainmenu">
+								<li><a id="mainmenu_basic_content_rotateimage" style="cursor: pointer">컨텐츠관리</a></li>
+								<li><a id="mainmenu_basic_content_config" style="cursor: pointer">환경설정</a></li>
+								<!-- <li><a href="/content_asset.html">품목관리</a></li>
+								<li><a href="/content_location.html">위치관리</a></li>								
+								<li><a href="/content_company.html">거래처관리</a></li>
+								<li><a href="/content_status.html">물품상태관리</a></li> -->
+							</ul>
+						</div>
+					</li>
+					<li id="mainmenu_canvas_1_li" style="display: none;">
+						<!-- <a href="/content_assetmanage.html">의원현황</a> -->
+						<a id="mainmenu_canvas_1" href="/content_userscanvas.html"></a>
+						<div class="submenu" style="overflow: hidden; height: 0px;">
+							<!-- <ul>
+								<li><a href="/content_assetmanage.html">자산관리</a></li>
+								<li><a href="/content_assetmanage.html">이력관리</a></li>
+								<hr class="hr_mainmenu">
+								<li><a href="/business2.html">재물조사</a></li>
+								<li><a href="/content_rfdatatestview.html">RF리더기 테스트</a></li>
+							</ul> -->
+						</div>
+					</li>
+					<li id="mainmenu_canvas_2_li" style="display: none;">
+						<a id="mainmenu_canvas_2" href="/content_userscanvas.html"></a>
+						<div class="submenu" style="overflow: hidden; height: 0px;">
+							<!-- <ul>
+								<li><a href="/sw_board/board.php?type=board&amp;code=sw_board&amp;cate=news">보도자료</a></li>
+								<li><a href="/sw_board/board.php?type=board&amp;code=sw_board&amp;cate=notice">공지사항</a></li>
+								<li><a href="/sw_board/board.php?type=faq&amp;code=sw_board&amp;cate=faq1"><span>FAQ</span></a></li>
+								<li><a href="/sw_board/inquiry/inquiry.php?code=sw_inquiry&amp;cate=inquiry1">온라인지원</a></li>
+								<li><a href="/customer5.html">고객문의</a></li>
+								<li><a href="/sw_board/board.php?type=board&amp;code=sw_board&amp;cate=dataroom">자료실</a></li>
+								<li><a href="/partner/" target="_blank">협력업체</a></li>
+							</ul> -->
+						</div>
+					</li>
+					<li id="mainmenu_canvas_3_li" style="display: none;">
+						<a id="mainmenu_canvas_3" href="/content_userscanvas.html"></a>
+						<div class="submenu" style="overflow: hidden; height: 0px;">
+							<ul>
+								<!-- <li><a href="/recruit1.html">채용정보</a></li>
+								<li><a href="/sw_board/board.php?type=board&amp;code=sw_board&amp;cate=recruit">채용공고</a></li> -->
+							</ul>
+						</div>
+					</li>
+					<li id="mainmenu_canvas_4_li" style="display: none;">
+						<a id="mainmenu_canvas_4" href="/content_userscanvas.html"></a>
+						<div class="submenu" style="overflow: hidden; height: 0px;">
+							<ul>
+								<!-- <li><a href="/recruit1.html">채용정보</a></li>
+								<li><a href="/sw_board/board.php?type=board&amp;code=sw_board&amp;cate=recruit">채용공고</a></li> -->
+							</ul>
+						</div>
+					</li>
+					<li id="mainmenu_canvas_5_li" style="display: none;">
+						<a id="mainmenu_canvas_5" href="/content_userscanvas.html"></a>
+						<div class="submenu" style="overflow: hidden; height: 0px;">
+							<ul>
+								<!-- <li><a href="/recruit1.html">채용정보</a></li>
+								<li><a href="/sw_board/board.php?type=board&amp;code=sw_board&amp;cate=recruit">채용공고</a></li> -->
+							</ul>
+						</div>
+					</li>
+					<li id="mainmenu_canvas_6_li" style="display: none;">
+						<a id="mainmenu_canvas_6" href="/content_userscanvas.html"></a>
+						<div class="submenu" style="overflow: hidden; height: 0px;">
+							<ul>
+								<!-- <li><a href="/recruit1.html">채용정보</a></li>
+								<li><a href="/sw_board/board.php?type=board&amp;code=sw_board&amp;cate=recruit">채용공고</a></li> -->
+							</ul>
+						</div>
+					</li>
+					<li id="mainmenu_content_1_li" style="display: none;">
+						<a id="mainmenu_content_1" href="/content_images.html"></a>
+						<div class="submenu" style="overflow: hidden; height: 0px;">
+							<ul>
+								<!-- <li><a href="/content_images.html">프린터</a></li>
+								<li><a href="/sw_board/board.php?type=board&amp;code=sw_board&amp;cate=recruit">사이트</a></li> -->
+							</ul>
+						</div>
+					</li>
+					<li id="mainmenu_content_2_li" style="display: none;">
+						<a id="mainmenu_content_2" href="/content_images.html"></a>
+						<div class="submenu" style="overflow: hidden; height: 0px;">
+							<ul>
+								<!-- <li><a href="/content_images.html">프린터</a></li>
+								<li><a href="/sw_board/board.php?type=board&amp;code=sw_board&amp;cate=recruit">사이트</a></li> -->
+							</ul>
+						</div>
+					</li>
+					<li id="mainmenu_content_3_li" style="display: none;">
+						<a id="mainmenu_content_3" href="/content_images.html"></a>
+						<div class="submenu" style="overflow: hidden; height: 0px;">
+							<ul>
+								<!-- <li><a href="/content_images.html">프린터</a></li>
+								<li><a href="/sw_board/board.php?type=board&amp;code=sw_board&amp;cate=recruit">사이트</a></li> -->
+							</ul>
+						</div>
+					</li>
+					<li id="mainmenu_content_4_li" style="display: none;">
+						<a id="mainmenu_content_4" href="/content_images.html"></a>
+						<div class="submenu" style="overflow: hidden; height: 0px;">
+							<ul>
+								<!-- <li><a href="/content_images.html">프린터</a></li>
+								<li><a href="/sw_board/board.php?type=board&amp;code=sw_board&amp;cate=recruit">사이트</a></li> -->
+							</ul>
+						</div>
+					</li>
+					<li id="mainmenu_content_5_li" style="display: none;">
+						<a id="mainmenu_content_5" href="/content_images.html"></a>
+						<div class="submenu" style="overflow: hidden; height: 0px;">
+							<ul>
+								<!-- <li><a href="/content_images.html">프린터</a></li>
+								<li><a href="/sw_board/board.php?type=board&amp;code=sw_board&amp;cate=recruit">사이트</a></li> -->
+							</ul>
+						</div>
+					</li>
+					<li id="mainmenu_content_6_li" style="display: none;" class="end">
+						<a id="mainmenu_content_6" href="/content_images.html"></a>
+						<div class="submenu" style="overflow: hidden; height: 0px;">
+							<ul>
+								<!-- <li><a href="/content_device.content_images">프린터</a></li>
+								<li><a href="/sw_board/board.php?type=board&amp;code=sw_board&amp;cate=recruit">사이트</a></li> -->
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!--//menu_main-->
+			
+			<!-- test -->
+			<!--
+			<a href="/overview5.html" class="etc_link1"><img src="/img/gnb_etc_link1.png" class="img1"/> <img src="/img/gnb_etc_link1_2.png" class="img2"/></a>
+			<a href="/overview6.html" class="etc_link2"><img src="/img/gnb_etc_link2.png">/</a>
+			-->
+	
+		</div>
+	</div>
+</div>
+	
+<div id="header_bottom">		
+</div>
+	
+	
+<!--//header_mobile-->
+<div id="header_mobile" >
+	<div class="header_mobile_top">
+		<div class="header_mobile_top_left">
+			<ul>
+				<li><img src="/images/menu3.png" id="btn_menu_mobile_open"/></li>
+				<li><a href="/index.html" id="id_hybrid_test"><span>블루투스</span></a></li>
+			</ul>			
+		</div>
+		<div class="header_mobile_top_right">
+			<ul>
+				<li><a href="#"><img src="/images/search3.png" /></a></li>
+				<li><a href="#"><img src="/images/share3.png" /></a></li>
+				<li><a href="#"><img src="/images/submenu3.png" class="header_mobile_submenu" /></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="menu_mobile">	<!-- 좌측 슬라이딩 메뉴 -->
+		<div class="header">
+			<img src="/images/user3.png"/>
+			<div class="menu_moible_header_content1">
+				<div>
+					<a id="sign_top_right_mobile" class="menu_mobile_textBold1">로그인</a>
+					<a id="btnSignout_top_right_mobile" style="cursor: pointer;border-radius:5px;border: 1px solid #ffffff;line-height:15px;color:#ffffff;padding:2px 5px 2px 5px;display: none" >Logout</a>
+					<script>
+						$(document).ready(function() {
+							//로그인 후 사용자 정보 편집		
+							document.getElementById('sign_top_right_mobile').addEventListener('click', function() {
+								user_login(this.textContent);
+							});
+							document.getElementById('sign_top_right_mobile').addEventListener('touchstart', function() {
+								user_login(this.textContent);
+							});
+							
+
+							function user_login(input_text) {
+								if (input_text != "로그인") {
+									var getUserInfo = parseJwt(sessionStorage.getItem(token_yj_rfms));		//로그인된 사용자 정보 가져오기
+
+									// //상세보기 창 출력                    
+									// app_dialog.addDialog.classList.add('dialog-container--visible');
+
+									// //postMessage send
+									// window.postMessage([2, getUserInfo], window.location.href);       //다이어로그의 각 텍스트는 사용자정의 자바스크립트 (ex: table_content_1.js) 에서 재정의 함
+									window.location.href = "/content_signin_userinfo.html";		//show login page
+								} else {
+									window.location.href = "/index.html";		//show login page
+								}
+							}
+
+							function user_logout() {
+								sessionStorage.removeItem(token_yj_rfms);	
+								window.location.href = "/index.html";		//show login page
+							}
+							
+							document.getElementById('btnSignout_top_right_mobile').addEventListener('click', function() {
+								user_logout();
+							});
+							document.getElementById('btnSignout_top_right_mobile').addEventListener('touchstart', function() {
+								user_logout();
+							});
+						});	
+					</script>
+			</div>
+				<!-- <div><a class="menu_mobile_textBold2">계정에 로그인하여 문서 동기화 가능</a></div> -->
+			</div>
+			<div class="btn_menu_mobile_close"><img class="btn_menu_mobile_close_img" src="/images/close3.png" /></div>
+		</div>
+		<div class="header_layout_second">
+			<a id="currentpage_refresh">새로고침</a>
+			<a href="/">KOR</a>
+			<a href="/eng">ENG</a>
+		</div>
+		<ul>
+			<li class="start">
+				<a id="btn_mobile_mainmenu_01"><img src="/images/menu_mobile_1.png"/>기초정보관리</a>
+				<div class="submenu submenu_mobile_pop1" style="overflow: hidden; display: block;">
+					<ul>
+						<li><a class="mobile_mainmenu_slidesubmenu" href="/content_users.html">사용자관리</a></li>
+						<li><a class="mobile_mainmenu_slidesubmenu" href="/content_dept.html">부서관리</a></li>
+						<!-- <li><a class="mobile_mainmenu_slidesubmenu" href="/content_auth.html">권한관리</a></li> -->
+						<li><a class="mobile_mainmenu_slidesubmenu" href="/content_position.html">직책관리</a></li>
+						<li><a class="mobile_mainmenu_slidesubmenu" href="/content_statususer.html">사용자상태관리</a></li>
+						<hr class="hr_mainmenu">
+						<li><a class="mobile_mainmenu_slidesubmenu" href="/content_asset.html">품목관리</a></li>
+						<li><a class="mobile_mainmenu_slidesubmenu" href="/content_location.html">위치관리</a></li>
+						<li><a class="mobile_mainmenu_slidesubmenu" href="/content_status.html">물품상태관리</a></li>
+						<li><a class="mobile_mainmenu_slidesubmenu mobile_mainmenu_slidesubmenu_end" href="/content_company.html">거래처관리</a></li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<a id="btn_mobile_mainmenu_02"><img src="/images/menu_mobile_2.png"/>자산정보관리</a>
+				<div class="submenu submenu_mobile_pop2" style="overflow: hidden; display: block;">
+					<ul>
+						<li><a class="mobile_mainmenu_slidesubmenu" href="/content_assetmanage.html">자산관리</a></li>
+						<li><a class="mobile_mainmenu_slidesubmenu" href="/overview5.html">재물조사</a></li>
+						<li><a class="mobile_mainmenu_slidesubmenu mobile_mainmenu_slidesubmenu_end" href="/content_rfdatatestview.html">RF 리더기 테스트</a></li>
+					</ul>
+				 </div>
+			</li>		
+			<li>
+				<a id="btn_mobile_mainmenu_03"><img src="/images/menu_mobile_3.png"/>감가상각관리</a>
+				<div class="submenu submenu_mobile_pop3" style="overflow: hidden; display: block;">
+					<ul>
+						<li><a class="mobile_mainmenu_slidesubmenu" href="/content_assetmanage.html">자산관리</a></li>
+						<li><a class="mobile_mainmenu_slidesubmenu" href="/overview5.html">재물조사</a></li>
+						<li><a class="mobile_mainmenu_slidesubmenu mobile_mainmenu_slidesubmenu_end" href="/content_rfdatatestview.html">RF 리더기 테스트</a></li>
+					</ul>
+				 </div>
+			</li>
+			<li>
+				<a id="btn_mobile_mainmenu_04"><img src="/images/menu_mobile_3.png"/>자산배치</a>
+				<div class="submenu submenu_mobile_pop4" style="overflow: hidden; display: block;">
+					<ul>
+						<li><a class="mobile_mainmenu_slidesubmenu" href="/content_assetmanage.html">자산관리</a></li>
+						<li><a class="mobile_mainmenu_slidesubmenu" href="/overview5.html">재물조사</a></li>
+						<li><a class="mobile_mainmenu_slidesubmenu mobile_mainmenu_slidesubmenu_end" href="/content_rfdatatestview.html">RF 리더기 테스트</a></li>
+					</ul>
+				 </div>
+			</li>
+			<li class="end">
+				<a id="btn_mobile_mainmenu_05"><img src="/images/menu_mobile_config.png"/>환경설정</a>
+				<div class="submenu submenu_mobile_pop5" style="overflow: hidden; display: block;">
+					<ul>
+						<li><a class="mobile_mainmenu_slidesubmenu" href="/content_config.html">사이트</a></li>
+						<li><a class="mobile_mainmenu_slidesubmenu mobile_mainmenu_slidesubmenu_end" href="/overview5.html">프린터</a></li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+
+	<!-- 우측 상단 서브 메뉴 -->
+	<!--
+	<div class="menu_mobile_header_submenu">
+		<ul id="btn_mobile_submenu_01" >
+			<li>
+				<a href="/content_users.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>기초정보관리</span></a>
+				<div class="submenu" style="overflow: hidden; display: block;">
+					<ul>
+						<li><a href="/content_users.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>사용자관리</span></a></li>
+						<li><a href="/content_dept.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>부서관리</span></a></li>
+						<li><a href="/content_auth.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>권한관리</span></a></li>
+						<li><a href="/content_position.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>직책관리</span></li>
+						<li><a href="/content_statususer.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>사용자상태관리</span></a></li>
+						<hr class="hr_mainmenu">
+						<li><a href="/content_asset.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>품목관리</span></li>
+						<li><a href="/content_location.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>위치관리</span></a></li>
+						<li><a href="/content_status.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>물품상태관리</span></a></li>
+						<li><a href="/content_company.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>거래처관리</span></a></li>
+					</ul>
+				 </div>
+			</li>
+		</ul>
+		<ul id="btn_mobile_submenu_02">
+			<li><a href="/content_assetmanage.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>자산관리</span></a></li>
+			<li><a href="/overview5.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>재물조사</span></a></li>
+			<li><a href="/content_rfdatatestview.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>RF 리더기 테스트</span></a></li>
+		</ul>
+
+		<ul id="btn_mobile_submenu_01" >
+			<li><a href="/content_users.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>사용자관리</span></a></li>
+			<li><a href="/content_dept.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>부서관리</span></a></li>
+			<li><a href="/content_auth.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>권한관리</span></a></li>
+			<li><a href="/content_position.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>직책관리</span></a></li>
+			<li><a href="/content_statususer.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>상태관리</span></a></li>
+		</ul>
+		<ul id="btn_mobile_submenu_02">
+			<li><a href="/content_assetmanage.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>자산관리</span></a></li>
+			<li><a href="/content_asset.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>품목관리</span></a></li>
+			<li><a href="/content_location.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>위치관리</span></a></li>
+			<li><a href="/content_status.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>상태관리</span></a></li>
+			<li><a href="/content_company.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>거래처관리</span></a></li>
+			<li><a href="/overview5.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>재물조사</span></a></li>
+			<li><a href="/content_rfdatatestview.html"><span><img src="/images/logo-yjsoft-63x66.png"/></span><span>RF 리더기 테스트</span></a></li>
+		</ul>
+	</div>-->
+</div>
+
+<!-- loading message -->
+<div class="loading-container div_center_horizontally_vertically" style="position:fixed;margin:auto;display:none;">
+	<div class="loading"></div>
+	<div id="loading-text">기다려주세요</div>
+</div>
+
+<!-- 배경 어둡게 -->
+<div class="background_dark"></div>
+
+<script>
+$(document).ready(function() {
+	var export_icount = 0;
+	var import_icount = 0;
+	var os_value = getOS();	
+
+    var isShowDesktopSubmenu = false;
+    document.getElementById('header_top_background').addEventListener('touchstart', function () {
+        if ((getUserInfo.mb_auth == "관리자") || (getUserInfo.mb_auth == "시스템관리자")) {
+            if (isShowDesktopSubmenu == false) {
+                isShowDesktopSubmenu = true;
+
+                $("#header_layout", this).stop().animate({ height: 320 }, 'fast');
+                $(".submenu", this).stop().animate({ height: 320 }, 'fast');
+            } else {
+                isShowDesktopSubmenu = false;
+
+                $("#header_layout", this).stop().animate({ height: 60 }, 'fast');
+                $(".submenu", this).stop().animate({ height: 0 }, 'fast');
+            }
+        }
+    });
+
+	function import_indexedDB_store() {
+		//파일로부터 가져온 indexedDB
+		var indexedDB_file = document.getElementById('input_indexeddb_import').files[0];
+		if (indexedDB_file == null) {
+			return;
+		}
+
+		//loading message
+		document.getElementsByClassName('loading-container')[0].style.display = 'block';
+
+		//리스트로 변환
+		indexedDB_fileTolist(indexedDB_file, function(indexedDB_backup) {
+			///////////////////////////////////////
+			//중요!!!
+			//백업 및 복원 테이블 순서가 같아야 함
+			//다음 파일의 정보도 같이 변경하여야함
+        	//utill.js(function name: fromAndroid_importIndexedDB), header.html(function name: import_indexedDB_store, function name: export_indexedDB_store)
+			///////////////////////////////////////
+			//저장할 테이블 이름 설정
+			var list_storeName = new Array("yj_auth", "yj_dept", "yj_member", "yj_config", "yj_position", "yj_rotateimage", "yj_statususer");
+			import_icount = 0;
+
+			//데이터베이스의 기존 내용을 모두 삭제 후 저장
+			saveListNext(list_storeName[import_icount]);
+
+			function saveListNext(store_name) {
+				indexedDB_storeClear(store_name, function(e) {										//기존 데이터베이스 내용 삭제
+					for (i=0; i<indexedDB_backup.length; i++) {
+						if (indexedDB_backup[i][0] == store_name) {
+							indexedDB_insert(store_name, indexedDB_backup[i][1], function(e) {		//새로운 데이터베이스 내용 저장
+								//데이터를 모두 저장했다면 종료
+								if (import_icount == list_storeName.length - 1) {
+									//loading message
+									document.getElementsByClassName('loading-container')[0].style.display = 'none';
+
+									messagebox_show(true, "DBMS", "백업 데이터의 복사가 종료되었습니다. 새로운 DB로 변경된 내용을 확인하시겠습니까?", function(e) {										
+										if (e == "ok") {					
+											location.reload();
+										}
+									}, false, true);
+								} else {
+									saveListNext(list_storeName[++import_icount]);
+								}
+							});
+
+							break;
+						}
+					}
+				});
+			}
+		});
+	}
+
+	function export_indexedDB_store() {
+		///////////////////////////////////////
+		//중요!!!
+		//백업 및 복원 테이블 순서가 같아야 함
+		//다음 파일의 정보도 같이 변경하여야함
+        //utill.js(function name: fromAndroid_importIndexedDB), header.html(function name: import_indexedDB_store, function name: export_indexedDB_store)
+		///////////////////////////////////////
+		//파일로 보낼 테이블 이름 설정
+		var list_storeName = new Array("yj_auth", "yj_dept", "yj_member", "yj_config", "yj_position", "yj_rotateimage", "yj_statususer");
+		var list_store = new Array();
+		export_icount = 0;
+
+		//loading message
+		document.getElementsByClassName('loading-container')[0].style.display = 'block';
+
+		//indexedDB로부터 데이터를 가져온 후 파일로 저장하기
+		selectToListNext(list_storeName[export_icount]);
+
+		function selectToListNext(store_name) {
+			indexedDB_selectTolist(store_name, function(e) {
+				list_store.push(new Array(store_name, e));
+
+				//데이터를 모두 가져왔다면 파일로 저장
+                if (list_store.length == list_storeName.length) {
+					if(os_value == "Windows") {
+						saveJSON(list_store, "ftmsdb");
+					} else {
+						var list_store_data = JSON.stringify(list_store, undefined, 4);
+						request_toAndroid("save_indexedDB", list_store_data);
+					}
+
+					//loading message
+					document.getElementsByClassName('loading-container')[0].style.display = 'none';
+				} else {
+					selectToListNext(list_storeName[++export_icount]);
+				}
+			});
+		}
+	}
+
+	function selectConfig(result) {
+		//indexed db select all
+		var list_Configinfo = new Array();
+		indexedDB_open(function(e) {
+			var transaction = e.transaction(["yj_config"], "readwrite");
+			var store = transaction.objectStore("yj_config");
+
+			store.openCursor().onsuccess = function(event) {
+				var cursor = event.target.result;
+				if (cursor) {
+					if (cursor.value.no == 1) {
+						var configinfo = {
+							//no: cursor.key,
+							no: cursor.value.no,							//환경설정 1번 row는 프로그램 좌측 상단 로고 저장
+							cf_logo: cursor.value.cf_logo,
+						};
+						list_Configinfo.push(configinfo);
+					}					
+
+					cursor.continue();
+				} else {
+					result(list_Configinfo);
+				}
+			};
+		});
+	}
+
+
+	
+	function saveConfig_indexedDB_store(isAdd, sendData) {
+		//indexed db create, edit
+		indexedDB_open(function(e) {
+			var transaction = e.transaction(["yj_config"], "readwrite");
+			var store = transaction.objectStore("yj_config");
+
+			var request;
+			if (isAdd) {
+            	request = store.add(sendData);
+          	} else {
+				request = store.openCursor();
+			}
+			
+			request.onerror = function(e) {
+				//  console.log("Error",e.target.error.name);
+			}
+			
+			request.onsuccess = function(e) {
+				var cursor = e.target.result;
+				if (cursor) {
+					if (isAdd) {
+						document.getElementsByClassName("logo")[0].src = sendData.cf_logo;
+						messagebox_show(false, "데이터 저장", "이미지가 저장되었습니다.", null, false, true);
+					} else {
+						if (cursor.value.no == sendData.no) {
+							//db update
+							const updateData = cursor.value;
+							updateData.no = sendData.no;
+							updateData.cf_logo = sendData.cf_logo;
+							
+							var res = cursor.update(updateData);
+							res.onsuccess = function(e) {
+								document.getElementsByClassName("logo")[0].src = sendData.cf_logo;
+								messagebox_show(false, "데이터 저장", "이미지가 저장되었습니다.", null, false, true);
+							}
+							res.onerror = function(e) {
+								
+							}										
+						}
+
+						cursor.continue();
+					}
+				}
+			}
+		});
+	}
+		
+
+	if(os_value == "Windows") {
+		//////////////////////////////
+		//길게 누르기 (long press)
+		//////////////////////////////
+		var pressTimer;
+		document.getElementsByClassName('header_layout_wrap_logo')[0].addEventListener('mouseup', function(e) {
+			clearTimeout(pressTimer);
+			return false;
+		});
+		document.getElementsByClassName('header_layout_wrap_logo')[0].addEventListener('mousedown', function(e) {
+			pressTimer = window.setTimeout(function() {
+				window.location.href = "/index.html";		//show login page
+			},3000);
+			return false;
+		});
+
+		document.getElementById('input_indexeddb_import').addEventListener('change', function() {
+				import_indexedDB_store();
+				// sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+				// messagebox_show(true, "데이터 가져오기", "데이터베이스 정보를 가져옵니다. 계속하시겠습니까?", function(e) {
+				// 	if (e == "ok") {
+				// 		import_indexedDB_store();
+				// 	}
+				// }, false, true);	
+		});
+		document.getElementsByClassName('indexeddb_export')[0].addEventListener('click', function() {
+			//export_indexedDB_store();
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			messagebox_show(true, "데이터 내보내기", "데이터베이스 정보를 내보냅니다. 계속하시겠습니까?", function(e) {
+				if (e == "ok") {					
+					export_indexedDB_store();
+				}
+			}, false, true);
+		});
+
+		//logo 변경
+		document.getElementsByClassName('header_layout_wrap_logo')[0].addEventListener('click', function(e) {
+			//관리자 메뉴 표시
+			var getUserInfo = parseJwt(sessionStorage.getItem(token_yj_rfms));
+			if (getUserInfo != null) {
+				if ((getUserInfo.mb_auth == "관리자") || (getUserInfo.mb_auth == "시스템관리자")) {
+					document.getElementById('input_logo_import').click();
+				}
+			}
+
+			if (e.detail > 2) {
+				user_login_desktop(document.getElementById('sign_top_right').textContent);
+
+				function user_login_desktop(input_text) {									
+					if (input_text != "로그인") {
+						var getUserInfo = parseJwt(sessionStorage.getItem(token_yj_rfms));		//로그인된 사용자 정보 가져오기
+						window.location.href = "/content_signin_userinfo.html";		//show login page
+					} else {
+						window.location.href = "/index.html";		//show login page
+					}
+				}
+
+				function user_logout_desktop() {
+					sessionStorage.removeItem(token_yj_rfms);
+					window.location.href = "/index.html";		//show login page
+				}
+
+				return;
+			}
+		});
+		document.getElementById('input_logo_import').addEventListener('change', function() {
+			var get_file = document.getElementById('input_logo_import').files[0];
+			if (get_file == null) {
+				return;
+			}
+
+			FileToBase64(get_file, function(result_image) {
+				selectConfig(function(e) {
+					var sendData = {
+						no: 1,						//환경설정 1번 row는 프로그램 좌측 상단 로고 저장
+						cf_logo: result_image,
+					}
+
+					if (e.length > 0){
+						saveConfig_indexedDB_store(false, sendData);
+					} else {
+						saveConfig_indexedDB_store(true, sendData);
+					}
+				});
+			});
+		});
+
+
+		document.getElementById('currentpage_refresh').addEventListener('click', function() {
+			location.reload(true);
+		});
+
+		//데스크탑
+		document.getElementById('mainmenu_canvas_1').addEventListener('click', function() {
+			sessionStorage.setItem("current_menu", "mainmenu_canvas_1");
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+		});
+		document.getElementById('mainmenu_canvas_2').addEventListener('click', function() {
+			sessionStorage.setItem("current_menu", "mainmenu_canvas_2");
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+		});
+		document.getElementById('mainmenu_canvas_3').addEventListener('click', function() {
+			sessionStorage.setItem("current_menu", "mainmenu_canvas_3");
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+		});
+		document.getElementById('mainmenu_canvas_4').addEventListener('click', function() {
+			sessionStorage.setItem("current_menu", "mainmenu_canvas_4");
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+		});
+		document.getElementById('mainmenu_canvas_5').addEventListener('click', function() {
+			sessionStorage.setItem("current_menu", "mainmenu_canvas_5");
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+		});
+		document.getElementById('mainmenu_canvas_6').addEventListener('click', function() {
+			sessionStorage.setItem("current_menu", "mainmenu_canvas_6");
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+		});
+
+		document.getElementById('mainmenu_content_1').addEventListener('click', function() {
+			sessionStorage.setItem("current_menu", "mainmenu_content_1");
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+		});
+		document.getElementById('mainmenu_content_2').addEventListener('click', function() {
+			sessionStorage.setItem("current_menu", "mainmenu_content_2");
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+		});
+		document.getElementById('mainmenu_content_3').addEventListener('click', function() {
+			sessionStorage.setItem("current_menu", "mainmenu_content_3");
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+		});
+		document.getElementById('mainmenu_content_4').addEventListener('click', function() {
+			sessionStorage.setItem("current_menu", "mainmenu_content_4");
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+		});
+		document.getElementById('mainmenu_content_5').addEventListener('click', function() {
+			sessionStorage.setItem("current_menu", "mainmenu_content_5");
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+		});
+		document.getElementById('mainmenu_content_6').addEventListener('click', function() {
+			sessionStorage.setItem("current_menu", "mainmenu_content_6");
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+		});
+
+		document.getElementById('mainmenu_basic').addEventListener('click', function() {
+			sessionStorage.setItem("current_menu", "mainmenu_basic");
+			sessionStorage.setItem("pause_time", page_pause_time_adminmenu);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (관리자)
+		});
+		document.getElementById('mainmenu_hidden_1').addEventListener('click', function() {
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			messagebox_show(true, "데이터 가져오기", "데이터베이스 정보를 가져옵니다. 계속하시겠습니까?", function(e) {
+				if (e == "ok") {
+					document.getElementById('input_indexeddb_import').click();					
+				}
+			}, false, true);		
+		});
+		document.getElementById('mainmenu_hidden_2').addEventListener('click', function() {
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+            messagebox_show(true, "데이터 내보내기", "데이터베이스 정보를 내보냅니다. 계속하시겠습니까?", function (e) {
+                if (e == "ok") {
+                    export_indexedDB_store();
+                }
+            }, false, true);
+		});
+	} else {
+		//////////////////////////////
+		//길게 누르기 (long press)
+		//////////////////////////////
+		var pressTimer;
+		document.getElementsByClassName('header_layout_wrap_logo')[0].addEventListener('touchend', function(e) {
+			clearTimeout(pressTimer);
+			return false;
+		});
+		document.getElementsByClassName('header_layout_wrap_logo')[0].addEventListener('touchstart', function(e) {
+			pressTimer = window.setTimeout(function() {
+				window.location.href = "/index.html";		//show login page
+			},3000);
+			return false;
+		});
+
+		//안드로이드 import
+		document.getElementById('input_indexeddb_import').addEventListener('touchstart', function() {		
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			messagebox_show(true, "데이터 가져오기", "데이터베이스 정보를 가져옵니다. 계속하시겠습니까?", function(e) {
+				if (e == "ok") {
+					setTimeout(request_toAndroid("import_indexedDB", ""), 200);
+				}
+			}, false, true);
+		});
+		document.getElementsByClassName('indexeddb_export')[0].addEventListener('touchstart', function() {
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			messagebox_show(true, "데이터 내보내기", "데이터베이스 정보를 내보냅니다. 계속하시겠습니까?", function(e) {
+				if (e == "ok") {
+					setTimeout(export_indexedDB_store(), 200);
+				}
+			}, false, true);	
+		});
+
+		//android
+		document.getElementById('mainmenu_canvas_1').addEventListener('touchstart', function() {
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			sessionStorage.setItem("current_menu", "mainmenu_canvas_1");
+			location.href="content_userscanvas.html";
+		});
+		document.getElementById('mainmenu_canvas_2').addEventListener('touchstart', function() {
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			sessionStorage.setItem("current_menu", "mainmenu_canvas_2");
+			location.href="content_userscanvas.html";
+		});
+		document.getElementById('mainmenu_canvas_3').addEventListener('touchstart', function() {
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			sessionStorage.setItem("current_menu", "mainmenu_canvas_3");
+			location.href="content_userscanvas.html";
+		});
+
+		document.getElementById('mainmenu_canvas_4').addEventListener('touchstart', function() {
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			sessionStorage.setItem("current_menu", "mainmenu_canvas_4");
+			location.href="content_userscanvas.html";
+		});
+		document.getElementById('mainmenu_canvas_5').addEventListener('touchstart', function() {
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			sessionStorage.setItem("current_menu", "mainmenu_canvas_5");
+			location.href="content_userscanvas.html";
+		});
+		document.getElementById('mainmenu_canvas_6').addEventListener('touchstart', function() {
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			sessionStorage.setItem("current_menu", "mainmenu_canvas_6");
+			location.href="content_userscanvas.html";
+		});
+		document.getElementById('mainmenu_content_1').addEventListener('touchstart', function() {
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			sessionStorage.setItem("current_menu", "mainmenu_content_1");
+			location.href="content_images.html";
+		});
+		document.getElementById('mainmenu_content_2').addEventListener('touchstart', function() {
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			sessionStorage.setItem("current_menu", "mainmenu_content_2");
+			location.href="content_images.html";
+		});
+		document.getElementById('mainmenu_content_3').addEventListener('touchstart', function() {
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			sessionStorage.setItem("current_menu", "mainmenu_content_3");
+			location.href="content_images.html";
+		});
+		document.getElementById('mainmenu_content_4').addEventListener('touchstart', function() {
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			sessionStorage.setItem("current_menu", "mainmenu_content_4");
+			location.href="content_images.html";
+		});
+		document.getElementById('mainmenu_content_5').addEventListener('touchstart', function() {
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			sessionStorage.setItem("current_menu", "mainmenu_content_5");
+			location.href="content_images.html";
+		});
+		document.getElementById('mainmenu_content_6').addEventListener('touchstart', function() {
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			sessionStorage.setItem("current_menu", "mainmenu_content_6");
+			location.href="content_images.html";
+		});
+
+		document.getElementById('mainmenu_basic').addEventListener('touchstart', function() {
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			sessionStorage.setItem("current_menu", "mainmenu_basic");
+			location.href="content_users.html";
+		});
+		document.getElementById('mainmenu_hidden_1').addEventListener('touchstart', function() {
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			messagebox_show(true, "데이터 가져오기", "데이터베이스 정보를 가져옵니다. 계속하시겠습니까?", function(e) {				
+				if (e == "ok") {
+					//ocument.getElementById('input_indexeddb_import').click();					
+					setTimeout(request_toAndroid("import_indexedDB", ""), 200);
+				}
+			}, false, true);
+		});
+		document.getElementById('mainmenu_hidden_2').addEventListener('touchstart', function() {
+			sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+			messagebox_show(true, "데이터 내보내기", "데이터베이스 정보를 내보냅니다. 계속하시겠습니까?", function(e) {			
+				if (e == "ok") {
+					setTimeout(export_indexedDB_store(), 200);
+				}
+			}, false, true);		
+		});
+	}
+
+
+	//모바일 좌측 상단 메인 메뉴
+	var isSlideOn_1 = false;
+	var isSlideOn_2 = false;
+	var isSlideOn_3 = false;
+	var isSlideOn_4 = false;
+	var isSlideOn_5 = false;
+
+	document.getElementById('btn_mobile_mainmenu_01').addEventListener('click', function() {
+		if (isSlideOn_1 == true) {
+			isSlideOn_1 = false;
+			$(".submenu_mobile_pop1").slideUp("fast");
+			$(".submenu_mobile_pop1").removeClass("opened");			
+		} else {
+			isSlideOn_1 = true;
+			$(".submenu_mobile_pop1").slideDown("fast");
+			$(".submenu_mobile_pop1").addClass("opened");
+		}
+	});
+
+	document.getElementById('btn_mobile_mainmenu_02').addEventListener('click', function() {
+		if (isSlideOn_2 == true) {
+			isSlideOn_2 = false;
+			$(".submenu_mobile_pop2").slideUp("fast");
+			$(".submenu_mobile_pop2").removeClass("opened");			
+		} else {
+			isSlideOn_2 = true;
+			$(".submenu_mobile_pop2").slideDown("fast");
+			$(".submenu_mobile_pop2").addClass("opened");
+		}
+	});
+
+	document.getElementById('btn_mobile_mainmenu_03').addEventListener('click', function() {
+		if (isSlideOn_3 == true) {
+			isSlideOn_3 = false;
+			$(".submenu_mobile_pop3").slideUp("fast");
+			$(".submenu_mobile_pop3").removeClass("opened");			
+		} else {
+			isSlideOn_3 = true;
+			$(".submenu_mobile_pop3").slideDown("fast");
+			$(".submenu_mobile_pop3").addClass("opened");
+		}
+	});
+
+	document.getElementById('btn_mobile_mainmenu_04').addEventListener('click', function() {
+		if (isSlideOn_4 == true) {
+			isSlideOn_4 = false;
+			$(".submenu_mobile_pop4").slideUp("fast");
+			$(".submenu_mobile_pop4").removeClass("opened");			
+		} else {
+			isSlideOn_4 = true;
+			$(".submenu_mobile_pop4").slideDown("fast");
+			$(".submenu_mobile_pop4").addClass("opened");
+		}
+	});
+
+	document.getElementById('btn_mobile_mainmenu_05').addEventListener('click', function() {
+		if (isSlideOn_5 == true) {
+			isSlideOn_5 = false;
+			$(".submenu_mobile_pop5").slideUp("fast");
+			$(".submenu_mobile_pop5").removeClass("opened");			
+		} else {
+			isSlideOn_5 = true;
+			$(".submenu_mobile_pop5").slideDown("fast");
+			$(".submenu_mobile_pop5").addClass("opened");
+		}
+	});
+
+
+	document.getElementById('btn_mobile_mainmenu_02').addEventListener('click', function() {
+		setMenuDisplay_none();
+		// document.getElementById('btn_mobile_submenu_02').style.display = 'block';
+	});
+
+	//우측 상단 모바일 서브 메뉴 닫기
+	function setMenuDisplay_none() {
+		// document.getElementById('btn_mobile_submenu_01').style.display = "none";
+		// document.getElementById('btn_mobile_submenu_02').style.display = "none";
+		// document.getElementById('btn_mobile_submenu_03').style.display = 'none';
+		// document.getElementById('btn_mobile_submenu_04').style.display = 'none';
+	}
+
+	document.getElementById('id_hybrid_test').addEventListener('click', function() {
+		window.location.href = "/content_rfdatatestview.html";
+	});
+
+
+	//메인메뉴 선택 색상 변경
+	$(document).ready(function() {
+		var get_current_menu = sessionStorage.getItem("current_menu");
+
+		if (get_current_menu == "mainmenu_canvas_1") {
+			document.getElementById("mainmenu_canvas_1").style.backgroundColor = "#043B72";
+			document.getElementById("mainmenu_canvas_1").style.color = "#ffffff";
+		}
+		else if (get_current_menu == "mainmenu_canvas_2") {
+			document.getElementById("mainmenu_canvas_2").style.backgroundColor = "#043B72";
+			document.getElementById("mainmenu_canvas_2").style.color = "#ffffff";
+		}
+		else if (get_current_menu == "mainmenu_canvas_3") {
+			document.getElementById("mainmenu_canvas_3").style.backgroundColor = "#043B72";
+			document.getElementById("mainmenu_canvas_3").style.color = "#ffffff";
+		}
+		else if (get_current_menu == "mainmenu_canvas_4") {
+			document.getElementById("mainmenu_canvas_4").style.backgroundColor = "#043B72";
+			document.getElementById("mainmenu_canvas_4").style.color = "#ffffff";
+		}
+		else if (get_current_menu == "mainmenu_canvas_5") {
+			document.getElementById("mainmenu_canvas_5").style.backgroundColor = "#043B72";
+			document.getElementById("mainmenu_canvas_5").style.color = "#ffffff";
+		}
+		else if (get_current_menu == "mainmenu_canvas_6") {
+			document.getElementById("mainmenu_canvas_6").style.backgroundColor = "#043B72";
+			document.getElementById("mainmenu_canvas_6").style.color = "#ffffff";
+		}
+		else if (get_current_menu == "mainmenu_content_1") {
+			document.getElementById("mainmenu_content_1").style.backgroundColor = "#043B72";
+			document.getElementById("mainmenu_content_1").style.color = "#ffffff";
+		}
+		else if (get_current_menu == "mainmenu_content_2") {
+			document.getElementById("mainmenu_content_2").style.backgroundColor = "#043B72";
+			document.getElementById("mainmenu_content_2").style.color = "#ffffff";
+		}
+		else if (get_current_menu == "mainmenu_content_3") {
+			document.getElementById("mainmenu_content_3").style.backgroundColor = "#043B72";
+			document.getElementById("mainmenu_content_3").style.color = "#ffffff";
+		}
+		else if (get_current_menu == "mainmenu_content_4") {
+			document.getElementById("mainmenu_content_4").style.backgroundColor = "#043B72";
+			document.getElementById("mainmenu_content_4").style.color = "#ffffff";
+		}
+		else if (get_current_menu == "mainmenu_content_5") {
+			document.getElementById("mainmenu_content_5").style.backgroundColor = "#043B72";
+			document.getElementById("mainmenu_content_5").style.color = "#ffffff";
+		}
+		else if (get_current_menu == "mainmenu_content_6") {
+			document.getElementById("mainmenu_content_6").style.backgroundColor = "#043B72";
+			document.getElementById("mainmenu_content_6").style.color = "#ffffff";
+		}
+		else if (get_current_menu == "mainmenu_basic") {
+			document.getElementById("mainmenu_basic").style.backgroundColor = "#043B72";
+			document.getElementById("mainmenu_basic").style.color = "#ffffff";
+		}
+	});
+
+
+	//logo load
+	selectConfig(function(e) {
+		if (e.length > 0){
+			document.getElementsByClassName("logo")[0].src = e[0].cf_logo;
+		}
+	});
+
+	//mainmenu load (메인메뉴 설정 )
+	select_statususer();
+	function select_statususer() {
+		//indexed db select all
+		var list_db = new Array();
+
+		indexedDB_open(function(e) {
+			var transaction = e.transaction(["yj_statususer"], "readwrite");
+			var store = transaction.objectStore("yj_statususer");
+
+			store.openCursor().onsuccess = function(event) {
+				var cursor = event.target.result;
+				if (cursor) {
+					var dbClass = {
+						no: cursor.key,
+						select: false,
+						su_name: cursor.value.su_name,
+						su_view: cursor.value.su_view,
+						su_pagename: cursor.value.su_pagename,
+						su_regist_datetime: cursor.value.su_regist_datetime,
+						su_lastsave_datetime: cursor.value.su_lastsave_datetime,
+						su_image: cursor.value.su_image,
+						su_etc: cursor.value.su_etc,
+					};
+					list_db.push(dbClass);
+
+					cursor.continue();
+				} else {
+					//result(list_db);
+					for(i=0; i<list_db.length; i++) {						
+						//메인메뉴 텍스트 변경
+						document.getElementById(list_db[i].su_pagename).textContent = list_db[i].su_name;
+
+						if (list_db[i].su_view == false) {
+							document.getElementById(list_db[i].su_pagename + "_li").style.display = "none";
+						} else {
+							document.getElementById(list_db[i].su_pagename + "_li").style.display = "inline-block";
+						}
+					}					
+				}
+			};
+		});
+	}
+
+
+	//관리자 메뉴 표시
+	var getUserInfo = parseJwt(sessionStorage.getItem(token_yj_rfms));
+	if (getUserInfo != null) {
+		if ((getUserInfo.mb_auth == "관리자") || (getUserInfo.mb_auth == "시스템관리자")) {
+			document.getElementsByClassName('mainmenu_basic_li')[0].style.display = "inline-block";
+			document.getElementsByClassName('mainmenu_hidden_1_li')[0].style.display = "inline-block";
+			document.getElementsByClassName('mainmenu_hidden_2_li')[0].style.display = "inline-block";
+		} else {
+			document.getElementsByClassName('mainmenu_basic_li')[0].style.display = "none";
+			document.getElementsByClassName('mainmenu_hidden_1_li')[0].style.display = "none";
+			document.getElementsByClassName('mainmenu_hidden_2_li')[0].style.display = "none";
+		}
+	}
+
+	
+	//사용자관리
+	document.getElementById('mainmenu_basic_content_users').addEventListener('click', function() {
+		sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+		location.href="/content_users.html";
+	});
+	//부서관리
+	document.getElementById('mainmenu_basic_content_dept').addEventListener('click', function() {
+		sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+		location.href="/content_dept.html";
+	});
+	//직책관리
+	document.getElementById('mainmenu_basic_content_position').addEventListener('click', function() {
+		sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+		location.href="/content_position.html";
+	});
+	//분류관리
+	document.getElementById('mainmenu_basic_content_statususer').addEventListener('click', function() {
+		sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+		location.href="/content_statususer.html";
+	});
+	//컨텐츠관리
+	document.getElementById('mainmenu_basic_content_rotateimage').addEventListener('click', function() {
+		sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+		location.href="/content_rotateimage.html";
+	});
+	//환경설정관리
+	document.getElementById('mainmenu_basic_content_config').addEventListener('click', function() {
+		sessionStorage.setItem("pause_time", page_pause_time);		//사용자 터치 시 디스플레이 주기적 회전 대기시간 (일반 사용자)
+		location.href="/content_config.html";
+	});
+
+});
+</script>

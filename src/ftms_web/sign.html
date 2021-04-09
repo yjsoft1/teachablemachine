@@ -1,0 +1,234 @@
+<!--content_title-->
+<div id="content_title" class="content_title_sigin">
+	<h3>로그인</h3>
+	<!-- <div class="position"><a href="/"><img src="/images/house2_1.png"/></a> 관리자 > <span class="current">사용자 관리</span></div> -->
+	<div class="margin_20px"></div>
+	<div class="content_title2">사용자 ID와 비밀번호를 입력하여 로그인 합니다.</div>
+	<!-- <div class="content_title2">최고의 기술력으로 신뢰받는 기업이 되겠습니다.</div> -->
+	<div class="m_line"></div>
+</div><span></span>
+
+<div class="margin_20px"></div>
+
+<!-- 로그인 -->
+<div id="content"  style="margin:auto;max-width:600px;">
+	<div id="dialog_signin">
+		<table cellspacing="0" cellpadding="0" class="table_layout">
+		<colgroup>
+			<col width="25%" style="min-width:100px">
+			<col width="75%">
+		</colgroup>
+		
+		<tbody style="border-bottom: 1px solid #e4e4e4;">
+		<tr>
+		</tr>
+		<tr>
+			<th>아이디</th>
+			<td>
+				<div class="stretch_wrap" style="height:36px">
+					<input id="dialog_signin_user_id" type="text" size="30" maxlength="20" class="inputbox1" value="" style="white-space:nowrap">
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th>비밀번호</th>
+			<td>
+			<div class="stretch_wrap" style="height:36px">
+					<input id="dialog_signin_password" type="password" class="inputbox1" maxlength="30">
+			</div>
+			</td>                
+		</tr>
+		</tbody></table>
+	</div>
+	
+	<div class="dialog-buttons" style="margin-bottom:20px">
+		<button id="btnSignin_dialog_users" class="button">Sign in</button>
+		<!-- <button id="btnCancel_dialog_users" class="button">취소</button> -->
+	</div>
+</div>
+
+<script>
+	//inputbox 포커스
+	$(document).ready(function() {
+		var isLocalSide = true;     //indexed DB 사용 사용
+
+		//사용자 접속
+		document.getElementById('btnSignin_dialog_users').addEventListener('click', function() {
+			if (isLocalSide) {
+				signin_local();
+			} else {
+				signin_server();
+			}
+		});
+		document.getElementById('btnSignin_dialog_users').addEventListener('touchstart', function() {
+			if (isLocalSide) {
+				signin_local();
+			} else {
+				signin_server();
+			}
+		});
+
+		this.addEventListener("keydown", function(e){
+			if (e.keyCode == 13) {                    //esc
+				if (isLocalSide) {
+					signin_local();
+				} else {
+					signin_server();
+				}
+			}
+		});
+
+		function signin_local() {
+			////////////////////////////////////////////////////////////////////////////////////
+			//특정 앱에서 로그인이 되지 않는 경우에는 크롭 웹을 최신버전으로 업데이트 한다.
+			////////////////////////////////////////////////////////////////////////////////////
+
+			//JSON
+			var sendData = new Array();
+			sendData[0] = document.getElementById("dialog_signin_user_id").value;
+			sendData[1] = document.getElementById("dialog_signin_password").value;
+
+			//로그인 확인
+			var isSigned = false;
+			if (sendData[0] == "1") {
+				if (sendData[1] == "1") {
+					//토큰 생성
+					isSigned = true;
+					
+					createToken();
+				}
+			}
+
+			//로그인 실패
+			if (isSigned == false) {
+				document.getElementById("content_main").innerHTML = "";			//내용 지우기
+				$("#content_main").load("/sign.html");							//sign 화면 추가	
+				messagebox_show(false, "접속 실패", result, null, false, true);
+
+				set_sign_top_right();				
+			}
+		}
+
+		//jws 토큰 생성
+		function createToken() {
+			$.getScript("/js/jsrsasign-latest-all-min.js", function() {
+				var oHeader = {alg: "HS256"};
+				var sHeader = JSON.stringify(oHeader);
+				var sPayload = {
+					no: "",
+					mb_id: "admin",
+					mb_name: "admin",
+					mb_email: "",
+					mb_tel: "",
+					mb_mobile: "",
+					mb_sex: "",
+					mb_addr_1: "",
+					mb_addr_2: "",
+					mb_addr_3: "",
+					mb_post: "",
+					mb_regist_datetime: "",
+					mb_lastsave_datetime: "",
+					mb_out_datetime: "",
+					mb_userinfo_delete: "",
+					mb_license: "",
+					mb_license_date: "",
+					mb_sns: "",
+					mb_auth: "관리자",
+					mb_dept: "",
+					mb_position: "",
+					mb_image: "",
+					mb_x: "",
+					mb_y: "",
+                    mb_code_device: "",
+                    mb_work_state: "",
+					mb_etc: "",
+					exp: "211904231429",
+				}
+
+				var sJWS = KJUR.jws.JWS.sign("HS256", sHeader, sPayload, "181818");
+				sessionStorage.setItem(token_yj_rfms, sJWS);
+
+
+				//화면 이동
+
+				//이전 화면정보
+				var previousLocation =  sessionStorage.getItem("previousLocation");						//메시지 박스에 저장되어 있는 기존 경로 확인
+				if ((previousLocation != null) && (previousLocation != "")) {															//기존에 이동했던 페이지가 있는 경우 해당 페이지로 이동함						
+					sessionStorage.setItem("previousLocation", "");
+					window.location.href = previousLocation;
+				} else {																					//메인 페이지 불러오기						
+					sessionStorage.setItem("current_menu", "mainmenu_canvas_1");
+					location.href = "/content_userscanvas.html";
+				}
+
+				set_sign_top_right();
+
+				//var getUserInfo = parseJwt(sessionStorage.getItem(token_yj_rfms));		//로그인된 사용자 정보 가져오기
+			});
+			
+		}
+
+		function signin_server() {
+			////////////////////////////////////////////////////////////////////////////////////
+			//특정 앱에서 로그인이 되지 않는 경우에는 크롭 웹을 최신버전으로 업데이트 한다.
+			////////////////////////////////////////////////////////////////////////////////////
+
+			JSON_POST_TEST();
+
+			//JSON
+			var sendData = new Array();
+			sendData[0] = document.getElementById("dialog_signin_user_id").value;
+			sendData[1] = document.getElementById("dialog_signin_password").value;
+			
+			var url = url_json + "jsonservice/rfms/signin";
+			JSON_POST(url, sendData, false, sessionStorage.getItem(token_yj_rfms), function (result) {
+				if (result[0] == "ok") {
+					var previousLocation =  sessionStorage.getItem("previousLocation");						//메시지 박스에 저장되어 있는 기존 경로 확인
+					if ((previousLocation != null) && (previousLocation != "")) {															//기존에 이동했던 페이지가 있는 경우 해당 페이지로 이동함						
+						sessionStorage.setItem("previousLocation", "");
+						window.location.href = previousLocation;
+					} else {																					//메인 페이지 불러오기
+						document.getElementById("content_main").innerHTML = "";			//내용 지우기
+						$("#content_main").load("/main.html");							//main 화면 추가
+					}
+
+					set_sign_top_right();											//우측 상단 로그인 표시
+
+					// document.getElementById("content_main").innerHTML = "";			//내용 지우기
+					// $("#content_main").load("/main.html");							//main 화면 추가
+
+					// set_sign_top_right();											//우측 상단 로그인 표시
+				} else {
+					document.getElementById("content_main").innerHTML = "";			//내용 지우기
+					$("#content_main").load("/sign.html");							//sign 화면 추가	
+					messagebox_show(false, "접속 실패", result, null, false, true);
+
+					set_sign_top_right();											//우측 상단 로그인 표시
+				}
+			});
+		}
+
+		function set_sign_top_right() {
+			//로그인
+			if ((sessionStorage.getItem(token_yj_rfms) != "") && (sessionStorage.getItem(token_yj_rfms) != null)){
+				var getUserInfo = parseJwt(sessionStorage.getItem(token_yj_rfms));
+
+				//pc
+				document.getElementById("sign_top_right").textContent = getUserInfo.mb_id + "님 로그인";
+				document.getElementById("btnSignout_top_right").style.display = "inline-block";
+
+				//mobile
+				document.getElementById("sign_top_right_mobile").textContent = getUserInfo.mb_id + "님 로그인";
+				document.getElementById("btnSignout_top_right_mobile").style.display = "inline-block";
+			} else {
+				//pc
+				document.getElementById("sign_top_right").textContent = "로그인";
+				document.getElementById("btnSignout_top_right").style.display = "none";
+
+				//mobile
+				document.getElementById("sign_top_right_mobile").textContent = "로그인";
+				document.getElementById("btnSignout_top_right_mobile").style.display = "none";
+			}
+		}
+	});
+</script>

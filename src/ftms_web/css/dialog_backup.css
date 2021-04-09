@@ -1,0 +1,150 @@
+@charset "utf-8";
+
+.dialog-container {
+	background: rgba(0, 0, 0, 0.57);
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	pointer-events: none;
+	will-change: opacity;
+	-webkit-transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
+	transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1); 
+	z-index: 1000;
+	overflow-y: auto;
+	overflow-x: hidden;
+	max-height: 100%;
+	box-sizing: border-box;
+
+	justify-content: center;
+    align-items: center;
+}
+
+.dialog-container--visible {
+	opacity: 1;
+	pointer-events: auto; 
+	z-index: 5001;
+}
+
+.dialog {
+	margin: auto;
+
+		overflow-y: initial;
+		overflow-x: hidden;
+		/* max-height: 100%; */
+		margin: auto 0;
+		/* 화면 중앙 팝업 */
+		/* width:95%;
+		height: 97%;
+		margin-top: -30px; */
+
+		/* 타이틀 아래 팝업 */
+		width:95%;
+		/* height: 89%;
+		margin-top: -5px; */
+
+		max-width: 700px;
+		background: #FFF;
+		border-radius: 2px;
+		box-shadow: 0 0 14px rgba(0, 0, 0, 0.24), 0 14px 28px rgba(0, 0, 0, 0.48);
+
+		/* center point */
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		-webkit-transform: translate(-50%, 0); 
+
+		-webkit-transform: translate(-50%, -50%) translateY(30px);
+		transform: translate(-50%, -50%) translateY(30px);
+		-webkit-transition: -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
+		transition: -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
+		transition: transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
+		transition: transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s, -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s; 
+	}
+  
+  .dialog > div {
+	padding-left: 24px;
+	padding-right: 24px; }
+  
+  .dialog-title {
+	padding-top: 20px;
+	font-size: 1.25em; }
+  
+  .dialog-body {
+	padding-top: 20px;
+	padding-bottom: 24px; }
+	.dialog-body select {
+	  width: 100%;
+	  font-size: 2em; 
+	}
+  
+  .dialog-buttons {
+		padding: 20px 0px 20px 0px !important;
+		float: right; 
+}
+	
+  .button {
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	border-radius: 3px;
+	width: 80px;
+	height: 35px;
+	border: 1px solid rgb(202, 202, 202);
+  }
+  .button:hover {
+    background-color: rgb(65, 65, 65);
+    color: white;
+  }
+
+  .dialog-close hover {text-decoration:none;color:#9b9b9b;}
+
+
+
+
+table.table_layout{width:100%;border-bottom: 1px solid #e4e4e4;}
+table.table_layout th{border:1px solid #e4e4e4;line-height:0;padding:5px 5px 5px 20px;background-color:#fbfbfb;color:#444;text-align:left;font-weight:bold;font-size:13px;line-height:15px;}
+table.table_layout td{border:1px solid #e4e4e4;padding:6px;}
+table.table_layout td img{vertical-align:middle;}
+input.mustimage{ background:url(../images/must1.png) no-repeat 98% center;background-size: 16px;}
+
+@media screen and (max-width:1024px) {
+}
+
+@media screen and (max-width:768px) {
+
+}
+
+@media screen and (max-width:480px) {
+
+	.dialog {
+		/* margin-top:-50px;
+		margin-bottom:70px; */
+		/* margin-top: 100px; */
+		/* height: 85%; */
+	}
+
+	.dialog > div{
+		padding-left: 0px;
+    padding-right: 0px;
+	}
+
+	/* .dialog-title2 {
+		padding-left:16px !important;
+	} */
+
+	table.table_layout {padding:0px;}
+
+	table.table_layout, table.table_layout tbody, table.table_layout tr, table.table_layout td, table.table_layout th {
+			display: block;
+			clear: both;
+			width: 100%;
+	}
+	table.table_layout th{border:1px solid #e4e4e4;border-bottom:none;padding:15px 15px 15px 10px;background-color:#fbfbfb;color:#444;text-align:left;font-weight:bold;font-size:13px;line-height:0px;}
+	table.table_layout td{border:1px solid #e4e4e4;border-bottom:none;padding:6px;}
+	table.table_layout .tr_end{border-bottom: #e4e4e4; border-bottom-style: solid; border-bottom-width: 1px}
+}
+
+
+

@@ -1,0 +1,697 @@
+<!-- <div class="dialog"> -->  
+  <!-- <div class="modal-container">
+    <div class="modal-window">
+      <div class="modal-content"> -->        
+        <div>
+        <!--페이지 타이틀-->
+        <!-- <div class="dialog-title1"> -->
+          <!-- <div>
+          <ul>
+            <li>
+                <h5 id="dialog-title1-dialog_container_main">게시판 정보 추가</h5>
+            </li>
+            <li style="float=right">
+                <img id="dialog-close-id_content_boardmanage_dialog" class="dialog-close" src="/images/close2.png" />
+            </li>
+          </ul>
+        </div> -->
+  
+        <div class="margin_33px"></div>
+  
+        <div class="dialog_paddingL10R10">
+          <div class="margin_10px"></div>
+          <!-- <div id="dialog-title2-dialog_container_main" class="dialog-title2">제품의 데이터를 추가하여 주시기 바랍니다.</div> -->
+          <div class="stretch_wrap layout_max1000" style="height:80px;">
+            <div class="stretch_left_100percent" style="right:80px;">
+              <div id="dialog-title2-dialog_container_main" class="dialog-title2">게시판 정보를 추가하여 주시기 바랍니다.</div>
+            </div>
+            <div class="stretch_right_100px" style="max-width:80px">
+              <img id="dialog_write_file_1" src="/images/dbms1.png" class="round_image" data-magnify="gallery">
+            </div>
+          </div>
+          <div class="margin_10px"></div>
+        </div>
+  
+        <div id="container" class="dialog_paddingL10R10">
+          <!--content//-->
+          <div id="content">
+              <div id="dialog_write">
+                <table cellspacing="0" cellpadding="0" class="table_layout">
+                  <colgroup>
+                    <col width="25%" style="min-width:100px">
+                    <col width="75%">
+                  </colgroup>
+                  
+                <tbody>
+                  <tr>
+                    <th>게시판 종류</th>
+                    <td><input id="dialog_write_board_type" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr>
+                  <tr>
+                    <th>조회수</th>
+                    <td><input id="dialog_write_count_click" type="text" class="inputbox1" maxlength="50"></td>
+                  </tr>
+                  <tr>
+                    <th>좋아요</th>
+                    <td><input id="dialog_write_count_like" type="text" class="inputbox1" maxlength="50"></td>
+                  </tr>
+                  <tr>
+                    <th>싫어요</th>
+                    <td><input id="dialog_write_count_hate" type="text" class="inputbox1" maxlength="50"></td>
+                  </tr>
+                  <tr>
+                    <th>제목</th>
+                    <td>
+                      <input id="dialog_write_title" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr>
+                  <tr>
+                    <th>내용</th>
+                    <td>
+                      <input id="dialog_write_content" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr>
+                  <tr>
+                    <th>연락처</th>
+                    <td>
+                      <input id="dialog_write_mobile" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr>
+                  <tr>
+                    <th>이메일</th>
+                    <td>
+                      <input id="dialog_write_email" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr>
+                  <tr style="display:none">
+                    <th>고유번호</th>
+                    <td><input id="dialog_write_no" type="text" class="inputbox1" maxlength="30" readonly></td>
+                  </tr>
+                  <tr>
+                    <th>생성자</th>
+                    <td>
+                      <input id="dialog_write_regist_user" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr>
+                  <tr>
+                    <th>생성일</th>
+                    <td>
+                      <input id="dialog_write_regist_datetime" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr>
+                  <tr>
+                    <th>마지막 저장일</th>
+                    <td>
+                      <input id="dialog_write_lastsave_datetime" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr>
+                  <tr>
+                    <th>기타</th>
+                    <td><input id="dialog_write_etc" type="text" class="inputbox1" maxlength="255" ></td>
+                  </tr>
+                  <tr>
+                    <th>첨부파일 경로</th>
+                    <td>
+                      <div class="stretch_wrap" style="height:36px">
+                        <div class="stretch_left_100percent" style="right:36px;margin-right: 3px">
+                          <input id="print_selected_filename" type="text" class="inputbox1">
+                        </div>
+                        <div class="stretch_right_100px file_find" style="max-width:36px;">
+                          <input id="dialog_write_file" type="file"/>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody></table>
+              </div>
+            
+              <div class="dialog-buttons">
+                <button id="btnSave_content_boardmanage_dialog" class="button">저장</button>
+                <!-- <button id="btnCancel_content_boardmanage_dialog" class="button">취소</button> -->
+                <button id="btnEdit_content_boardmanage_dialog" class="button">수정</button>
+                <button id="btnList_boardmanage" class="button">목록</button>
+              </div>
+            </div>
+              <!--//content-->
+        </div>
+      </div>
+      <!-- </div>
+    </div>
+  </div> -->
+    
+  
+  
+  <script>
+    //inputbox 포커스
+    $(document).ready(function() {
+      //모바일 화면일 경우 다이어로그가 위로 올라가는 현상 수정 (리사이즈 적용)
+      window.onresize = function(event) {
+        change_top_margin_boardmanage();
+      };
+      //모바일 화면일 경우 다이어로그가 위로 올라가는 현상 수정
+      change_top_margin_boardmanage();
+  
+  
+      ///////////////////////////////////////////////////////////////////////
+      //이미지 뷰어
+      imageViewer_init();
+      //이미지 추가 이벤트
+      document.getElementById('dialog_write_file').addEventListener('click', function() {
+        this.value = null;      
+      }, false);
+      document.getElementById('dialog_write_file').addEventListener('change', function() {
+        check_image();
+      }, false);
+      // $('#dialog_write_file').change(function(e) {
+      //     check_image();
+      // });
+      function check_image() {
+        var image_name = event.srcElement.value;
+        if((/(.gif|.jpg|.bmp|.png)$/i).test(image_name)){
+          //print file path
+          document.getElementById("print_selected_filename").value = image_name; //input 이미지 경로
+          //이미지 임시 보기
+          document.getElementById("dialog_write_file_1").src = URL.createObjectURL(document.getElementById("dialog_write_file").files[0]);         //이미지
+          document.getElementById("dialog_write_file_1").classList.add("round_image");
+          
+          $('#dialog_write_file_1').attr('data-src', document.getElementById("dialog_write_file_1").src);  //이미지 확대할 때 소스
+        } else if (image_name == "") {
+        } else {
+          messagebox_show(false, "이미지 저장", "gif, jpg, bmp, png 파일만 저장 가능합니다.", null, false, true);
+        }
+      }
+      ///////////////////////////////////////////////////////////////////////
+  
+  
+      ////특수문자 제한
+      // document.getElementById('dialog_write_board_type').addEventListener('input', function(e) {
+      //   //var result = check_string2(this.value);           //공백, 특수문자 확인
+      //   if (result != "ok") {
+      //     messagebox_show(false, "입력값 제한", result, null, false, true);
+      //     this.value = remove_space_string(this.value);   //공백제거
+      //     //this.value = remove_special_string(this.value); //특수문자 제거
+      //   }
+      // });
+  
+      //데이터 삭제
+      document.getElementById('btnSave_messagebox').addEventListener('click', function() {
+        var title_messagebox = document.getElementById('dialog-title1-messagebox1').textContent;
+        if (title_messagebox != "데이터 삭제") {
+          return;
+        }
+  
+        //체크박스 선택 데이터 가져오기 (app_dialog 변수는 table_boardmanage.js 파일에서 전역변수처럼 사용)
+        var sendData = app_dialog.function_getSelectDataValue();
+  
+        //JSON
+        var url = url_json + "jsonservice/rest/boardmanage/delete_boardmanageinfo";      //delete
+        JSON_POST(url, sendData, false, sessionStorage.getItem(token_yj_rfms), function (result) {
+          if (result[0] == "ok") {
+            //결과 출력
+            messagebox_show(false, "데이터 삭제 완료", result, null, false, true);
+            //gui 삭제
+            for (var i = 0; i < sendData.length; i++) {
+              for (var k = 0; k < app_dialog.table.rows().count(); k++) {
+                if (sendData[i] == app_dialog.table.rows(k).data()[0].no) {                
+                  app_dialog.table.row(k).remove().draw(false);
+                  k--;
+                }
+              }
+            }
+  
+            //dataSet 삭제
+            for (var i = 0; i < sendData.length; i++) {
+              for (var k = 0; k < app_dialog.dataSet.length; k++) {
+                if (sendData[i] == app_dialog.dataSet[k].no) {                
+                  app_dialog.dataSet.splice(k, 1);
+                  k--;
+                }
+              }            
+            }
+  
+          } else {
+            messagebox_show(false, "데이터 삭제 실패", result, null, false, true);
+          }
+        });
+      });
+  
+      document.getElementById('btnList_boardmanage').addEventListener('click', function() {
+        document.getElementById("table_main_wrapper").style.visibility = "visible";
+        document.getElementById("content_main").innerHTML = "";
+
+        //현재 페이지 번호 가져오기
+        var getPageNumber = app_dialog.table.page.info().page;
+        window.location.hash = "#list=" + getPageNumber;            //해쉬 설정
+      });
+      
+      ////////////////////////////
+      //창 종료
+      ////////////////////////////
+      //저장 (확인버튼)
+      document.getElementById('btnSave_content_boardmanage_dialog').addEventListener('click', function() {
+        if (document.getElementById('dialog-title1-dialog_container_main').textContent == "게시판 정보 추가") {
+          send_info(true);
+        } else if (document.getElementById('dialog-title1-dialog_container_main').textContent == "게시판 정보 일괄 수정") {
+          //input text가 존재한다면 배경색을 변경
+          var saveColumnName = check_inputdata();    ////값이 존재하는 db컬럼명 반환
+  
+          //저장 메시지 출력 후 게시판가 확인 버튼을 누르면 db에 저장
+          messagebox_show(true, "데이터 저장", "입력하신 정보를 일괄적으로 모두 변경하여 저장합니다. 계속하시겠습니까?", function(e) {
+            if (e == "ok") {
+              //save db
+              var getImageFile = document.getElementById("dialog_write_file").files[0];
+  
+              FileToBase64(getImageFile, function(result_image) {
+  
+                var sendData = {
+                  no: parseInt(document.getElementById("dialog_write_no").value) || 0,
+                  //select: false,
+                  bo_board_type: document.getElementById("dialog_write_board_type").value,
+                  bo_count_click: parseInt(document.getElementById("dialog_write_count_click").value) || 0,
+                  bo_count_like: parseInt(document.getElementById("dialog_write_count_like").value) || 0,
+                  bo_count_hate: parseInt(document.getElementById("dialog_write_count_hate").value) || 0,
+                  bo_title: document.getElementById("dialog_write_title").value,
+                  bo_content: document.getElementById("dialog_write_content").value,
+                  bo_mobile: document.getElementById("dialog_write_mobile").value,
+                  bo_email: document.getElementById("dialog_write_email").value,
+                  bo_regist_user: document.getElementById("dialog_write_regist_user").value,
+                  // bo_regist_datetime: "2019-04-20 12:11:11",
+                  // bo_out_datetime: "2018-12-20 14:11:11",
+                  //bo_regist_datetime: regist_datetime,
+                  bo_lastsave_datetime: currentDateTime(),
+                  bo_file: result_image,
+                  bo_etc: document.getElementById("dialog_write_etc").value,
+                  batchSaveNo: app_dialog.function_getSelectDataValue(),
+                  batchSaveColumnName: saveColumnName,
+                }
+  
+                //JSON
+                var url = url_json + "jsonservice/rest/boardmanage/update_boardmanageinfo_batch";      //batch update              
+                JSON_POST(url, sendData, false, sessionStorage.getItem(token_yj_rfms), function (result) {
+                  if (result[0] == "ok") {
+                    messagebox_show(false, "데이터 저장", result, null, false, true);
+                    
+                    setTimeout(function() {
+                      location.reload(true);
+                    }, 2000);
+                    // //데이터 추가, 수정
+                    //   //gui 수정
+                    //   for (var k = 0; k < app_dialog.table.rows().count(); k++) {
+                    //     if (sendData.no == app_dialog.table.rows(k).data()[0].no) {
+                    //       //app_dialog.table.row(k).data() = sendData;
+                    //       app_dialog.table.row(k).data(sendData);
+  
+                    //       //순차적 인덱스가 삭제되므로 다시 그려줌
+                    //       app_dialog.table.column(app_dialog.index_id_position, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                    //         //cell.innerHTML = i + 1;   //Asc (주석 해제 시 Desc)
+                    //       });
+                    //     }
+                    //   }
+  
+                    //   //dataSet 수정
+                    //   for (var k = 0; k < app_dialog.dataSet.length; k++) {
+                    //     if (sendData.no == app_dialog.dataSet[k].no) {
+                    //       app_dialog.dataSet[k] = sendData;
+                    //     }
+                    //   }
+                    
+                    
+                  } else {
+                    messagebox_show(false, "데이터 저장 실패", result, null, false, true);
+                  }
+                });
+              });
+            }
+          }, false, true);
+        } else {
+          send_info(false);      
+        }
+        //메시지박스 출력
+        //messagebox_show(false, "데이터 저장", "저장되었습니다.", null, false, true);
+        //dialog_close();
+      });
+  
+      //창 닫기 (종료버튼)
+      document.getElementById('btnCancel_content_boardmanage_dialog').addEventListener('click', function() {
+        dialog_close();
+      });
+  
+      //수정
+      document.getElementById('btnEdit_content_boardmanage_dialog').addEventListener('click', function() {
+        //postMessage send (ex:window.postMessage(보낼데이터, 타겟주소))
+        //1:추가, 2:수정, 3:일괄수정, 4:삭제
+        window.postMessage([2, null], window.location.href);
+      });
+
+      document.getElementById('dialog-close-id_content_boardmanage_dialog').addEventListener('click', function() {
+        dialog_close();
+      });
+  
+      document.getElementById('dialog-close-id_content_boardmanage_dialog').addEventListener('mouseover', function() {
+        var closeButton = document.getElementById('dialog-close-id_content_boardmanage_dialog');
+        closeButton.src = "/images/close4.png";
+      });
+  
+      document.getElementById('dialog-close-id_content_boardmanage_dialog').addEventListener('mouseleave', function() {
+        var closeButton = document.getElementById('dialog-close-id_content_boardmanage_dialog');
+        closeButton.src = "/images/close2.png";
+      });
+  
+      //윈도우 닫기 아이콘    
+      window.addEventListener("keydown", function(e){
+        if (e.keyCode == 27) {                    //esc
+          if (check_dialog_visible("dialog_messagebox") == true) {
+            messagebox_close();                   //dialog_messagebox.html 페이지 함수
+          } else {
+            dialog_close();
+          }        
+        }
+      });
+  
+  
+      function change_top_margin_boardmanage() {
+        //모바일일 경우 다이어로그 top 변경
+        if (matchMedia("screen and (max-width:480px)").matches) {           //스마트폰이 세로인 경우
+          $("#dialog_container_main .dialog").css("marginTop", "600px");
+        } else {
+          $("#dialog_container_main .dialog").css("marginTop", "20px");
+        }
+        
+        if (matchMedia("screen and (max-height:480px)").matches) {          //스마트폰을 가로로 눕힌 경우
+          $("#dialog_container_main .dialog").css("marginTop", "600px");
+        }
+      }
+  
+      function dialog_close(){
+        //var app = document.querySelector('.dialog-container');
+        var dialog_container_main = document.getElementById("dialog_container_main");
+        if (dialog_container_main != null) {
+          dialog_container_main.classList.remove('dialog-container--visible');                
+  
+          //body scoll on
+          scroll_body_on_off(true);
+        }
+      }
+        
+      function send_info(isAdd) {
+        //파일 가져오기
+        var getImageFile = document.getElementById("dialog_write_file").files[0];
+
+        //수정일 경우 등록일자 변경하지 않기
+        var regist_datetime = currentDateTime();
+        if (isAdd == false) {
+          regist_datetime = document.getElementById("dialog_write_regist_datetime").value;
+          
+          //이미지 경로가 없는 경우 이미지 경로 삭제
+          if (document.getElementById("print_selected_filename").value == "") {
+            getImageFile = "";                                                          //서버에서 삭제
+            document.getElementById("dialog_write_file_1").src = "/images/dbms1.png";   //우측 상단 이미지 초기화
+          }
+        }
+  
+        FileToBase64(getImageFile, function(result_image) {
+          var sendData = {
+              no: parseInt(document.getElementById("dialog_write_no").value) || 0,
+              select: false,
+  
+              bo_board_type: document.getElementById("dialog_write_board_type").value,
+              bo_count_click: parseInt(document.getElementById("dialog_write_count_click").value) || 0,
+              bo_count_like: parseInt(document.getElementById("dialog_write_count_like").value) || 0,
+              bo_count_hate: parseInt(document.getElementById("dialog_write_count_hate").value) || 0,
+              bo_title: document.getElementById("dialog_write_title").value,
+              bo_content: document.getElementById("dialog_write_content").value,
+              bo_mobile: document.getElementById("dialog_write_mobile").value,
+              bo_email: document.getElementById("dialog_write_email").value,
+              bo_regist_user: document.getElementById("dialog_write_regist_user").value,
+              // bo_regist_datetime: "2019-04-20 12:11:11",
+              // bo_out_datetime: "2018-12-20 14:11:11",
+              bo_regist_datetime: regist_datetime,
+              bo_lastsave_datetime: currentDateTime(),
+              bo_out_datetime: null,
+              //bo_license_date: document.getElementById("dialog_write_license_date").value,
+              //bo_license_date: "2018-12-28",
+              //bo_license_date: currentDate(),              
+              bo_file: result_image,
+              bo_etc: document.getElementById("dialog_write_etc").value,
+            }
+  
+            if (sendData.bo_board_type.trim() == "") {
+              messagebox_show(false, "데이터 입력", "게시판 종류를 입력하여 주시기 바랍니다.", null, false, true);
+              return;
+            }
+  
+            //JSON
+            var url = url_json + "jsonservice/rest/boardmanage/update_boardmanageinfo";      //insert / update 선택
+            if (isAdd) {
+              url = url_json + "jsonservice/rest/boardmanage/insert_boardmanageinfo";
+            }
+            //var url = "http://127.0.0.1:31419/jsonservice/rest/boardmanage/insert_userinfo";
+            JSON_POST(url, sendData, false, sessionStorage.getItem(token_yj_rfms), function (result) {
+              if (result[0] == "ok") {
+                messagebox_show(false, "데이터 저장", result, null, false, true);
+                
+                //데이터 추가, 수정
+                if (isAdd) {
+                  sendData.no = result[2];                          //서버로부터 반환된 자동증가번호 저장 (고유번호: no)
+                  app_dialog.table.row.add(sendData).draw(false);   //gui 추가
+                  app_dialog.dataSet.push(sendData);                //dataSet 추가
+                } else {
+                  //gui 수정
+                  for (var k = 0; k < app_dialog.table.rows().count(); k++) {
+                    if (sendData.no == app_dialog.table.rows(k).data()[0].no) { 
+                      //기존 이미지가 존재한다면 기존 이미지 사용
+                      if (sendData.bo_file == null && app_dialog.table.rows(k).data()[0].bo_file != null) {
+                        sendData.bo_file = app_dialog.table.rows(k).data()[0].bo_file;
+                      }
+
+                      //app_dialog.table.row(k).data() = sendData;
+                      app_dialog.table.row(k).data(sendData);
+  
+                      //순차적 인덱스가 삭제되므로 다시 그려줌
+                      app_dialog.table.column(app_dialog.index_id_position, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                        //cell.innerHTML = i + 1;   //Asc (주석 해제 시 Desc)
+                      });
+                    }
+                  }
+  
+                  //dataSet 수정
+                  for (var k = 0; k < app_dialog.dataSet.length; k++) {
+                    if (sendData.no == app_dialog.dataSet[k].no) {
+                      app_dialog.dataSet[k] = sendData;
+                    }
+                  }
+                }
+            } else {
+              messagebox_show(false, "데이터 저장 실패", result, null, false, true);
+            }
+          });
+        });
+      }
+  
+      
+  
+      function send_checkUser(rValue) {
+          var sendData = document.getElementById("dialog_write_user_id").value;
+          //JSON
+          var url = url_json + "jsonservice/rest/boardmanage/check_boardmanage";
+          JSON_POST(url, sendData, false, sessionStorage.getItem(token_yj_rfms), function(result) {
+            rValue(result);
+          });
+      }
+  
+      //input text가 변경될 경우 배경색을 변경
+      function setInput_backgroundColor(input_name) {
+        var get_dialog = document.getElementById(input_name);
+        
+        if (get_dialog == null)
+          return;
+  
+        if ((get_dialog.value == null) || (get_dialog.value == '')) {
+          get_dialog.style.backgroundColor = "#ddd";
+        } else {
+          get_dialog.style.backgroundColor = "#fff";
+          return input_name;
+        }      
+      }
+  
+      function setInput_backgroundColor_darkAll() {
+        document.getElementById('dialog_write_board_type').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_count_click').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_count_like').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_count_hate').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_title').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_content').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_mobile').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_email').style.backgroundColor = "#ddd";        
+        document.getElementById('dialog_write_no').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_regist_user').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_regist_datetime').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_lastsave_datetime').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_etc').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_file').style.backgroundColor = "#ddd";
+  
+        check_inputdata();
+      }
+  
+      //input text가 존재한다면 배경색을 변경
+      function check_inputdata() {
+        var getValue = new Array();
+        var rValue = new Array();
+        var i = 0;
+        // if (setInput_backgroundColor('dialog_write_user_id') != null) 
+        //   rValue[i++] = 
+  
+        getValue[i++] = setInput_backgroundColor('dialog_write_board_type');
+        getValue[i++] = setInput_backgroundColor('dialog_write_count_click');
+        getValue[i++] = setInput_backgroundColor('dialog_write_count_like');
+        getValue[i++] = setInput_backgroundColor('dialog_write_count_hate');
+        getValue[i++] = setInput_backgroundColor('dialog_write_title');
+        getValue[i++] = setInput_backgroundColor('dialog_write_content');
+        getValue[i++] = setInput_backgroundColor('dialog_write_mobile');
+        getValue[i++] = setInput_backgroundColor('dialog_write_email');
+        getValue[i++] = setInput_backgroundColor('dialog_write_no');
+        getValue[i++] = setInput_backgroundColor('dialog_write_regist_user');
+        getValue[i++] = setInput_backgroundColor('dialog_write_regist_datetime');
+        getValue[i++] = setInput_backgroundColor('dialog_write_lastsave_datetime');
+        getValue[i++] = setInput_backgroundColor('dialog_write_etc');
+        getValue[i++] = setInput_backgroundColor('dialog_write_file');
+  
+        //값이 존재하는 db컬럼명 반환
+        var j = 0;
+        for (var k = 0; k < getValue.length; k ++) {
+          if (IsNullOrWhiteSpace(getValue[k]) == false) {          
+            var getColumnName = convertColumnName(getValue[k]);
+            if (IsNullOrWhiteSpace(getColumnName) == false) {
+              rValue[j++] = getColumnName;
+            }          
+          }
+        }
+  
+        //마지막 저장일자 저장
+        rValue[j++] = "bo_lastsave_datetime";
+  
+        return rValue;
+      }
+  
+      function convertColumnName(input_name) {
+        if (IsNullOrWhiteSpace(input_name) == true) {
+          return null;
+        }
+  
+        var rValue = "";
+        switch (input_name) {
+          case "dialog_write_board_type":
+            rValue = "bo_board_type";
+            break;
+          case "dialog_write_count_click":
+            rValue = "bo_count_click";
+            break;
+          case "dialog_write_count_like":
+            rValue = "bo_count_like";
+            break;
+          case "dialog_write_count_hate":
+            rValue = "bo_count_hate";
+            break;
+          case "dialog_write_title":
+            rValue = "bo_title";
+            break;
+          case "dialog_write_content":
+            rValue = "bo_content";
+            break;
+          case "dialog_write_mobile":
+            rValue = "bo_mobile";
+            break;
+          case "dialog_write_email":
+            rValue = "bo_email";
+            break;
+          case "dialog_write_etc":
+            rValue = "bo_etc";
+            break;
+          case "dialog_write_file":
+            rValue = "bo_file";
+            break;
+        }
+  
+        return rValue;
+      }
+  
+      //일괄 수정시 inputbox에 데이터를 입력할 경우 배경색상 변경
+      function setInput_event(objectName) {
+        document.getElementById(objectName).addEventListener('input', function(e) {
+          if ((e.inputType != "deleteContentBackward") &&
+              (e.inputType != "deleteContentForward"))
+           {   //backspace, delete가 아닐 경우 배경색 변경 체크
+            setInput_backgroundColor(objectName);
+          }        
+        });
+        document.getElementById(objectName).addEventListener('click', function(e) {
+          if (document.getElementById('dialog-title1-dialog_container_main').textContent == "게시판 정보 일괄 수정") {
+            setInput_backgroundColor_darkAll();
+            this.style.backgroundColor = "#fff";
+          }
+        });
+      }
+      ////////////////////////////
+      //GUI 일괄 수정 기능
+      ////////////////////////////
+      
+      //일괄 수정시 inputbox에 데이터를 입력할 경우 배경색상 변경
+      setInput_event('dialog_write_board_type');
+      setInput_event('dialog_write_count_click');
+      setInput_event('dialog_write_count_like');
+      setInput_event('dialog_write_count_hate');
+      setInput_event('dialog_write_title');
+      setInput_event('dialog_write_content');
+      setInput_event('dialog_write_mobile');
+      setInput_event('dialog_write_email');
+      setInput_event('dialog_write_etc');
+      setInput_event('dialog_write_file');
+    });
+    
+  </script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- // Sending and receiving data in JSON format using POST method
+  //
+  var xhr = new XMLHttpRequest();
+  var url = "url";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+          var json = JSON.parse(xhr.responseText);
+          console.log(json.email + ", " + json.password);
+      }
+  };
+  var data = JSON.stringify({"email": "hey@mail.com", "password": "101010"});
+  xhr.send(data);
+  
+  
+  
+  // Sending a receiving data in JSON format using GET method
+  //      
+  var xhr = new XMLHttpRequest();
+  var url = "url?data=" + encodeURIComponent(JSON.stringify({"email": "hey@mail.com", "password": "101010"}));
+  xhr.open("GET", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+          var json = JSON.parse(xhr.responseText);
+          console.log(json.email + ", " + json.password);
+      }
+  };
+  xhr.send();
+  
+  
+  
+  <?php
+  // Handling data in JSON format on the server-side using PHP
+  //
+  header("Content-Type: application/json");
+  // build a PHP variable from JSON sent using POST method
+  $v = json_decode(stripslashes(file_get_contents("php://input")));
+  // build a PHP variable from JSON sent using GET method
+  $v = json_decode(stripslashes($_GET["data"]));
+  // encode the PHP variable to JSON and send it back on client-side
+  echo json_encode($v);
+  ?> -->

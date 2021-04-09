@@ -1,0 +1,508 @@
+﻿<!DOCTYPE html>
+<html>
+<head>	
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>WEBGUI</title>
+
+	<!-- default -->
+	<link rel="stylesheet" type="text/css" href="/css/main.css">	
+	<!-- datatables -->	
+	<link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/buttons.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/select.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/editor.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/responsive.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/dialog1.css">	
+	<!--datepicker-->
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-datepicker.css">
+	<!--imageviewer-->
+	<link rel="stylesheet" type="text/css" href="/css/magnify.css">
+	<!-- canvas -->
+	<link rel="stylesheet" type="text/css" href="/css/userscanvas.css">
+
+	<!-- default -->
+	<script src="/js/jquery-3.3.1.min.js"></script>
+	<script src="/js/jquery.easing.1.3.js"></script>
+	<script src="/js/utill.js"></script>
+	
+	<!-- datatables -->
+	<script src="/js/jquery.dataTables.min.js"></script>
+	<script src="/js/dataTables.responsive.min.js"></script>
+	<script src="/js/dataTables.buttons.min.js"></script>	<!-- excel -->
+	<script src="/js/jszip.min.js"></script>				<!-- excel -->
+	<script src="/js/buttons.html5.min.js"></script>  		<!-- excel -->
+	<script src="/js/table_users.js"></script>	
+	<!-- <script src="/js/dataTables.editor.min.js"></script> -->
+	<!-- <script src="/js/dataTables.select.min.js"></script> -->
+	<!--datepicker-->
+	<script src="/js/bootstrap-datepicker.js"></script>
+	<script src="/js/bootstrap-datepicker.ko-kr.js"></script>
+	<!--imageviewer-->
+	<script src="/js/magnify.js"></script>	
+	<!--canvas-->
+	<script src="/js/userscanvas.js"></script>	
+	<!-- pan zoom -->
+	<script src="/js/panzoom.js"></script>
+
+	<!-- html페이지 로드 -->
+	<script type="text/javascript">
+		$(function(){
+			$("#headers").load("/header.html", function(e) {
+				$.getScript("/js/header.js", function() {
+					
+				});
+			});
+			$("#footers").load("/footer.html");
+
+			//dialog_container_main
+			//$("#dialog_container_main").load("/dialog_userscanvas.html");
+			$("#dialog_userscanvas").load("/dialog_userscanvas.html");
+			$("#dialog_messagebox").load("/dialog_messagebox.html", function(e) {
+				//messagebox_show(false, "데이터 로딩중", "데이터를 가져오는 중입니다. 잠시만 기다려 주시기 바랍니다.", null, true, true);			
+			});
+		});
+	</script>
+</head>
+<!-- <body style="display:flex;overflow-y: hidden"> -->
+<body style="display:flex;overflow-y: hidden"></body>
+	<div id="frame_content" style="width:100%;height:100%">
+		<!-- html페이지 로드 -->
+		<div id="headers"></div>
+
+		<div class="margin_91px_overlap"></div>
+		<!-- <div class="margin_50px_overlap"></div>		 -->
+
+		<div class="stretch_wrap" style="height:45px;background:#ffffff;z-index: 999;">
+			<div class="wrap_image_click_state stretch_left_100percent touch_no_highlight_color" style="display:none;cursor:pointer;z-index:11;padding-top:10px;justify-content:flex-end;margin-right:20px; right:160px;"  >
+				<a><img id="element_showgrid" class="image_view_state image_view_state_show_grid" style="width:35px;height:35px;margin-right:5px;" src="/images/grid.png" title="모눈 보기"/></a>
+				<a><img id="element_select" class="image_view_state image_view_state_select_userinfo" style="width:35px;height:35px;margin-right:5px;" src="/images/select2.png" title="멤버 추가"/></a>
+				<a><img id="element_info" class="image_view_state image_view_state_info_userinfo" style="width:35px;height:35px;margin-right:5px;" src="/images/info2.png" title="멤버 삭제"/></a>
+				<a><img id="element_move" class="image_view_state image_view_state_move_userinfo" style="width:35px;height:35px;margin-right:5px;" src="/images/move2.png" title="멤버 이동"/></a>
+				<a><img id="element_add" class="image_view_state image_view_state_add_userinfo" style="width:35px;height:35px;margin-right:5px;" src="/images/button1_add.png" title="멤버 정보"/></a>
+				<a><img id="element_remove" class="image_view_state image_view_state_remove_userinfo" style="width:35px;height:35px;" src="/images/button1_remove.png" title="화면 확대"/></a>
+			</div>
+			<div class="stretch_right_100px touch_no_highlight_color" style="cursor:pointer;z-index:11;padding-top:10px;  max-width:160px;" >
+				<a><img id="canvas_zoom_in" class="image_view_state" style="width:35px;height:35px;" src="/images/zoom_in.png" title="화면 확대"/></a>
+				<a><img id="canvas_zoom_out" class="image_view_state" style="width:35px;height:35px;" src="/images/zoom_out.png" title="화면 축소"/></a>
+				<a><img id="canvas_zoom_pan" class="image_view_state" style="width:35px;height:35px;" src="/images/zoom_pan.png" title="화면 이동"/></a>
+				<a><img id="canvas_zoom_extent" class="image_view_state" style="width:35px;height:35px;" src="/images/zoom_extent.png" title="초기화면"/></a>
+				<!-- 메뉴 기능은 userscanvas.js 7번 라인부터 -->								
+			</div>
+		</div>
+
+		<div id="userscanvas_main_frame" style="width:100%;height:100%;background:#ececec;position:relative;">
+			<div id="userscanvas_main">
+				
+				<div class="user_info_template_range1">
+					<div class="stretch_wrap">
+						<div class="user_info_template_content_1">
+							<div class="position_name" style="height:20px;overflow:hidden;border-radius: 10px 10px 0px 0px;color: white; background-color: #0053bb;margin: -5px -5px 5px -5px;">
+								위 원 장
+							</div>
+							<div style="height:100%;overflow:hidden;border-radius:10px;">
+								<img class="user_info_template_content_image" style="visibility: collapse;"/>
+								<!-- <img class="user_info_template_content_image" src="/images/user_sample.png"/> -->
+							</div>	
+						</div>                  
+						<div class="user_info_template_content_2">
+							<div class="user_info_canvas_label_text_no">user no</div>
+							<div class="user_info_canvas_label_text_title">의정담당관</div>
+							<div class="user_info_canvas_label_text_content1">의정</div>
+							<div class="user_info_canvas_label_text_content2">도담동</div>
+							<div class="user_info_canvas_label_text_content3">301호</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="user_info_template_1">
+					<div class="stretch_wrap">
+						<div class="user_info_template_content_1">
+							<img class="user_info_template_content_image" src="/images/user_sample.png"/>
+						</div>                  
+						<div class="user_info_template_content_2">
+							<div class="user_info_canvas_label_text_no">user no</div>
+							<div class="user_info_canvas_label_text_title">의정담당관</div>
+							<div class="user_info_canvas_label_text_content1">의정</div>
+							<div class="user_info_canvas_label_text_content2">도담동</div>
+							<div class="user_info_canvas_label_text_content3">301호</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="user_info_template_1_1">
+					<div class="stretch_wrap">
+						<div class="user_info_template_content_1">
+							<img class="user_info_template_content_image" src="/images/user_sample.png"/>
+						</div>                  
+						<div class="user_info_template_content_2">
+							<div class="user_info_canvas_label_text_no">user no</div>
+							<div class="user_info_canvas_label_text_content1">의정담당관</div>
+							<div style="height:5px;"></div>
+							<div class="user_info_canvas_label_text_title">의정</div>
+							<div class="user_info_canvas_label_text_content2">도담동</div>
+							<div class="user_info_canvas_label_text_content3">301호</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="user_info_template_2">
+					<div class="stretch_wrap">
+						<div class="user_info_template_content_1">
+							<img class="user_info_template_content_image" src="/images/user_sample.png"/>
+						</div>                  
+						<div class="user_info_template_content_2">
+							<div class="user_info_canvas_label_text_no">user no</div>
+							<div class="user_info_canvas_label_text_title">	의정담당관</div>
+							<div class="user_info_canvas_label_text_content1">의정</div>
+							<div class="user_info_canvas_label_text_content2">도담동</div>
+							<div class="user_info_canvas_label_text_content3">301호</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="user_info_template_3">
+					<div class="stretch_wrap">
+						<div class="user_info_template_content_1">
+							<img class="user_info_template_content_image" src="/images/user_sample.png"/>
+						</div>                  
+						<div class="user_info_template_content_2">
+							<div class="user_info_canvas_label_text_no">user no</div>
+							<div class="user_info_canvas_label_text_title">의정담당관</div>
+							<div class="user_info_canvas_label_text_content1">의정</div>
+							<div class="user_info_canvas_label_text_content2">도담동</div>
+							<div class="user_info_canvas_label_text_content3">301호</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="user_info_template_4">
+					<div class="stretch_wrap">
+						<div class="user_info_template_content_1">
+							<div style="height:100%;overflow:hidden;border-radius:10px;">
+								<img class="user_info_template_content_image" src="/images/user_sample.png"/>
+							</div>
+						</div>                  
+						<div class="user_info_template_content_2">
+							<div class="user_info_canvas_label_text_no">user no</div>
+							<div class="user_info_canvas_label_text_title">의정담당관</div>
+							<div class="user_info_canvas_label_text_content1">의정</div>
+							<div class="user_info_canvas_label_text_content2">도담동</div>
+							<div class="user_info_canvas_label_text_content3">301호</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="user_info_template_5">
+					<div class="stretch_wrap">
+						<div class="user_info_template_content_1">
+							<div style="height:100%;overflow:hidden;border-radius:10px;">
+								<img class="user_info_template_content_image" src="/images/user_sample.png"/>
+							</div>	
+						</div>                  
+						<div class="user_info_template_content_2">
+							<div class="user_info_canvas_label_text_no">user no</div>
+							<div class="user_info_canvas_label_text_title">의정담당관</div>
+							<div class="user_info_canvas_label_text_content1">의정</div>
+							<div class="user_info_canvas_label_text_content2">도담동</div>
+							<div class="user_info_canvas_label_text_content3">301호</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="user_info_template_6">
+					<div class="stretch_wrap">
+						<div class="user_info_template_content_1">
+							<div class="position_name" style="height:20px;overflow:hidden;border-radius: 10px 10px 0px 0px;color: white; background-color: rebeccapurple;margin: -5px -5px 5px -5px;">
+								위 원 장
+							</div>
+							<div style="height:90px;overflow:hidden;border-radius:10px;">
+								<img class="user_info_template_content_image" src="/images/user_sample.png"/>
+							</div>	
+						</div>                  
+						<div class="user_info_template_content_2">
+							<div class="user_info_canvas_label_text_no">user no</div>
+							<div class="user_info_canvas_label_text_title">의정담당관</div>
+							<div class="user_info_canvas_label_text_content1">의정</div>
+							<div class="user_info_canvas_label_text_content2">도담동</div>
+							<div class="user_info_canvas_label_text_content3">301호</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- <div class="user_info_template_1">
+					<div class="stretch_wrap" style="width:230px;height:100px">
+						<div class="stretch_left_100percent" style="right:130px;margin-right:0px;padding:5px;border-radius:10px;background-color:#f1f1f1;z-index:1;">
+							<img src="/images/user4.png" style="max-height:100%;border-radius: 8px 8px 8px 8px"/>
+						</div>                  
+						<div class="stretch_right_100px" style="max-width:130px;">
+							<div class="user_info_canvas_label_text_no" style="display:none">user no</div>
+							<div class="user_info_canvas_label_text_title">의정담당관</div>
+							<div class="user_info_canvas_label_text_content">의정</div>
+							<div class="user_info_canvas_label_text_content">도담동</div>
+							<div class="user_info_canvas_label_text_content">301호</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="user_info_template_2" style="background-color:#38426b;">
+					<div class="stretch_wrap" style="width:230px;height:100px;background-color:#38426b;">
+						<div class="stretch_left_100percent" style="right:130px;margin-right:0px;padding:5px;border-radius:10px;background-color:#f1f1f1;z-index:1;">
+							<img src="/images/user4.png" style="max-height:100%;border-radius: 8px 8px 8px 8px"/>
+						</div>                  
+						<div class="stretch_right_100px" style="max-width:130px;background-color:#38426b;">
+							<div class="user_info_canvas_label_text_no" style="display:none">user no</div>
+							<div class="user_info_canvas_label_text_title" style="background-color:#f1f1f1;color:#38426b">	의정담당관</div>
+							<div class="user_info_canvas_label_text_content" style="background-color:#38426b;border-radius: 0 0 0px 0;color:white">의정</div>
+							<div class="user_info_canvas_label_text_content" style="background-color:#38426b;border-radius: 0 0 0px 0;color:white">도담동</div>
+							<div class="user_info_canvas_label_text_content" style="background-color:#38426b;border-radius: 0 0 0px 0;color:white;height:100%">301호</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="user_info_template_3">
+					<div class="stretch_wrap" style="width:230px;height:100px">
+						<div class="stretch_left_100percent" style="right:130px;margin-right:0px;padding:5px;border-radius:10px;background-color:#f1f1f1;z-index:1;">
+							<img src="/images/user4.png" style="max-height:100%;border-radius: 8px 8px 8px 8px"/>
+						</div>                  
+						<div class="stretch_right_100px" style="max-width:130px;">
+							<div class="user_info_canvas_label_text_no" style="display:none">user no</div>
+							<div class="user_info_canvas_label_text_title">의정담당관</div>
+							<div class="user_info_canvas_label_text_content">의정</div>
+							<div class="user_info_canvas_label_text_content">도담동</div>
+							<div class="user_info_canvas_label_text_content">301호</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="user_info_template_4">
+					<div class="stretch_wrap" style="width:100px;height:150px">
+						<div style="margin-right:0px;padding:5px 5px 0px 5px;border-radius:10px;background-color:#f1f1f1;z-index:1;">
+							<img src="/images/user4.png" style="max-height:100%;border-radius: 8px 8px 8px 8px"/>
+						</div>                  
+						<div class="stretch_right_100px" style="max-width:130px;padding: 0px 5px 0px 5px;">
+							<div class="user_info_canvas_label_text_no" style="display:none">user no</div>
+							<div class="user_info_canvas_label_text_title"  style="width:100%;height:22px;line-height:22px;
+								font-size: 15px;margin:0px 0px 0px 0px;padding-left: 0%;border-radius:5px 5px 5px 5px;background-color:#566688">의정담당관</div>
+							<div class="user_info_canvas_label_text_content" style="display:none">의정</div>
+							<div class="user_info_canvas_label_text_content" style="display:none">도담동</div>
+							<div class="user_info_canvas_label_text_content" style="height:100%">301호</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="user_info_template_5">
+					<div class="stretch_wrap" style="width:100px;height:150px">
+						<div style="margin-right:0px;padding:5px 5px 0px 5px;border-radius:10px;background-color:#f1f1f1;z-index:1;">
+							<img src="/images/user4.png" style="max-height:100%;border-radius: 8px 8px 8px 8px"/>
+						</div>                  
+						<div class="stretch_right_100px" style="max-width:130px;padding: 0px 5px 0px 5px;">
+							<div class="user_info_canvas_label_text_no" style="display:none">user no</div>
+							<div class="user_info_canvas_label_text_title"  style="width:100%;height:22px;line-height:22px;background-color:transparent;
+								font-size: 17px;margin:0px 0px 0px 0px;padding-left: 0%;border-radius:5px 5px 5px 5px;">의정담당관</div>
+							<div class="user_info_canvas_label_text_content" style="display:none;background-color:transparent;color: #2b2b2b">의정</div>
+							<div class="user_info_canvas_label_text_content" style="display:none;background-color:transparent;color: #2b2b2b">도담동</div>
+							<div class="user_info_canvas_label_text_content" style="height:100%;background-color:transparent;color: #2b2b2b">301호</div>
+						</div>
+					</div>
+				</div> -->
+			</div>
+		</div>
+
+		<!-- <div id="content" class="layout_max1000">
+
+			<div id="content_title" class="content_title_content_user">
+				<h3>민원지적과</h3>
+				<div class="position"><a href/"><img src="/images/house2_1.png"/></a> 민원지적과 > <span class="current">인원정보</span></div>
+				<div class="margin_20px"></div>
+				<div class="content_title1">부서별 배치 안내도입니다.</div>
+				<div class="content_title2">관리자 모드일 경우 해당위치를 자유롭게 이동하실 수 있습니다.</div>				
+				<div class="m_line"></div>
+			</div>
+
+			<div class="margin_20px"></div>
+
+			<div id="userscanvas_main" class="layout_max1000">
+				<div class="user_info_template_1">
+					<div class="stretch_wrap" style="width:230px;height:100px">
+						<div class="stretch_left_100percent" style="right:130px;margin-right:0px;padding:5px;border-radius:10px;background-color:#f1f1f1;z-index:1;">
+							<img src="/images/user4.png" style="max-height:100%;border-radius: 8px 8px 8px 8px"/>
+						</div>                  
+						<div class="stretch_right_100px" style="max-width:130px;">
+							<div class="user_info_canvas_label_text_title">의정담당관</div>
+							<div class="user_info_canvas_label_text_content">의정</div>
+							<div class="user_info_canvas_label_text_content">도담동</div>
+							<div class="user_info_canvas_label_text_content">301호</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> -->
+
+		<div class="margin_20px"></div>
+		<div class="margin_20px"></div>
+		
+		<!-- html페이지 로드 -->
+		<div id="footers"></div>
+	</div>
+
+	<!-- dialog -->
+	<div id="dialog_container_main" class="dialog-container"></div>
+	<div id="dialog_messagebox" class="dialog-container"></div>
+	<div id="dialog_userscanvas" class="dialog-container"></div>
+
+	<script>
+		//캔버스 줌 설정
+		var isEnablePanIcon = false;		//pan 아이콘 변화를 위한 신호
+		var canvas  = document.getElementById("userscanvas_main");
+		var canvas_map = panzoom(canvas , {
+			zoomSpeed: 0.1,
+			maxZoom: 10000,
+			minZoom: 0.00001,
+
+			beforeMouseDown: function(e) {	
+				//altkey가 눌러진 경우에만 pan 허용 (그외의 경우에는 무시)			
+				if (isEnablePanIcon == false) {
+					var shouldIgnore = !e.altKey;
+					return shouldIgnore;
+				}				
+			},
+
+			// beforeWheel: function(e) {
+			// 	//altkey가 눌러진 경우에만 wheel 허용 (그외의 경우에는 무시)	
+			// 	var shouldIgnore = !e.altKey;
+			// 	return shouldIgnore;
+			// }
+		});		
+		// canvas_map.on('pan', function(e) {
+		// 	canvas_map.pause();
+		// });
+
+		function init_buttonStyle() {
+			//document.getElementById('element_showgrid').src="/images/grid.png"
+			document.getElementById('element_select').src="/images/select2.png"
+			document.getElementById('element_info').src="/images/info2.png"
+			document.getElementById('element_move').src="/images/move2.png"
+			document.getElementById('element_add').src="/images/button1_add.png"
+			document.getElementById('element_remove').src="/images/button1_remove.png"
+
+			document.getElementById('canvas_zoom_in').src="/images/zoom_in.png"
+			document.getElementById('canvas_zoom_out').src="/images/zoom_out.png"
+			//document.getElementById('canvas_zoom_pan').src="/images/zoom_pan.png"
+			document.getElementById('canvas_zoom_extent').src="/images/zoom_extent.png"
+
+			canvas_map.resume();
+
+			isMoveElement = false;
+		}
+
+		//show grid
+		document.getElementById('element_showgrid').addEventListener('click', function() {
+			if (isShowGrid == true) {
+				document.getElementById('element_showgrid').src="/images/grid.png"
+			} else {
+				document.getElementById('element_showgrid').src="/images/selected_grid.png"
+			}
+		});
+
+		//사용자 정보 관련 기능 실행 시 panzoom 기능 멈춤
+		document.getElementById('element_select').addEventListener('click', function() {
+			init_buttonStyle();
+			document.getElementById('element_select').src="/images/selected_select2.png"
+
+			isEnableElement = true;
+			canvas_map.resume();
+		});
+		//사용자 정보 관련 기능 실행 시 panzoom 기능 멈춤
+		document.getElementById('element_info').addEventListener('click', function() {
+			init_buttonStyle();
+			document.getElementById('element_info').src="/images/selected_info2.png"
+
+			isEnableElement = true;
+			canvas_map.resume();
+		});
+		//사용자 정보 관련 기능 실행 시 panzoom 기능 멈춤
+		document.getElementById('element_move').addEventListener('click', function() {
+			init_buttonStyle();
+			document.getElementById('element_move').src="/images/selected_move2.png"
+
+			isMoveElement = true;
+			isEnablePanIcon = false;
+			document.getElementById('canvas_zoom_pan').src="/images/zoom_pan.png"
+			//canvas_map.pause();
+		});
+		//사용자 정보 관련 기능 실행 시 panzoom 기능 멈춤
+		document.getElementById('element_add').addEventListener('click', function() {
+			init_buttonStyle();
+			document.getElementById('element_add').src="/images/selected_button1_add.png"
+
+			canvas_map.resume();
+		});
+		//사용자 정보 관련 기능 실행 시 panzoom 기능 멈춤
+		document.getElementById('element_remove').addEventListener('click', function() {
+			init_buttonStyle();
+			document.getElementById('element_remove').src="/images/selected_remove.png"
+
+			canvas_map.resume();
+		});
+
+		//사용자 정보 관련 기능 실행 시 panzoom 기능 멈춤
+		document.getElementById('canvas_zoom_in').addEventListener('click', function() {
+			init_buttonStyle();
+			document.getElementById('canvas_zoom_in').src="/images/selected_zoom_in.png"
+
+			var canvas_centerX = canvas.clientWidth / 2;
+			var canvas_centerY = canvas.clientHeight / 2;
+			var transform = canvas_map.getTransform();
+
+			canvas_map.smoothZoom(
+				(canvas_centerX * transform.scale) + transform.x,
+				(canvas_centerY * transform.scale) + transform.y, 1.2
+			);
+		});
+
+		document.getElementById('canvas_zoom_out').addEventListener('click', function() {
+			init_buttonStyle();
+			document.getElementById('canvas_zoom_out').src="/images/selected_zoom_out.png"
+
+			var canvas_centerX = canvas.clientWidth / 2;
+			var canvas_centerY = canvas.clientHeight / 2;
+			var transform = canvas_map.getTransform();
+			
+			canvas_map.smoothZoom(
+				(canvas_centerX * transform.scale) + transform.x,
+				(canvas_centerY * transform.scale) + transform.y, 0.8
+			);
+		});
+
+		document.getElementById('canvas_zoom_pan').addEventListener('click', function() {
+			init_buttonStyle();
+
+			if (isEnablePanIcon == false) {
+				document.getElementById('canvas_zoom_pan').src="/images/selected_zoom_pan.png"
+				isEnableElement = false;		//사용자 정보 안보여지게 하기
+				isEnablePanIcon = true;
+			} else {
+				document.getElementById('canvas_zoom_pan').src="/images/zoom_pan.png"
+				isEnableElement = true;		//사용자 정보 보여지게 하기
+				isEnablePanIcon = false;
+			}
+		});
+		
+
+		document.getElementById('canvas_zoom_extent').addEventListener('click', function() {
+			init_buttonStyle();
+			document.getElementById('canvas_zoom_extent').src="/images/selected_zoom_extent.png"
+
+			var transform = canvas_map.getTransform();
+			transform.x = 0;
+			transform.y = 0;
+			transform.scale = 1;
+
+			canvas_map.zoomAbs(0, 0, 1);
+		});
+	</script>
+
+</body>
+</html>
