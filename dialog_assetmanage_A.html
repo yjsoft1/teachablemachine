@@ -1,0 +1,1419 @@
+<!-- <div class="dialog"> -->
+  <div class="modal-container">
+    <div class="modal-window">
+      <div class="modal-content">
+        
+        <!--페이지 타이틀-->
+        <div class="dialog-title1">
+          <ul>
+            <li>
+                <h5 id="dialog-title1-dialog_assetmanage_A">데이터 추가</h5>
+            </li>
+            <li style="float:right">
+                <img id="dialog-close-id_content_assetmanage_dialog_A" class="dialog-close" src="/images/close2.png" />
+            </li>
+          </ul>
+        </div>
+  
+        <div class="margin_33px"></div>
+  
+        <div class="dialog_paddingL10R10">
+          <div class="margin_10px"></div>
+          <!-- <div id="dialog-title2-dialog_assetmanage_A" class="dialog-title2">제품의 데이터를 추가하여 주시기 바랍니다.</div> -->
+          <div class="stretch_wrap layout_max1000" style="height:80px;">
+            <div class="stretch_left_100percent" style="right:80px;">
+              <div id="dialog-title2-dialog_assetmanage_A" class="dialog-title2">데이터를 추가하여 주시기 바랍니다.</div>
+            </div>
+            <div class="stretch_right_100px" style="max-width:80px">
+              <img id="dialog_write_image_1_A" src="/images/user3.png" class="round_image" data-magnify="gallery">
+            </div>
+          </div>
+          <div class="margin_10px"></div>
+        </div>
+  
+        <div id="container_A" class="dialog_paddingL10R10">
+          <!--content//-->
+          <div id="content_A">
+              <div id="dialog_write_A">
+                <table cellspacing="0" cellpadding="0" class="table_layout">
+                  <colgroup>
+                    <col width="25%" style="min-width:100px">
+                    <col width="75%">
+                  </colgroup>
+                  
+                <tbody>
+                  <tr>
+                    <th>모델명</th>
+                    <td><input id="dialog_write_code_model_A" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr>
+                  <tr>
+                    <th>시리얼번호</th>
+                    <td><input id="dialog_write_code_serial_A" type="text" class="inputbox1" maxlength="50"></td>
+                  </tr>
+                  <tr>
+                    <th>자산명</th>
+                    <td><input id="dialog_write_name_A" type="text" class="inputbox1" maxlength="50"></td>
+                  </tr>
+                  <!-- <tr>
+                    <th>자산종류</th>
+                    <td><input id="dialog_write_asset_A" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr> -->
+                  <tr>
+                    <th>품목</th>
+                    <td>  
+                      <div class="stretch_wrap" style="height:36px">
+                        <div id="dialog_write_asset_wrap_A" class="stretch_left_100percent" style="right:80px;">
+                          <select id="dialog_write_asset_A" class="select1">
+                          </select>
+                        </div>
+                        <div id="dialog_write_asset_change_warp_A" class="stretch_right_100px" style="max-width:80px">
+                          <a id="dialog_write_asset_change_A" href="#" class="button_style1">찾기</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>현재가</th>
+                    <td>
+                      <input id="dialog_write_price_current_A" type="text" class="inputbox1" maxlength="30" onkeyup="inputNumberFormat(this)"></td>
+                  </tr>
+                  <tr>
+                    <th>취득가</th>
+                    <td>
+                      <input id="dialog_write_price_purchase_A" type="text" class="inputbox1" maxlength="30" onkeyup="inputNumberFormat(this)"></td>
+                  </tr>
+                  <!-- <tr>
+                    <th>구매처</th>
+                    <td>
+                      <input id="dialog_write_company_purchase_A" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr> -->
+                  <tr>
+                    <th>구매처</th>
+                    <td>  
+                      <div class="stretch_wrap" style="height:36px">
+                        <div id="dialog_write_company_purchase_wrap_A" class="stretch_left_100percent" style="right:80px;">
+                          <select id="dialog_write_company_purchase_A" class="select1">
+                          </select>
+                        </div>
+                        <div id="dialog_write_company_purchase_change_warp_A" class="stretch_right_100px" style="max-width:80px">
+                          <a id="dialog_write_company_purchase_change_A" href="#" class="button_style1">찾기</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                    <th>고유번호</th>
+                    <td><input id="dialog_write_no_A" type="text" class="inputbox1" maxlength="30" readonly></td>
+                  </tr>
+                  <tr>
+                    <th>등록일자</th>
+                    <td><input id="dialog_write_regist_datetime_A" type="text" class="inputbox1" maxlength="30" readonly></td>
+                  </tr>
+                  <tr>
+                    <th>최종수정일자</th>
+                    <td><input id="dialog_write_lastsave_datetime_A" type="text" class="inputbox1" maxlength="30" readonly></td>
+                  </tr>
+                  <!-- <tr>
+                    <th>관리부서</th>
+                    <td><input id="dialog_write_dept_A" type="text" class="inputbox1" maxlength="30" ></td>
+                  </tr> -->
+                  <tr>
+                    <th>자산상태</th>
+                    <td>  
+                      <div class="stretch_wrap" style="height:36px">
+                        <div id="dialog_write_status_wrap_A" class="stretch_left_100percent" style="right:80px;">
+                          <select id="dialog_write_status_A" class="select1">
+                          </select>
+                        </div>
+                        <div id="dialog_write_status_change_warp_A" class="stretch_right_100px" style="max-width:80px">
+                          <a id="dialog_write_status_change_A" href="#" class="button_style1">찾기</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>관리부서</th>
+                    <td>  
+                      <div class="stretch_wrap" style="height:36px">
+                        <div id="dialog_write_dept_wrap_A" class="stretch_left_100percent" style="right:80px;">
+                          <select id="dialog_write_dept_A" class="select1">
+                          </select>
+                        </div>
+                        <div id="dialog_write_dept_change_warp_A" class="stretch_right_100px" style="max-width:80px">
+                          <a id="dialog_write_dept_change_A" href="#" class="button_style1">찾기</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- <tr>
+                    <th>관리자</th>
+                    <td><input id="dialog_write_user_A" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr> -->
+                  <tr>
+                    <th>관리자</th>
+                    <td>  
+                      <div class="stretch_wrap" style="height:36px">
+                        <div id="dialog_write_user_wrap_A" class="stretch_left_100percent" style="right:80px;">
+                          <select id="dialog_write_user_A" class="select1">
+                          </select>
+                        </div>
+                        <div id="dialog_write_user_change_warp_A" class="stretch_right_100px" style="max-width:80px">
+                          <a id="dialog_write_user_change_A" href="#" class="button_style1">찾기</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- <tr>
+                    <th>위치명</th>
+                    <td><input id="dialog_write_local_name_A" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr> -->
+                  <tr>
+                    <th>위치명</th>
+                    <td>  
+                      <div class="stretch_wrap" style="height:36px">
+                        <div id="dialog_write_local_name_wrap_A" class="stretch_left_100percent" style="right:80px;">
+                          <select id="dialog_write_local_name_A" class="select1">
+                          </select>
+                        </div>
+                        <div id="dialog_write_local_name_change_warp_A" class="stretch_right_100px" style="max-width:80px">
+                          <a id="dialog_write_local_name_change_A" href="#" class="button_style1">찾기</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>X좌표</th>
+                    <td><input id="dialog_write_x_A" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr>
+                  <tr>
+                    <th>Y좌표</th>
+                    <td><input id="dialog_write_y_A" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr>
+                  <tr>
+                    <th>RFID 코드</th>
+                    <td><input id="dialog_write_code_device_A" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr>
+                  <tr>
+                    <th>기타</th>
+                    <td><input id="dialog_write_etc_A" type="text" class="inputbox1" maxlength="255" ></td>
+                  </tr>
+                  <tr>
+                    <th>이미지</th>
+                    <td>
+                      <div class="stretch_wrap" style="height:36px">
+                        <div class="stretch_left_100percent" style="right:36px;margin-right: 3px">
+                          <input id="print_selected_imagename_A" type="text" class="inputbox1">
+                        </div>
+                        <div class="stretch_right_100px file_find" style="max-width:36px;">
+                          <input id="dialog_write_image_A" type="file"/>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody></table>
+              </div>
+            
+              <div class="dialog-buttons">
+                <button id="btnSave_content_assetmanage_dialog_A" class="button">저장</button>
+                <button id="btnCancel_content_assetmanage_dialog_A" class="button">취소</button>
+              </div>
+            </div>
+              <!--//content-->
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <!-- loading message -->
+  <div class="loading-container div_center_horizontally_vertically" style="position:fixed;margin:auto;display:none;">
+      <div class="loading"></div>
+      <div id="loading-text">기다려주세요</div>
+  </div>
+    
+  <script>
+    //inputbox 포커스
+    $(document).ready(function() {
+  
+      //모바일 화면일 경우 다이어로그가 위로 올라가는 현상 수정 (리사이즈 적용)
+      window.onresize = function(event) {
+        change_top_margin_assetmanage();
+      };
+      //모바일 화면일 경우 다이어로그가 위로 올라가는 현상 수정
+      change_top_margin_assetmanage();
+  
+      //구매처, 사용자, 부서, 윛, 품목 항목 추가
+      selectCompanyPhrcahse();
+      selectUsers();
+      selectStatus();
+      selectDept();
+      selectLocation();
+      selectAsset();
+  
+  
+      ///////////////////////////////////////////////////////////////////////
+      //이미지 뷰어
+      imageViewer_init();
+      //이미지 추가 이벤트
+      document.getElementById('dialog_write_image_A').addEventListener('click', function() {
+        this.value = null;      
+      }, false);
+      document.getElementById('dialog_write_image_A').addEventListener('change', function() {
+        check_image();
+      }, false);
+      // $('#dialog_write_image_A').change(function(e) {
+      //     check_image();
+      // });
+      function check_image() {
+        var image_name = event.srcElement.value;
+        if((/(.gif|.jpg|.bmp|.png)$/i).test(image_name)){
+          //print file path
+          document.getElementById("print_selected_imagename_A").value = image_name; //input 이미지 경로
+          //이미지 임시 보기
+          document.getElementById("dialog_write_image_1_A").src = URL.createObjectURL(document.getElementById("dialog_write_image_A").files[0]);         //이미지
+          document.getElementById("dialog_write_image_1_A").classList.add("round_image");
+          
+          $('#dialog_write_image_1_A').attr('data-src', document.getElementById("dialog_write_image_1_A").src);  //이미지 확대할 때 소스
+        } else if (image_name == "") {
+        } else {
+          messagebox_show(false, "이미지 저장", "gif, jpg, bmp, png 파일만 저장 가능합니다.", null, false, true);
+        }
+      }
+      ///////////////////////////////////////////////////////////////////////
+  
+  
+  
+  
+  
+  
+      ////////////////////
+      //품목 변경
+      ///////////////////
+      document.getElementById('dialog_write_asset_change_A').addEventListener('click', function() {
+        //컨테이너의 내용을 지우고 새 다이어로그 추가
+        document.getElementById("dialog_container_pop").innerHTML = "";
+        //스크립트 정의
+        var script = document.createElement('script');
+        script.id = 'id_table_asset_pop';
+        script.src = '/js/table_asset_pop.js';
+        //script 추가 여부 확인 후 헤더 스크립트 삭제
+        var scripts = document.getElementsByTagName('script');
+        for (var i = scripts.length; i--;) {
+          if (scripts[i].id == 'id_table_asset_pop') {
+            document.head.removeChild(scripts[i])
+            break;
+          }
+        }
+        //헤더에 스크립트 추가
+        document.head.appendChild(script);    
+  
+        //loading message
+        document.getElementsByClassName('loading-container')[0].style.display = 'block';
+  
+        //품목 내용 추가
+        $("#dialog_container_pop").load("/dialog_asset_pop.html", function(e) {
+          load_asset_dialog_users();
+        });
+  
+        function load_asset_dialog_users() {
+          setTimeout(function() {
+            if (document.getElementsByClassName('dt-buttons')[1] == null) {
+              load_asset_dialog_users();
+            } else {
+              //loading message
+              document.getElementsByClassName('loading-container')[0].style.display = 'none';
+  
+              //datatables GUI 안보이게 하기
+              //document.getElementsByClassName('dt-buttons')[1].style.display = 'none';     //추가,삭제,엑셀, 기본뷰 버튼 보이지 않게 하기(dept_pop 다이어로그 종료시 원래대로)
+              document.getElementsByClassName('dt-buttons')[1].getElementsByClassName('dt-button')[0].style.display = 'none';
+              document.getElementsByClassName('dt-buttons')[1].getElementsByClassName('dt-button')[2].style.display = 'none';
+              document.getElementsByClassName('dt-buttons')[1].getElementsByClassName('dt-button')[3].style.display = 'none';
+  
+              app_dialog_pop.table.column(1).visible(false);      //columns visible, 체크박스 컬럼 안보이게 하기
+              //document.getElementById('id_table_column_sequence_pop').style.display = 'none';   //좌측 상단 datatables + 버튼 안보이게 하기
+              
+              //dialog 보이기
+              //dialog 생성여부 확인
+              var dialog_write_asset_change = document.getElementById("dialog_container_pop");
+              if (dialog_write_asset_change != null) {
+                dialog_write_asset_change.classList.add('dialog-container--visible');
+              }
+  
+              //dialog 취소버튼 visible
+              //document.getElementById('btnCancel_dialog_asset_change').style.display = 'none';
+              //body scoll on
+              scroll_body_on_off(true);
+  
+              document.getElementById('btnSave_messagebox').focus();
+            }
+          }, 300);
+        }
+        
+      });
+  
+  
+  
+  
+      ///////////////////
+      //구매처 변경
+      ///////////////////
+      document.getElementById('dialog_write_company_purchase_change_A').addEventListener('click', function() {
+        //컨테이너의 내용을 지우고 새 다이어로그 추가
+        document.getElementById("dialog_container_main").innerHTML = "";
+  
+        //스크립트 정의
+        var script = document.createElement('script');
+        script.id = 'id_table_company_pop';
+        script.src = '/js/table_company.js';
+        //script 추가 여부 확인 후 헤더 스크립트 삭제
+        var scripts = document.getElementsByTagName('script');
+        for (var i = scripts.length; i--;) {
+          if (scripts[i].id == 'id_table_company_pop') {
+            document.head.removeChild(scripts[i])
+            break;
+          }
+        }
+        //헤더에 스크립트 추가
+        document.head.appendChild(script);    
+    
+        //loading message
+        document.getElementsByClassName('loading-container')[0].style.display = 'block';
+  
+        //구매처 내용 추가
+        $("#dialog_container_main").load("/dialog_company_pop.html", function(e) {
+          load_company_dialog_assetmanage_A();
+        });
+  
+        function load_company_dialog_assetmanage_A() {
+          setTimeout(function() {
+            if (document.getElementsByClassName('tableid_table_company')[0] == null) {
+              load_company_dialog_assetmanage_A();
+            } else {
+              //loading message
+              document.getElementsByClassName('loading-container')[0].style.display = 'none';
+  
+              //datatables GUI 안보이게 하기
+              var dt_button_count = 1;
+              if (document.getElementsByClassName('dt-buttons')[2] != null) {
+                dt_button_count = 2;
+              }
+              //document.getElementsByClassName('dt-buttons')[2].style.display = 'none';     //추가,삭제,엑셀, 기본뷰 버튼 보이지 않게 하기(dept_pop 다이어로그 종료시 원래대로)
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[0].style.display = 'none';
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[2].style.display = 'none';
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[3].style.display = 'none';
+              
+              app_dialog.table.column(1).visible(false);      //columns visible, 체크박스 컬럼 안보이게 하기
+             // document.getElementById('id_table_column_sequence_pop').style.display = 'none';   //좌측 상단 datatables + 버튼 안보이게 하기
+  
+              //dialog 보이기
+              //dialog 생성여부 확인
+              var dialog_write_company_purchase_change_A = document.getElementById("dialog_container_main");
+              if (dialog_write_company_purchase_change_A != null) {
+                dialog_write_company_purchase_change_A.classList.add('dialog-container--visible');
+              }
+  
+              //dialog 취소버튼 visible
+              //document.getElementById('btnCancel_dialog_auth_change').style.display = 'none';
+              //body scoll on
+              scroll_body_on_off(true);
+  
+              document.getElementById('btnSave_messagebox').focus();
+            }
+          }, 50);
+        }
+        
+      });
+  
+  
+  
+  
+      ///////////////////
+      //상태 변경
+      ///////////////////
+      document.getElementById('dialog_write_status_change_A').addEventListener('click', function() {
+        //컨테이너의 내용을 지우고 새 다이어로그 추가
+        document.getElementById("dialog_container_pop").innerHTML = "";
+        //스크립트 정의
+        var script = document.createElement('script');
+        script.id = 'id_table_status_pop';
+        script.src = '/js/table_status_pop.js';
+        //script 추가 여부 확인 후 헤더 스크립트 삭제
+        var scripts = document.getElementsByTagName('script');
+        for (var i = scripts.length; i--;) {
+          if (scripts[i].id == 'id_table_status_pop') {
+            document.head.removeChild(scripts[i])
+            break;
+          }
+        }
+        //헤더에 스크립트 추가
+        document.head.appendChild(script);    
+    
+        //loading message
+        document.getElementsByClassName('loading-container')[0].style.display = 'block';
+  
+        //자산상태 내용 추가
+        $("#dialog_container_pop").load("/dialog_status_pop.html", function(e) {
+          load_status_dialog_assetmanage_A();
+        });
+  
+        function load_status_dialog_assetmanage_A() {
+          setTimeout(function() {
+            if (document.getElementsByClassName('dt-buttons')[1] == null) {
+              load_status_dialog_assetmanage_A();
+            } else {
+              //loading message
+              document.getElementsByClassName('loading-container')[0].style.display = 'none';
+  
+              //datatables GUI 안보이게 하기
+              //document.getElementsByClassName('dt-buttons')[1].style.display = 'none';     //추가,삭제,엑셀, 기본뷰 버튼 보이지 않게 하기(dept_pop 다이어로그 종료시 원래대로)
+              var dt_button_count = 1;
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[0].style.display = 'none';
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[1].style.display = 'none';
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[2].style.display = 'none';
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[3].style.display = 'none';
+  
+              app_dialog_pop.table.column(1).visible(false);      //columns visible, 체크박스 컬럼 안보이게 하기
+              //document.getElementById('id_table_column_sequence_pop').style.display = 'none';   //좌측 상단 datatables + 버튼 안보이게 하기
+  
+              //dialog 보이기
+              //dialog 생성여부 확인
+              var dialog_write_status_change = document.getElementById("dialog_container_pop");
+              if (dialog_write_status_change != null) {
+                dialog_write_status_change.classList.add('dialog-container--visible');
+              }
+  
+              //dialog 취소버튼 visible
+              //document.getElementById('btnCancel_dialog_type_change').style.display = 'none';
+              //body scoll on
+              scroll_body_on_off(true);
+  
+              document.getElementById('btnSave_messagebox').focus();
+  
+              //document.getElementById('modal-container').style.zIndex = 9000;
+            }
+          }, 300);
+        }
+  
+      });
+  
+      ///////////////////
+      //부서 변경
+      ///////////////////
+      document.getElementById('dialog_write_dept_change_A').addEventListener('click', function() {
+        //컨테이너의 내용을 지우고 새 다이어로그 추가
+        document.getElementById("dialog_container_pop").innerHTML = "";
+        //스크립트 정의
+        var script = document.createElement('script');
+        script.id = 'id_table_dept_pop';
+        script.src = '/js/table_dept_pop.js';
+        //script 추가 여부 확인 후 헤더 스크립트 삭제
+        var scripts = document.getElementsByTagName('script');
+        for (var i = scripts.length; i--;) {
+          if (scripts[i].id == 'id_table_dept_pop') {
+            document.head.removeChild(scripts[i])
+            break;
+          }
+        }
+        //헤더에 스크립트 추가
+        document.head.appendChild(script);    
+    
+        //loading message
+        document.getElementsByClassName('loading-container')[0].style.display = 'block';
+  
+        //부서 내용 추가
+        $("#dialog_container_pop").load("/dialog_dept_pop.html", function(e) {
+          load_dept_dialog_users();
+        });
+  
+        function load_dept_dialog_users() {
+          setTimeout(function() {
+            if (document.getElementsByClassName('dt-buttons')[1] == null) {
+              load_dept_dialog_users();
+            } else {
+              //loading message
+              document.getElementsByClassName('loading-container')[0].style.display = 'none';
+  
+              //datatables GUI 안보이게 하기
+              //document.getElementsByClassName('dt-buttons')[1].style.display = 'none';     //추가,삭제,엑셀, 기본뷰 버튼 보이지 않게 하기(dept_pop 다이어로그 종료시 원래대로)
+              var dt_button_count = 1;
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[0].style.display = 'none';
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[1].style.display = 'none';
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[2].style.display = 'none';
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[3].style.display = 'none';
+  
+              app_dialog_pop.table.column(1).visible(false);      //columns visible, 체크박스 컬럼 안보이게 하기
+              //document.getElementById('id_table_column_sequence_pop').style.display = 'none';   //좌측 상단 datatables + 버튼 안보이게 하기
+  
+              //dialog 보이기
+              //dialog 생성여부 확인
+              var dialog_write_dept_change = document.getElementById("dialog_container_pop");
+              if (dialog_write_dept_change != null) {
+                dialog_write_dept_change.classList.add('dialog-container--visible');
+              }
+  
+              //dialog 취소버튼 visible
+              //document.getElementById('btnCancel_dialog_dept_change').style.display = 'none';
+              //body scoll on
+              scroll_body_on_off(true);
+  
+              document.getElementById('btnSave_messagebox').focus(); 
+            }
+          }, 300);
+        }
+  
+      });
+  
+  
+  
+  
+  
+      ///////////////////
+      //관리자 변경
+      ///////////////////
+      document.getElementById('dialog_write_user_change_A').addEventListener('click', function() {
+        //컨테이너의 내용을 지우고 새 다이어로그 추가
+        document.getElementById("dialog_container_main").innerHTML = "";
+  
+        //스크립트 정의
+        var script = document.createElement('script');
+        script.id = 'id_table_users_pop';
+        script.src = '/js/table_users.js';
+        //script 추가 여부 확인 후 헤더 스크립트 삭제
+        var scripts = document.getElementsByTagName('script');
+        for (var i = scripts.length; i--;) {
+          if (scripts[i].id == 'id_table_users_pop') {
+            document.head.removeChild(scripts[i])
+            break;
+          }
+        }
+        //헤더에 스크립트 추가
+        document.head.appendChild(script);    
+    
+        //loading message
+        document.getElementsByClassName('loading-container')[0].style.display = 'block';
+  
+        //관리자 내용 추가
+        $("#dialog_container_main").load("/dialog_users_pop.html", function(e) {
+          load_users_dialog_assetmanage_A();
+        });
+  
+        function load_users_dialog_assetmanage_A() {
+          setTimeout(function() {
+            if (document.getElementsByClassName('tableid_table_users')[0] == null) {
+              load_users_dialog_assetmanage_A();
+            } else {
+              //loading message
+              document.getElementsByClassName('loading-container')[0].style.display = 'none';
+  
+              //datatables GUI 안보이게 하기
+              var dt_button_count = 1;
+              if (document.getElementsByClassName('dt-buttons')[2] != null) {
+                dt_button_count = 2;
+              }
+              //document.getElementsByClassName('dt-buttons')[2].style.display = 'none';     //추가,삭제,엑셀, 기본뷰 버튼 보이지 않게 하기(dept_pop 다이어로그 종료시 원래대로)
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[0].style.display = 'none';
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[1].style.display = 'none';
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[2].style.display = 'none';
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[3].style.display = 'none';
+              //document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[3].style.display = 'none';
+  
+              app_dialog.table.column(1).visible(false);      //columns visible, 체크박스 컬럼 안보이게 하기
+              //document.getElementById('id_table_column_sequence_pop').style.display = 'none';   //좌측 상단 datatables + 버튼 안보이게 하기
+              
+              //dialog 보이기
+              //dialog 생성여부 확인
+              var dialog_write_user_change_A = document.getElementById("dialog_container_main");
+              if (dialog_write_user_change_A != null) {
+                dialog_write_user_change_A.classList.add('dialog-container--visible');
+              }
+  
+              //dialog 취소버튼 visible
+              //document.getElementById('btnCancel_dialog_auth_change').style.display = 'none';
+              //body scoll on
+              scroll_body_on_off(true);
+  
+              document.getElementById('btnSave_messagebox').focus();
+            }
+          }, 300);
+        }
+  
+      });
+  
+      
+  
+      ///////////////////
+      //위치 변경
+      ///////////////////
+      document.getElementById('dialog_write_local_name_change_A').addEventListener('click', function() {
+        //컨테이너의 내용을 지우고 새 다이어로그 추가
+        document.getElementById("dialog_container_pop").innerHTML = "";
+        //스크립트 정의
+        var script = document.createElement('script');
+        script.id = 'id_table_location_pop';
+        script.src = '/js/table_location_pop.js';
+        //script 추가 여부 확인 후 헤더 스크립트 삭제
+        var scripts = document.getElementsByTagName('script');
+        for (var i = scripts.length; i--;) {
+          if (scripts[i].id == 'id_table_location_pop') {
+            document.head.removeChild(scripts[i])
+            break;
+          }
+        }
+        //헤더에 스크립트 추가
+        document.head.appendChild(script);    
+    
+        //loading message
+        document.getElementsByClassName('loading-container')[0].style.display = 'block';
+  
+        //위치 내용 추가
+        $("#dialog_container_pop").load("/dialog_location_pop.html", function(e) {
+          load_location_dialog_users();
+        });
+  
+        function load_location_dialog_users() {
+          setTimeout(function() {
+            if (document.getElementsByClassName('dt-buttons')[1] == null) {
+              load_location_dialog_users();
+            } else {
+              //loading message
+              document.getElementsByClassName('loading-container')[0].style.display = 'none';
+  
+              //datatables GUI 안보이게 하기
+              //document.getElementsByClassName('dt-buttons')[1].style.display = 'none';     //추가,삭제,엑셀, 기본뷰 버튼 보이지 않게 하기(dept_pop 다이어로그 종료시 원래대로)
+              var dt_button_count = 1;
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[0].style.display = 'none';
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[1].style.display = 'none';
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[2].style.display = 'none';
+              document.getElementsByClassName('dt-buttons')[dt_button_count].getElementsByClassName('dt-button')[3].style.display = 'none';
+  
+              app_dialog_pop.table.column(1).visible(false);      //columns visible, 체크박스 컬럼 안보이게 하기
+              //document.getElementById('id_table_column_sequence_pop').style.display = 'none';   //좌측 상단 datatables + 버튼 안보이게 하기
+  
+              //dialog 보이기
+              //dialog 생성여부 확인
+              var dialog_write_dept_change = document.getElementById("dialog_container_pop");
+              if (dialog_write_dept_change != null) {
+                dialog_write_dept_change.classList.add('dialog-container--visible');
+              }
+  
+              //dialog 취소버튼 visible
+              //document.getElementById('btnCancel_dialog_dept_change').style.display = 'none';
+              //body scoll on
+              scroll_body_on_off(true);
+  
+              document.getElementById('btnSave_messagebox').focus(); 
+            }
+          }, 300);
+        }
+      });
+  
+      
+  
+      // //특수문자 제한
+      // document.getElementById('dialog_write_name_A').addEventListener('input', function(e) {
+      //   //var result = check_string2(this.value);           //공백, 특수문자 확인
+  
+      //   if (result != "ok") {
+      //     messagebox_show(false, "입력값 제한", result, null, false, true);
+      //     this.value = remove_space_string(this.value);   //공백제거
+      //     this.value = remove_special_string(this.value); //특수문자 제거
+      //   }
+      // });
+  
+      //데이터 삭제
+      document.getElementById('btnSave_messagebox').addEventListener('click', function() {
+        var title_messagebox = document.getElementById('dialog-title1-messagebox1').textContent;
+        if (title_messagebox != "데이터 삭제") {
+          return;
+        }
+  
+        //체크박스 선택 데이터 가져오기 (app_dialog 변수는 table_assetmanage_A.js 파일에서 전역변수처럼 사용)
+        var sendData = app_dialog.function_getSelectDataValue();
+  
+        //JSON
+        var url = url_json + "jsonservice/rest/assetmanage/delete_assetmanageinfo";      //delete
+        JSON_POST(url, sendData, false, sessionStorage.getItem(token_yj_rfms), function (result) {
+          if (result[0] == "ok") {
+            //결과 출력
+            messagebox_show(false, "데이터 삭제 완료", result, null, false, true);
+            //gui 삭제
+            for (var i = 0; i < sendData.length; i++) {
+              for (var k = 0; k < app_dialog.table.rows().count(); k++) {
+                if (sendData[i] == app_dialog.table.rows(k).data()[0].no) {                
+                  app_dialog.table.row(k).remove().draw(false);
+                  k--;
+                }
+              }
+            }
+  
+            //dataSet 삭제
+            for (var i = 0; i < sendData.length; i++) {
+              for (var k = 0; k < app_dialog.dataSet.length; k++) {
+                if (sendData[i] == app_dialog.dataSet[k].no) {                
+                  app_dialog.dataSet.splice(k, 1);
+                  k--;
+                }
+              }            
+            }
+  
+          } else {
+            messagebox_show(false, "데이터 삭제 실패", result, null, false, true);
+          }
+        });
+      });
+  
+  
+      ////////////////////////////
+      //창 종료
+      ////////////////////////////
+      //저장 (확인버튼)
+      document.getElementById('btnSave_content_assetmanage_dialog_A').addEventListener('click', function() {
+        if (document.getElementById('dialog-title1-dialog_assetmanage_A').textContent == "자산 정보 추가") {
+          send_info(true);
+        } else if (document.getElementById('dialog-title1-dialog_assetmanage_A').textContent == "자산 정보 일괄 수정") {
+          //input text가 존재한다면 배경색을 변경
+          var saveColumnName = check_inputdata();    ////값이 존재하는 db컬럼명 반환
+  
+          //저장 메시지 출력 후 자산가 확인 버튼을 누르면 db에 저장
+          messagebox_show(true, "데이터 저장", "입력하신 정보를 일괄적으로 모두 변경하여 저장합니다. 계속하시겠습니까?", function(e) {
+            if (e == "ok") {
+              //save db
+              //파일 가져오기
+              var getImageFile = document.getElementById("dialog_write_image_A").files[0];
+  
+              FileToBase64(getImageFile, function(result_image) {
+  
+                var sendData = {
+                  no: parseInt(document.getElementById("dialog_write_no_A").value) || 0,
+                  //select: false,
+                  //as_code_model: document.getElementById("dialog_write_code_model_A").value,
+                  //as_code_serial: document.getElementById("dialog_write_code_serial_A").value,
+                  as_name: document.getElementById("dialog_write_name_A").value,
+                  as_type: document.getElementById("dialog_write_asset_A").value,
+                  as_price_current: document.getElementById("dialog_write_price_current_A").value,
+                  as_price_purchase: document.getElementById("dialog_write_price_purchase_A").value,
+                  as_company_purchase: document.getElementById("dialog_write_company_purchase_A").value,
+                  //as_regist_datetime: document.getElementById("dialog_write_regist_datetime_A").value,
+                  as_lastsave_datetime: currentDateTime(),
+                  as_status: document.getElementById("dialog_write_status_A").value,
+                  as_dept: document.getElementById("dialog_write_dept_A").value,
+                  as_user: document.getElementById("dialog_write_user_A").value,
+                  as_local_name: document.getElementById("dialog_write_local_name_A").value,
+                  as_x: document.getElementById("dialog_write_x_A").value,
+                  as_y: document.getElementById("dialog_write_y_A").value,                
+                  //as_code_device: document.getElementById("dialog_write_code_device_A").value,
+                  as_etc: document.getElementById("dialog_write_etc_A").value,
+                  as_image: result_image,
+                  batchSaveNo: app_dialog.function_getSelectDataValue(),
+                  batchSaveColumnName: saveColumnName,
+                }
+  
+                //JSON
+                var url = url_json + "jsonservice/rest/assetmanage/update_assetmanageinfo_batch";      //batch update              
+                JSON_POST(url, sendData, false, sessionStorage.getItem(token_yj_rfms), function (result) {
+                  if (result[0] == "ok") {
+                    messagebox_show(false, "데이터 저장", result, null, false, true);
+                    
+                    setTimeout(function() {
+                      location.reload(true);
+                    }, 2000);
+                    // //데이터 추가, 수정
+                    //   //gui 수정
+                    //   for (var k = 0; k < app_dialog.table.rows().count(); k++) {
+                    //     if (sendData.no == app_dialog.table.rows(k).data()[0].no) {
+                    //       //app_dialog.table.row(k).data() = sendData;
+                    //       app_dialog.table.row(k).data(sendData);
+  
+                    //       //순차적 인덱스가 삭제되므로 다시 그려줌
+                    //       app_dialog.table.column(app_dialog.index_id_position, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                    //         //cell.innerHTML = i + 1;   //Asc (주석 해제 시 Desc)
+                    //       });
+                    //     }
+                    //   }
+  
+                    //   //dataSet 수정
+                    //   for (var k = 0; k < app_dialog.dataSet.length; k++) {
+                    //     if (sendData.no == app_dialog.dataSet[k].no) {
+                    //       app_dialog.dataSet[k] = sendData;
+                    //     }
+                    //   }
+                    
+                    
+                  } else {
+                    messagebox_show(false, "데이터 저장 실패", result, null, false, true);
+                  }
+                });
+              });
+            }
+          }, false, true);
+        } else {
+          send_info(false);      
+        }
+        //메시지박스 출력
+        //messagebox_show(false, "데이터 저장", "저장되었습니다.", null, false, true);
+        //dialog_close();
+      });
+  
+      //창 닫기 (종료버튼)
+      document.getElementById('btnCancel_content_assetmanage_dialog_A').addEventListener('click', function() {
+        dialog_close();
+      });
+  
+      document.getElementById('dialog-close-id_content_assetmanage_dialog_A').addEventListener('click', function() {
+        dialog_close();
+      });
+  
+      document.getElementById('dialog-close-id_content_assetmanage_dialog_A').addEventListener('mouseover', function() {
+        var closeButton = document.getElementById('dialog-close-id_content_assetmanage_dialog_A');
+        closeButton.src = "/images/close4.png";
+      });
+  
+      document.getElementById('dialog-close-id_content_assetmanage_dialog_A').addEventListener('mouseleave', function() {
+        var closeButton = document.getElementById('dialog-close-id_content_assetmanage_dialog_A');
+        closeButton.src = "/images/close2.png";
+      });
+  
+      //윈도우 닫기 아이콘    
+      window.addEventListener("keydown", function(e){
+        if (e.keyCode == 27) {                    //esc
+          if (check_dialog_visible("dialog_messagebox") == true) {
+            messagebox_close();                   //dialog_messagebox.html 페이지 함수
+          } else if (check_dialog_visible("dialog_container_main") == true){
+            if (document.getElementById("dialog_company_pop") != null) {
+              dialog_close_company_pop();      
+            }
+            if (document.getElementById("dialog_users_pop") != null) {
+              dialog_close_users_pop();      
+            }
+          } else if (check_dialog_visible("dialog_container_pop") == true){
+            if (document.getElementById("dialog_asset_pop") != null) {
+              dialog_close_asset_pop();      
+            }
+            if (document.getElementById("dialog_status_pop") != null) {            
+              dialog_close_status_pop();      
+            }
+            if (document.getElementById("dialog_dept_pop") != null) {            
+              dialog_close_dept_pop();      
+            }
+            if (document.getElementById("dialog_location_pop") != null) {
+              dialog_close_location_pop();      
+            }
+          } else {
+            dialog_close();
+          }        
+        }
+      });
+  
+      function change_top_margin_assetmanage() {
+        //모바일일 경우 다이어로그 top 변경
+        if (matchMedia("screen and (max-width:480px)").matches) {           //스마트폰이 세로인 경우
+          $("#dialog_assetmanage_A .dialog").css("marginTop", "650px");
+        } else {
+          $("#dialog_assetmanage_A .dialog").css("marginTop", "20px");
+        }
+        
+        if (matchMedia("screen and (max-height:480px)").matches) {          //스마트폰을 가로로 눕힌 경우
+          $("#dialog_assetmanage_A .dialog").css("marginTop", "650px");
+        }
+      }
+  
+      function dialog_close(){
+        //var app = document.querySelector('.dialog-container');
+        var dialog_assetmanage_A = document.getElementById("dialog_assetmanage_A");
+        if (dialog_assetmanage_A != null) {
+          dialog_assetmanage_A.classList.remove('dialog-container--visible');                
+  
+          //body scoll on
+          scroll_body_on_off(true);
+        }
+      }
+        
+      function send_info(isAdd) {
+        //파일 가져오기
+        var getImageFile = document.getElementById("dialog_write_image_A").files[0];
+  
+        //수정일 경우 등록일자 변경하지 않기
+        var regist_datetime = currentDateTime();
+        if (isAdd == false) {
+          regist_datetime = document.getElementById("dialog_write_regist_datetime_A").value;
+        }
+  
+        //셀렉트 박스
+        var as_type_value = "";
+        if (document.getElementById("dialog_write_asset_A").selectedIndex > -1) {
+          as_type_value = document.getElementById("dialog_write_asset_A").options[document.getElementById("dialog_write_asset_A").selectedIndex].text;
+        }
+  
+        var as_company_purchase_value = "";
+        if (document.getElementById("dialog_write_company_purchase_A").selectedIndex > -1) {
+          as_company_purchase_value = document.getElementById("dialog_write_company_purchase_A").options[document.getElementById("dialog_write_company_purchase_A").selectedIndex].text;
+        }
+        
+        var as_status_value = "";
+        if (document.getElementById("dialog_write_status_A").selectedIndex > -1) {
+          as_status_value = document.getElementById("dialog_write_status_A").options[document.getElementById("dialog_write_status_A").selectedIndex].text;
+        }
+  
+        var as_dept_value = "";
+        if (document.getElementById("dialog_write_dept_A").selectedIndex > -1) {
+          as_dept_value = document.getElementById("dialog_write_dept_A").options[document.getElementById("dialog_write_dept_A").selectedIndex].text;
+        }
+  
+        var as_user_value = "";
+        if (document.getElementById("dialog_write_user_A").selectedIndex > -1) {
+          as_user_value = document.getElementById("dialog_write_user_A").options[document.getElementById("dialog_write_user_A").selectedIndex].text;
+        }
+  
+        var as_local_name_value = "";
+        if (document.getElementById("dialog_write_local_name_A").selectedIndex > -1) {
+          as_local_name_value = document.getElementById("dialog_write_local_name_A").options[document.getElementById("dialog_write_local_name_A").selectedIndex].text;
+        }
+  
+        FileToBase64(getImageFile, function(result_image) {
+          var sendData = {
+              no: parseInt(document.getElementById("dialog_write_no_A").value) || 0,
+              select: false,
+  
+              as_code_model: document.getElementById("dialog_write_code_model_A").value,             
+              as_code_serial: document.getElementById("dialog_write_code_serial_A").value,
+              as_name: document.getElementById("dialog_write_name_A").value,
+              as_type: as_type_value,
+              as_price_current: uncomma(document.getElementById("dialog_write_price_current_A").value),
+              as_price_purchase: uncomma(document.getElementById("dialog_write_price_purchase_A").value),
+              as_company_purchase: as_company_purchase_value,
+              as_regist_datetime: regist_datetime,
+              as_lastsave_datetime: currentDateTime(),
+              as_status: as_status_value,
+              as_dept: as_dept_value,
+              as_user: as_user_value,
+              as_local_name: as_local_name_value,
+              as_x: document.getElementById("dialog_write_x_A").value,
+              as_y: document.getElementById("dialog_write_y_A").value,
+              as_code_device: document.getElementById("dialog_write_code_device_A").value,
+              as_etc: document.getElementById("dialog_write_etc_A").value,
+              as_image: result_image,
+              as_etc: document.getElementById("dialog_write_etc_A").value,
+            }
+  
+            if (sendData.as_name.trim() == "") {
+              messagebox_show(false, "데이터 입력", "자산명을 입력하여 주시기 바랍니다.", null, false, true);
+              return;
+            }
+  
+            //JSON
+            var url = url_json + "jsonservice/rest/assetmanage/update_assetmanageinfo";      //insert / update 선택
+            if (isAdd) {
+              url = url_json + "jsonservice/rest/assetmanage/insert_assetmanageinfo";
+            }
+            //var url = "http://127.0.0.1:31419/jsonservice/rest/assetmanage/insert_userinfo";
+            JSON_POST(url, sendData, false, sessionStorage.getItem(token_yj_rfms), function (result) {
+              if (result[0] == "ok") {
+                messagebox_show(false, "데이터 저장", result, null, false, true);
+                //데이터 추가, 수정
+                if (isAdd) {
+                  sendData.no = result[2];                          //서버로부터 반환된 자동증가번호 저장 (고유번호: no)
+                  app_dialog.table.row.add(sendData).draw(false);   //gui 추가
+                  app_dialog.dataSet.push(sendData);                //dataSet 추가
+                } else {
+                  //gui 수정
+                  for (var k = 0; k < app_dialog.table.rows().count(); k++) {
+                    if (sendData.no == app_dialog.table.rows(k).data()[0].no) {
+                      //app_dialog.table.row(k).data() = sendData;
+                      app_dialog.table.row(k).data(sendData);
+  
+                      //순차적 인덱스가 삭제되므로 다시 그려줌
+                      app_dialog.table.column(app_dialog.index_id_position, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                        //cell.innerHTML = i + 1;   //Asc (주석 해제 시 Desc)
+                      });
+                    }
+                  }
+  
+                  //dataSet 수정
+                  for (var k = 0; k < app_dialog.dataSet.length; k++) {
+                    if (sendData.no == app_dialog.dataSet[k].no) {
+                      app_dialog.dataSet[k] = sendData;
+                    }
+                  }
+                }
+            } else {
+              messagebox_show(false, "데이터 저장 실패", result, null, false, true);
+            }
+          });
+        });
+      }
+  
+      
+  
+      // function send_checkUser(rValue) {
+      //     var sendData = document.getElementById("dialog_write_user_A_id").value;
+      //     //JSON
+      //     var url = url_json + "jsonservice/rest/assetmanage/check_assetmanage";
+      //     JSON_POST(url, sendData, false, sessionStorage.getItem(token_yj_rfms), function(result) {
+      //       rValue(result);
+      //     });
+      // }
+  
+      //input text가 변경될 경우 배경색을 변경
+      function setInput_backgroundColor(input_name) {
+        var get_dialog = document.getElementById(input_name);
+        
+        if (get_dialog == null)
+          return;
+  
+        if ((get_dialog.value == null) || (get_dialog.value == '')) {
+          get_dialog.style.backgroundColor = "#ddd";
+        } else {
+          get_dialog.style.backgroundColor = "#fff";
+          return input_name;
+        }
+      }
+  
+      function setInput_backgroundColor_darkAll() {
+        document.getElementById('dialog_write_code_model_A').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_code_serial_A').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_name_A').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_asset_A').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_price_current_A').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_price_purchase_A').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_company_purchase_A').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_no_A').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_regist_datetime_A').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_lastsave_datetime_A').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_status_A').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_dept_A').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_user_A').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_local_name_A').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_x_A').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_y_A').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_code_device_A').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_etc_A').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_image_A').style.backgroundColor = "#ddd";
+  
+        check_inputdata();
+      }
+  
+      //input text가 존재한다면 배경색을 변경
+      function check_inputdata() {
+        var getValue = new Array();
+        var rValue = new Array();
+        var i = 0;
+        // if (setInput_backgroundColor('dialog_write_user_id') != null) 
+        //   rValue[i++] = 
+  
+        getValue[i++] = setInput_backgroundColor('dialog_write_code_model_A');
+        getValue[i++] = setInput_backgroundColor('dialog_write_code_serial_A');
+        getValue[i++] = setInput_backgroundColor('dialog_write_name_A');
+        getValue[i++] = setInput_backgroundColor('dialog_write_asset_A');
+        getValue[i++] = setInput_backgroundColor('dialog_write_price_current_A');
+        getValue[i++] = setInput_backgroundColor('dialog_write_price_purchase_A');
+        getValue[i++] = setInput_backgroundColor('dialog_write_company_purchase_A');
+        getValue[i++] = setInput_backgroundColor('dialog_write_no_A');
+        getValue[i++] = setInput_backgroundColor('dialog_write_regist_datetime_A');
+        getValue[i++] = setInput_backgroundColor('dialog_write_lastsave_datetime_A');
+        getValue[i++] = setInput_backgroundColor('dialog_write_status_A');
+        getValue[i++] = setInput_backgroundColor('dialog_write_dept_A');
+        getValue[i++] = setInput_backgroundColor('dialog_write_user_A');
+        getValue[i++] = setInput_backgroundColor('dialog_write_local_name_A');
+        getValue[i++] = setInput_backgroundColor('dialog_write_x_A');
+        getValue[i++] = setInput_backgroundColor('dialog_write_y_A');
+        getValue[i++] = setInput_backgroundColor('dialog_write_code_device_A');
+        getValue[i++] = setInput_backgroundColor('dialog_write_etc_A');
+        getValue[i++] = setInput_backgroundColor('dialog_write_image_A');
+  
+        //값이 존재하는 db컬럼명 반환
+        var j = 0;
+        for (var k = 0; k < getValue.length; k ++) {
+          if (IsNullOrWhiteSpace(getValue[k]) == false) {          
+            var getColumnName = convertColumnName(getValue[k]);
+            if (IsNullOrWhiteSpace(getColumnName) == false) {
+              rValue[j++] = getColumnName;
+            }          
+          }
+        }
+  
+        //마지막 저장일자 저장
+        rValue[j++] = "as_lastsave_datetime";
+  
+        return rValue;
+      }
+  
+  
+  
+      function convertColumnName(input_name) {
+        if (IsNullOrWhiteSpace(input_name) == true) {
+          return null;
+        }
+  
+        var rValue = "";
+        switch (input_name) {
+          case "dialog_write_code_model_A":
+            rValue = "as_code_model";
+            break;
+          case "dialog_write_code_serial_A":
+            rValue = "as_code_serial";
+            break;
+          case "dialog_write_name_A":
+            rValue = "as_name";
+            break;
+          case "dialog_write_asset_A":
+            rValue = "as_type";
+            break;
+          case "dialog_write_price_current_A":
+            rValue = "as_price_current";
+            break;
+          case "dialog_write_price_purchase_A":
+            rValue = "as_price_purchase";
+            break;
+          case "dialog_write_company_purchase_A":
+            rValue = "as_company_purchase";
+            break;
+          case "dialog_write_status_A":
+            rValue = "as_status";
+            break;
+          case "dialog_write_dept_A":
+            rValue = "as_dept";
+            break;
+          case "dialog_write_user_A":
+            rValue = "as_user";
+            break;
+          case "dialog_write_local_name_A":
+            rValue = "as_local_name";
+            break;
+          case "dialog_write_x_A":
+            rValue = "as_x";
+            break;
+          case "dialog_write_y_A":
+            rValue = "as_y";
+            break;
+          case "dialog_write_etc_A":
+            rValue = "as_etc";
+            break;
+          case "dialog_write_image_A":
+            rValue = "as_image";
+            break;
+        }
+  
+        return rValue;
+      }
+  
+      //일괄 수정시 inputbox에 데이터를 입력할 경우 배경색상 변경
+      function setInput_event(objectName) {
+        document.getElementById(objectName).addEventListener('input', function(e) {
+          if ((e.inputType != "deleteContentBackward") &&
+              (e.inputType != "deleteContentForward"))
+           {   //backspace, delete가 아닐 경우 배경색 변경 체크
+            setInput_backgroundColor(objectName);
+          }        
+        });
+        document.getElementById(objectName).addEventListener('click', function(e) {
+          if (document.getElementById('dialog-title1-dialog_assetmanage_A').textContent == "자산 정보 일괄 수정") {
+            setInput_backgroundColor_darkAll();
+            this.style.backgroundColor = "#fff";
+          }
+        });
+      }
+      ////////////////////////////
+      //GUI 일괄 수정 기능
+      ////////////////////////////
+      
+      //일괄 수정시 inputbox에 데이터를 입력할 경우 배경색상 변경
+      setInput_event('dialog_write_name_A');
+      setInput_event('dialog_write_asset_A');
+      setInput_event('dialog_write_price_current_A');
+      setInput_event('dialog_write_price_purchase_A');
+      setInput_event('dialog_write_company_purchase_A');
+      setInput_event('dialog_write_status_A');
+      setInput_event('dialog_write_dept_A');
+      setInput_event('dialog_write_user_A');
+      setInput_event('dialog_write_local_name_A');
+      setInput_event('dialog_write_x_A');
+      setInput_event('dialog_write_y_A');
+      setInput_event('dialog_write_etc_A');
+      setInput_event('dialog_write_image_A');
+    });
+    
+  
+  
+    function selectCompanyPhrcahse() {
+      var url = url_json + "jsonservice/rest/company/select_companyinfo_all";  
+        JSON_POST(url, null, true, sessionStorage.getItem(token_yj_rfms), function (result) {
+            setTimeout(function() {
+                //json 데이터 수신 후 옵션 항목 추가
+                if (result[0] == "ok") {
+                  var selectElement = document.getElementById('dialog_write_company_purchase_A');
+                    for (var i = 0; i<result[1].length; i++){
+                      var opt = document.createElement('option');
+                        opt.value = i + 1;
+                        opt.innerHTML = result[1][i].co_name;
+                        selectElement.appendChild(opt);
+                    }
+                    selectElement.selectedIndex = 0;    //인덱스는 다이어로그가 보이는 시점에서 재설정 됨 (window.addEventListener('message', function(event) { 함수 확인)
+                    //document.getElementById("dialog_write_dept").selectedIndex = "0";
+                } else {                                
+                    messagebox_show(false, "데이터 가져오기 실패", result, null, false, true);
+                }
+            }, 0);                                                                                    //지연시켜서 메시지박스를 호출하지 않으면 메시지 박스 내용(텍스트)가 변경되지 않음 
+        });
+    }
+  
+    function selectUsers() {
+      var url = url_json + "jsonservice/rest/user/select_userinfo_all";  
+        JSON_POST(url, null, true, sessionStorage.getItem(token_yj_rfms), function (result) {
+            setTimeout(function() {
+                //json 데이터 수신 후 옵션 항목 추가
+                if (result[0] == "ok") {
+                  var selectElement = document.getElementById('dialog_write_user_A');
+                    for (var i = 0; i<result[1].length; i++){
+                      var opt = document.createElement('option');
+                        opt.value = i + 1;
+                        opt.innerHTML = result[1][i].mb_name;
+                        selectElement.appendChild(opt);
+                    }
+                    selectElement.selectedIndex = 0;    //인덱스는 다이어로그가 보이는 시점에서 재설정 됨 (window.addEventListener('message', function(event) { 함수 확인)
+                    //document.getElementById("dialog_write_dept").selectedIndex = "0";
+                } else {                                
+                    messagebox_show(false, "데이터 가져오기 실패", result, null, false, true);
+                }
+            }, 0);                                                                                    //지연시켜서 메시지박스를 호출하지 않으면 메시지 박스 내용(텍스트)가 변경되지 않음 
+        });
+    }
+  
+    function selectAsset() {
+      var url = url_json + "jsonservice/rest/asset/select_assetinfo_all";  
+        JSON_POST(url, null, true, sessionStorage.getItem(token_yj_rfms), function (result) {
+            setTimeout(function() {
+                //json 데이터 수신 후 옵션 항목 추가              
+                if (result[0] == "ok") {
+                  var selectElement = document.getElementById('dialog_write_asset_A');
+                    for (var i = 0; i<result[1].length; i++){
+                      var opt = document.createElement('option');
+                        opt.value = i + 1;
+                        opt.innerHTML = result[1][i].at_name;
+                        selectElement.appendChild(opt);
+                    }
+                    selectElement.selectedIndex = 0;    //인덱스는 다이어로그가 보이는 시점에서 재설정 됨 (window.addEventListener('message', function(event) { 함수 확인)
+                    //document.getElementById("dialog_write_asset").selectedIndex = "0";
+                } else {                                
+                    messagebox_show(false, "데이터 가져오기 실패", result, null, false, true);
+                }
+            }, 0);                                                                                    //지연시켜서 메시지박스를 호출하지 않으면 메시지 박스 내용(텍스트)가 변경되지 않음 
+        });
+    }
+  
+    function selectStatus() {
+      var url = url_json + "jsonservice/rest/status/select_statusinfo_all";  
+        JSON_POST(url, null, true, sessionStorage.getItem(token_yj_rfms), function (result) {
+            setTimeout(function() {
+                //json 데이터 수신 후 옵션 항목 추가
+                if (result[0] == "ok") {                
+                  var selectElement = document.getElementById('dialog_write_status_A');
+                    for (var i = 0; i<result[1].length; i++){
+                      var opt = document.createElement('option');
+                        opt.value = i + 1;
+                        opt.innerHTML = result[1][i].st_name;
+                        selectElement.appendChild(opt);
+                    }
+                    selectElement.selectedIndex = 0;    //인덱스는 다이어로그가 보이는 시점에서 재설정 됨 (window.addEventListener('message', function(event) { 함수 확인)
+                    //document.getElementById("dialog_write_status").selectedIndex = "0";
+                } else {                                
+                    messagebox_show(false, "데이터 가져오기 실패", result, null, false, true);
+                }
+            }, 0);                                                                                    //지연시켜서 메시지박스를 호출하지 않으면 메시지 박스 내용(텍스트)가 변경되지 않음 
+        });
+    }
+  
+    function selectDept() {
+      var url = url_json + "jsonservice/rest/dept/select_deptinfo_all";  
+        JSON_POST(url, null, true, sessionStorage.getItem(token_yj_rfms), function (result) {
+            setTimeout(function() {
+                //json 데이터 수신 후 옵션 항목 추가
+                if (result[0] == "ok") {                
+                  var selectElement = document.getElementById('dialog_write_dept_A');
+                    for (var i = 0; i<result[1].length; i++){
+                      var opt = document.createElement('option');
+                        opt.value = i + 1;
+                        opt.innerHTML = result[1][i].de_name;
+                        selectElement.appendChild(opt);
+                    }
+                    selectElement.selectedIndex = 0;    //인덱스는 다이어로그가 보이는 시점에서 재설정 됨 (window.addEventListener('message', function(event) { 함수 확인)
+                    //document.getElementById("dialog_write_dept").selectedIndex = "0";
+                } else {                                
+                    messagebox_show(false, "데이터 가져오기 실패", result, null, false, true);
+                }
+            }, 0);                                                                                    //지연시켜서 메시지박스를 호출하지 않으면 메시지 박스 내용(텍스트)가 변경되지 않음 
+        });
+    }
+  
+    function selectLocation() {
+      var url = url_json + "jsonservice/rest/location/select_locationinfo_all";  
+        JSON_POST(url, null, true, sessionStorage.getItem(token_yj_rfms), function (result) {
+            setTimeout(function() {
+                //json 데이터 수신 후 옵션 항목 추가
+                if (result[0] == "ok") {                
+                  var selectElement = document.getElementById('dialog_write_local_name_A');
+                    for (var i = 0; i<result[1].length; i++){
+                      var opt = document.createElement('option');
+                        opt.value = i + 1;
+                        opt.innerHTML = result[1][i].lo_name;
+                        selectElement.appendChild(opt);
+                    }
+                    selectElement.selectedIndex = 0;    //인덱스는 다이어로그가 보이는 시점에서 재설정 됨 (window.addEventListener('message', function(event) { 함수 확인)
+                    //document.getElementById("dialog_write_location").selectedIndex = "0";
+                } else {                                
+                    messagebox_show(false, "데이터 가져오기 실패", result, null, false, true);
+                }
+            }, 0);                                                                                    //지연시켜서 메시지박스를 호출하지 않으면 메시지 박스 내용(텍스트)가 변경되지 않음 
+        });
+    }
+  </script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- // Sending and receiving data in JSON format using POST method
+  //
+  var xhr = new XMLHttpRequest();
+  var url = "url";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+          var json = JSON.parse(xhr.responseText);
+          console.log(json.email + ", " + json.password);
+      }
+  };
+  var data = JSON.stringify({"email": "hey@mail.com", "password": "101010"});
+  xhr.send(data);
+  
+  
+  
+  // Sending a receiving data in JSON format using GET method
+  //      
+  var xhr = new XMLHttpRequest();
+  var url = "url?data=" + encodeURIComponent(JSON.stringify({"email": "hey@mail.com", "password": "101010"}));
+  xhr.open("GET", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+          var json = JSON.parse(xhr.responseText);
+          console.log(json.email + ", " + json.password);
+      }
+  };
+  xhr.send();
+  
+  
+  
+  <?php
+  // Handling data in JSON format on the server-side using PHP
+  //
+  header("Content-Type: application/json");
+  // build a PHP variable from JSON sent using POST method
+  $v = json_decode(stripslashes(file_get_contents("php://input")));
+  // build a PHP variable from JSON sent using GET method
+  $v = json_decode(stripslashes($_GET["data"]));
+  // encode the PHP variable to JSON and send it back on client-side
+  echo json_encode($v);
+  ?> -->

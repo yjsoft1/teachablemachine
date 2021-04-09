@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>	
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>http://www.yjsoft.kr</title>
+
+	<!-- default -->
+	<link rel="stylesheet" type="text/css" href="/css/main.css">	
+	<!-- datatables -->	
+	<link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/buttons.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/select.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/editor.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/responsive.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/dialog1.css">	
+	<!--datepicker-->
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-datepicker.css">
+	<!--imageviewer-->
+	<link rel="stylesheet" type="text/css" href="/css/magnify.css">
+
+	<!-- default -->
+	<script src="/js/jquery-3.3.1.min.js"></script>
+	<script src="/js/jquery.easing.1.3.js"></script>
+	<script src="/js/utill.js"></script>
+	
+	<!-- datatables -->
+	<script src="/js/jquery.dataTables.min.js"></script>
+	<script src="/js/dataTables.responsive.min.js"></script>
+	<script src="/js/dataTables.buttons.min.js"></script>	<!-- excel -->
+	<script src="/js/jszip.min.js"></script>				<!-- excel -->
+	<script src="/js/buttons.html5.min.js"></script>  		<!-- excel -->
+	<!-- <script src="/js/table_company.js"></script> -->
+	<!-- <script src="/js/dataTables.editor.min.js"></script> -->
+	<!-- <script src="/js/dataTables.select.min.js"></script> -->
+	<!--datepicker-->
+	<script src="/js/bootstrap-datepicker.js"></script>
+	<script src="/js/bootstrap-datepicker.ko-kr.js"></script>
+	<!--imageviewer-->
+	<script src="/js/magnify.js"></script>
+	<!-- 다음 우편번호 -->
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+
+	<!-- DAUM MAP -->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8205f7568fc8e25be8afa1de6b25e9c5"></script>
+	<style>
+		#map_company img{max-width:none;}
+		#map_company{height:700px;}
+
+		@media screen and (max-width:768px){ 
+			#map_company{height:400px;}
+		}
+
+		@media screen and (max-width:480px){ 
+			#map_company{height:300px;}
+		}
+	</style>
+	<script type="text/javascript">
+		function setDefaultMap(lat, lng,zlevel) {
+			globalLat = lat;
+			globalLng = lng;
+			position = new daum.maps.LatLng(lat, lng);
+			
+
+			map = new daum.maps.Map
+			(
+				document.getElementById('map_company'),
+				{
+					center: position,
+					level: zlevel,
+					mapTypeId: daum.maps.MapTypeId.ROADMAP,
+					scrollwheel: true,
+				}
+			); //end var map
+
+			//줌 컨트롤 생성
+			var zoomctl = new daum.maps.ZoomControl();
+
+			//맵 타입 컨트롤(위성/그림) 생성
+			var maptyprctl = new daum.maps.MapTypeControl();
+
+			//생성한 컨트롤들을 추가
+			map.addControl(zoomctl, daum.maps.ControlPosition.TOPRIGHT);
+			map.addControl(maptyprctl, daum.maps.ControlPosition.TOPRIGHT);
+
+			//마커 생성
+			var marker = new daum.maps.Marker({
+				//position: map.getCenter()
+				position : new daum.maps.LatLng(lat, lng),
+			});
+			marker.setMap(map);
+
+			var infowindow = new daum.maps.InfoWindow({
+				//content: "<div style='width:170px;height:80px;border:0px dotted red'><div style='background-color:gray;font-weight:bold;padding:5px;color:white;font-size:11px'><img src='/images/yellow_light.png' width=16 height=16 align=absmiddle style='margin-top:2px'/><a href='javascript:loadSelectedGroup(1)'>그룹명:xxxxxx</a></div><div style='padding:5px'>정상운영중:8</div><div style='padding:5px'>오류발생중:2</div></div>",
+				content: "(주)와이제이소프트",
+				removable: true
+			});
+			daum.maps.event.addListener(marker, "click", function () {
+				infowindow.open(map, marker);
+			});
+			infowindow.open(map, marker);
+		}
+	</script>
+	<!-- 구글 맵 -->
+	<!-- <style>
+		#map_company img{max-width:none;}
+		#map_company{height:500px;}
+
+		@media screen and (max-width:768px){ 
+			#map_company{height:400px;}
+		}
+
+		@media screen and (max-width:480px){ 
+			#map_company{height:300px;}
+		}
+	</style>
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false&language=ko"></script>
+	<script type="text/javascript">
+	function initialize() {
+		var myLatlng = new google.maps.LatLng(36.625990, 127.501842);
+		var mapOptions = {
+		zoom: 12,
+		center: myLatlng,
+		scrollwheel:false,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+		}
+		var map = new google.maps.Map(document.getElementById("map_company"), mapOptions);
+		var myIcon = new google.maps.MarkerImage("/images/yjsoft_imagetext.png", null, null, null, new google.maps.Size(60,73));
+		var marker = new google.maps.Marker({
+		position: myLatlng,
+		map: map,
+		icon: myIcon,
+		title : "YJSOFT"
+		});
+		google.maps.event.addDomListener(window, "resize", function() {
+			var center = map.getCenter();
+			google.maps.event.trigger(map, "resize");
+			map.setCenter(center); 
+		});
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+	</script> -->
+
+
+
+
+	<!-- html페이지 로드 -->
+	<script type="text/javascript">
+		$(function(){
+			$("#headers").load("../header.html", function(e) {
+				$.getScript("/js/header.js", function() {
+					
+				});
+			});
+			$("#footers").load("/footer.html");
+
+			//dialog_container_main
+			$("#dialog_container_main").load("/dialog_company.html");
+			$("#dialog_messagebox").load("/dialog_messagebox.html", function(e) {
+				//messagebox_show(false, "데이터 로딩중", "데이터를 가져오는 중입니다. 잠시만 기다려 주시기 바랍니다.", null, true, true);			
+
+				//다음 맵 초기화
+				//setDefaultMap(36.6430399, 127.4794161, 7);
+				setDefaultMap(36.632498, 127.505787, 7);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="frame_content" >
+		<!-- html페이지 로드 -->
+		<div id="headers"></div>
+
+		<div class="margin_91px_overlap"></div>
+		<!-- <div class="margin_50px_overlap"></div>		 -->
+
+		<!--content-->
+		<div id="content" class="layout_max1000">
+
+			<!--content_title-->
+			<div id="content_title" style="background:url(/images/company_3.png) no-repeat left center;background-size: auto 100%;">
+				<div class="position"><a href="/"><img src="/images/house2_1.png"/></a> 회사소개 > <span class="current">찾아오시는 길</span></div>
+				<br>
+				<h3>찾아오시는 길</h3>		
+				<div class="margin_20px"></div>
+				<div class="content_title1" style="color:#3AAAF9;">창조적인 기술개발로 IT분야를 선도하는 기업</div>
+				<div class="content_title2">YJSOFT 방문을 환영합니다.</div>				
+				<div class="m_line"></div>
+			</div>
+
+			<div class="margin_20px" style="border-top-width: 1px;border-top-color: #e4e4e4;border-top-style: solid;"></div>
+
+			<!-- content -->
+			<div class="content_1">
+				<!-- 
+				////////////////////////////////////////////
+					content 1 (left image, right text) 
+				////////////////////////////////////////////
+				-->
+				<!-- title -->
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				<h4 class="content_text_1_leftimage">회사 약도</h4>
+				<div class="margin_20px"></div>
+				<p class="content_text_3_leftimage">충청북도 청주시 충북 청주시 상당구 산성로116번길 28 302-2호 (용담동, 드림21)</p>
+				<p class="content_text_3_leftimage">대표전화: 043-902-1419</p>
+				<p class="content_text_3_leftimage">팩스: 043-902-1416</p>
+				<p class="content_text_3_leftimage">이메일: <a href="mailto:sworn_yk@naver.com?Subject=Hello%20again" target="_top">sworn_yk@naver.com</a></p>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+								
+				<!-- content -->
+				<div id="map_company"></div>
+			
+				<!-- content 나눔 -->
+				<div style="clear:both"></div>
+
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				<div class="line_1px_2"></div>	
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				
+			</div>
+			
+		</div>
+
+		<div class="margin_20px"></div>
+		<div class="margin_20px"></div>
+		
+		<!-- html페이지 로드 -->
+		<div id="footers"></div>
+	</div>
+
+	<!-- dialog -->
+	<div id="dialog_container_main" class="dialog-container"></div>
+	<div id="dialog_messagebox" class="dialog-container"></div>
+</body>
+</html>

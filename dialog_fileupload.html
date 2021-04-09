@@ -1,0 +1,200 @@
+<!-- <div class="dialog"> -->
+    <div class="modal-container">
+        <div class="modal-window">
+            <div class="modal-content">
+            <!--페이지 타이틀-->
+        <div class="dialog-title1">
+            <ul>
+                <li>
+                    <h5 id="dialog-title1-dialog_fileupload">첨부파일 업로드</h5>
+                </li>
+                <li style="float:right">
+                    <img id="dialog-close-id_content_fileupload_dialog" class="dialog-close" src="/images/close2.png" />
+                </li>
+            </ul>
+        </div>
+  
+        <div class="margin_33px"></div>
+  
+        <div class="dialog_paddingL10R10">
+            <div class="margin_10px"></div>
+            <!-- <div id="dialog-title2-dialog_fileupload" class="dialog-title2">제품의 데이터를 추가하여 주시기 바랍니다.</div> -->
+            <div class="stretch_wrap layout_max1000" style="height:20px;">
+                <div class="stretch_left_100percent">
+                    <div id="dialog-title2-dialog_fileupload" class="dialog-title2">첨부파일을 업로드 하는 중입니다.</div>
+                </div>
+                <div class="stretch_right_100px" style="max-width:80px;visibility:collapse;">
+                    <img src="/images/user3.png" class="round_image" data-magnify="gallery">
+                </div>
+            </div>
+            <!-- <div class="stretch_wrap layout_max1000" style="height:80px;">
+                <div class="stretch_left_100percent" style="right:80px;">
+                    <div id="dialog-title2-dialog_fileupload" class="dialog-title2">첨부파일을 업로드 하는 중입니다. 잠시 기다려 주십시요.</div>
+                </div>
+                <div class="stretch_right_100px" style="max-width:80px">
+                    <img id="dialog_write_image_1" src="/images/user3.png" class="round_image" data-magnify="gallery">
+                </div>
+            </div> -->
+          <div class="margin_10px"></div>
+        </div>
+  
+        <div class="dialog_paddingL10R10">
+            <!--content//-->
+            <div>
+                <div>
+                    <table cellspacing="0" cellpadding="0" class="table_layout">
+                        <colgroup>
+                            <col width="100px">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>전체 전송률</th>
+                                <td>
+                                    <progress id="prgMain" max="100" value="70" style="width: 100%;"> 70% </progress>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>전송 파일</th>
+                                <td>
+                                    <label id="lblTransFile">0/1</label>
+                                </td>
+                            </tr>
+                            <!-- <tr>
+                                <th>전송 용량</th>
+                                <td><label id="lblTransSize">11.3MB/초</label>
+                                </td>
+                            </tr> -->
+                            <tr>
+                                <th>전송 속도</th>
+                                <td><label id="lblTransSpeed">12.6MB/13.9MB</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>남은 시간</th>
+                                <td>
+                                    <label id="lblTransTime">1초/10초</label>
+                                </td>
+                            </tr>
+                            <tr>
+                            <tr>
+                                <th>전송 파일</th>
+                                <td>
+                                    <div class="stretch_wrap" style="overflow:auto;border: 1px solid #ccc;height: 130px;padding: 5px;">
+                                        <ul id="ul_files_uploadlist" role="listbox" tabindex="0" aria-label="file list">
+                                            <li id="li_files_uploadlist" tabindex="-1" role="option" aria-checked="false">
+                                                <!-- <div>
+                                                    <label id="lblTransTime" class="label_fileupload">RFID태그발행시스템KRFID태그발행시스템KRFID태그발행시스템KRFID태그발행시스템K.zip</label>
+                                                    <progress id="prgChild" max="100" value="70" class="progress_fileupload"> 70% </progress>
+                                                </div> -->
+                                            </li>
+                                        </ul>
+                                    </div> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            
+              <div class="dialog-buttons">
+                <button id="btnSave_content_fileupload_dialog" class="button" style="visibility: collapse;">저장</button>
+                <button id="btnCancel_content_fileupload_dialog" class="button">취소</button>
+              </div>
+            </div>
+              <!--//content-->
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  
+  
+  <script>
+    //inputbox 포커스
+    $(document).ready(function() {
+  
+      //모바일 화면일 경우 다이어로그가 위로 올라가는 현상 수정 (리사이즈 적용)
+      window.onresize = function(event) {
+        change_top_margin_fileupload();
+      };
+      //모바일 화면일 경우 다이어로그가 위로 올라가는 현상 수정
+      change_top_margin_fileupload();
+  
+  
+      //창 닫기 (종료버튼)
+      document.getElementById('btnCancel_content_fileupload_dialog').addEventListener('click', function() {        
+        dialog_close();
+      });
+  
+      document.getElementById('dialog-close-id_content_fileupload_dialog').addEventListener('click', function() {
+        dialog_close();
+      });
+  
+      document.getElementById('dialog-close-id_content_fileupload_dialog').addEventListener('mouseover', function() {
+        var closeButton = document.getElementById('dialog-close-id_content_fileupload_dialog');
+        closeButton.src = "/images/close4.png";
+      });
+  
+      document.getElementById('dialog-close-id_content_fileupload_dialog').addEventListener('mouseleave', function() {
+        var closeButton = document.getElementById('dialog-close-id_content_fileupload_dialog');
+        closeButton.src = "/images/close2.png";
+      });
+  
+      //윈도우 닫기 아이콘    
+      window.addEventListener("keydown", function(e){
+        if (e.keyCode == 27) {                    //esc
+          if (check_dialog_visible("dialog_messagebox") == true) {
+            messagebox_close();                   //dialog_messagebox.html 페이지 함수
+          } else {
+            dialog_close();
+          }        
+        }
+      });
+  
+  
+      function change_top_margin_fileupload() {
+        //모바일일 경우 다이어로그 top 변경
+        if (matchMedia("screen and (max-width:480px)").matches) {           //스마트폰이 세로인 경우
+          $("#dialog_fileupload .dialog").css("marginTop", "600px");
+        } else {
+          $("#dialog_fileupload .dialog").css("marginTop", "20px");
+        }
+        
+        if (matchMedia("screen and (max-height:480px)").matches) {          //스마트폰을 가로로 눕힌 경우
+          $("#dialog_fileupload .dialog").css("marginTop", "600px");
+        }
+      }
+  
+      function dialog_close(){
+        //file upload cancel
+        xmlhttpRequest_fileupload.abort();
+
+        //var app = document.querySelector('.dialog-container');
+        var dialog_fileupload = document.getElementById("dialog_fileupload");
+        if (dialog_fileupload != null) {
+          dialog_fileupload.classList.remove('dialog-container--visible');                
+  
+          //body scoll on
+          scroll_body_on_off(true);
+        }
+      }
+ 
+    });
+    
+  </script>
+  
+
+  <style>
+    .label_fileupload{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 300px;display: inline-block; }
+    .progress_fileupload{width:40%;margin-left:10px;margin-bottom: 7px;}
+    @media screen and (max-width:768px) {
+        .label_fileupload{width:250px}
+    }
+    @media screen and (max-width: 640px) {
+        .label_fileupload{width:160px}
+    }
+    @media screen and (max-width: 480px) {
+        .label_fileupload{width:100px}
+    }
+  </style>
+

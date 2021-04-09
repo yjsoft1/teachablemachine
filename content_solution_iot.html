@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>	
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>http://www.yjsoft.kr</title>
+
+	<!-- default -->
+	<link rel="stylesheet" type="text/css" href="/css/main.css">	
+	<!-- datatables -->	
+	<link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/buttons.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/select.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/editor.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/responsive.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/dialog1.css">	
+	<!--datepicker-->
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-datepicker.css">
+	<!--imageviewer-->
+	<link rel="stylesheet" type="text/css" href="/css/magnify.css">
+
+	<!-- default -->
+	<script src="/js/jquery-3.3.1.min.js"></script>
+	<script src="/js/jquery.easing.1.3.js"></script>
+	<script src="/js/utill.js"></script>
+	
+	<!-- datatables -->
+	<script src="/js/jquery.dataTables.min.js"></script>
+	<script src="/js/dataTables.responsive.min.js"></script>
+	<script src="/js/dataTables.buttons.min.js"></script>	<!-- excel -->
+	<script src="/js/jszip.min.js"></script>				<!-- excel -->
+	<script src="/js/buttons.html5.min.js"></script>  		<!-- excel -->
+	<!-- <script src="/js/table_company.js"></script>	 -->
+	<!-- <script src="/js/dataTables.editor.min.js"></script> -->
+	<!-- <script src="/js/dataTables.select.min.js"></script> -->
+	<!--datepicker-->
+	<script src="/js/bootstrap-datepicker.js"></script>
+	<script src="/js/bootstrap-datepicker.ko-kr.js"></script>
+	<!--imageviewer-->
+	<script src="/js/magnify.js"></script>
+	<!-- 다음 우편번호 -->
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+
+
+	<!-- html페이지 로드 -->
+	<script type="text/javascript">
+		$(function(){
+			$("#headers").load("../header.html", function(e) {
+				$.getScript("/js/header.js", function() {
+					
+				});
+			});
+			$("#footers").load("/footer.html");
+
+			//dialog_container_main
+			$("#dialog_container_main").load("/dialog_company.html");
+			$("#dialog_messagebox").load("/dialog_messagebox.html", function(e) {
+				//messagebox_show(false, "데이터 로딩중", "데이터를 가져오는 중입니다. 잠시만 기다려 주시기 바랍니다.", null, true, true);			
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="frame_content" >
+		<!-- html페이지 로드 -->
+		<div id="headers"></div>
+
+		<div class="margin_91px_overlap"></div>
+		<!-- <div class="margin_50px_overlap"></div>		 -->
+
+		<!--content-->
+		<div id="content" class="layout_max1000">
+
+			<!--content_title-->
+			<div id="content_title" style="background:url(/images/company_3.png) no-repeat left center;">
+				<div class="position"><a href="/"><img src="/images/house2_1.png"/></a> 솔루션/서비스 > <span class="current">아이오티뷰</span></div>
+				<br>
+				<h3>아이오티뷰</h3>		
+				<div class="margin_20px"></div>
+				<div class="content_title1" style="color:#3AAAF9;">자체 개발된 GIS 엔진과</div>
+				<div class="content_title2">안정성 있는 비동기 소켓서버로 안정화된 시스템을 제공합니다.</div>				
+				<div class="m_line"></div>
+			</div>
+
+			<div class="margin_20px" style="border-top-width: 1px;border-top-color: #e4e4e4;border-top-style: solid;"></div>
+
+			<!-- content 1-->
+			<div class="content_1">
+				<!-- 
+				////////////////////////////////////////////
+					content 1(left image, right text) 
+				////////////////////////////////////////////
+				-->
+				<div class="margin_20px"></div>
+				<h1 style="color:#3AAAF9;">아이오티뷰</h1>
+
+				<!-- title -->
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				<h4 class="content_text_1_leftimage">시스템 개요</h4>
+				<p class="content_text_2">
+					아이오티뷰는 TCP/IP를 기반으로 접속되는 모든 디바이스의 상태정보를 모니터링 및 제어가 가능하도록 구성되어진 시스템입니다. 
+					자체 개발된 IOCP기반의 소켓 컴포넌트는 모든 기종의 디바이스를 IP/PORT를 기분으로 관리하기 때문에 TCP/IP를 기반으로 접속되는 모든 디바이스의 관리가 가능합니다. 
+					아이오티뷰로 접속되는 디바이스는 하나의 TAG형태로 관리되며 각 디바이스 별 상황정보를 자체개발된 2D GIS 컴포넌트로부터 편리하게 확인할 수 있도록 구성되어 있습니다.
+					디바이스의 이미지를 사용자가 쉽게 변경이 가능하며 안정성있는 소켓서버와 2D GIS 엔진과의 연동을 통하여 각 디바이스들을 시각적으로 편리하게 모니터링이 가능한 시스템 입니다.
+				</p>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+								
+				<!-- content 1 -->
+				<div>
+					<div class="content_2column_left_image_25"><img src="/images/iot4.png" alt="이미지" style="width: 100%;"></div>
+					<div class="content_2column_right_text_70">
+						<ul>
+							<li>
+								<p class="content_text_3_leftimage">GIS</p>
+								<p class="content_text_4">- GIS 지도의 확대, 축소, 이동, 전체보기</p>
+								<p class="content_text_4">- 각 디바이스의 드래그 앤 드랍을 통한 위치정보 변경</p>
+								<p class="content_text_4">- 각 디바이스의 이미지 변경 및 크기 변경</p>
+								<p class="content_text_4">- GIS 지도를 대처할 수 있는 백그라운드 이미지 등록 기능</p>
+								<p class="content_text_4">- GIS Layer Color, Visible, LineType, LineThickness 등의 레이어 관리</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div style="clear:both"></div>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+
+				<div>
+					<div class="content_2column_left_text_70">
+						<ul>
+							<li>
+								<p class="content_text_3_leftimage">다비이스 관리				
+								</p>
+								<p class="content_text_4">- GIS 화면에서 디바이스의 추가, 삭제, 검색, 편집 기능</p>
+								<p class="content_text_4">- 리스트 형태의 화면에서 디바이스의 추가, 삭제, 검색, 편집 기능</p>
+								<p class="content_text_4">- 디바이스의 접속 상태 디스플레이</p>
+								<p class="content_text_4">- RFID 리더기의 제어</p>
+								<p class="content_text_4">- 경광등 제어</p>
+								<p class="content_text_4">- 각 디바이스 별 실시간 데이터 통신 패킷 디스플레이</p>
+							</li>
+						</ul>
+					</div>
+					<div class="content_2column_right_image_25"><img src="/images/iot2.png" alt="이미지" style="width: 100%;"></div>
+				</div>
+			
+				<div style="clear:both"></div>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+
+				<div>
+					<div class="content_2column_left_image_25"><img src="/images/iot3.png" alt="이미지" style="width: 100%;"></div>
+					<div class="content_2column_right_text_70">
+						<ul>
+							<li>
+								<p class="content_text_3_leftimage">Network Packet</p>
+								<p class="content_text_4">- 실시간 네트워크 패킷 디스플레이</p>
+								<p class="content_text_4">- 각 디바이스의 헬스체크 패킷 디스플레이</p>
+								<p class="content_text_4">- Ascii 및 Hex 값의 실시간 패킷 확인</p>
+								<p class="content_text_4">- 실시간 패킷 정보의 엑셀 및 텍스트 내보내기 기능</p>
+								<p class="content_text_4">- 선택된 디바이스의 실시간 패킷 디스플레이</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- content 나눔 -->
+				<div style="clear:both"></div>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				<div class="line_1px_2"></div>	
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+			
+
+
+
+				<!-- 
+				////////////////////////////////////////////
+					content 2 (left image, right text) 
+				////////////////////////////////////////////
+				-->
+				<!-- title -->
+				<h4 class="content_text_1_leftimage">시스템 특성</h4>
+				<p class="content_text_2">윈도우 운영체제에서 운영이 가능한 시스템입니다.</p>
+
+				<div style="clear:both"></div>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+
+				<table class="table_1">
+					<tbody>
+						<tr>
+					    	<th class="left" width="20%">OS</th>
+					    	<td class="right">
+								Windows 7 ~<br>
+							</td>
+					    </tr>
+						<tr>
+					    	<th class="left">프레임워크</th>
+					    	<td class="right">.NetFramework 4.5<br>
+								C# WPF<br>
+							</td>
+						</tr>
+				    </tbody>
+				</table>
+
+				
+				
+
+				<!-- content 나눔 -->
+				<div style="clear:both"></div>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				<div class="line_1px_2"></div>	
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+
+
+
+
+				<!-- 
+				////////////////////////////////////////////
+					content 2 (left image, right text) 
+				////////////////////////////////////////////
+				-->
+				<!-- title -->
+				<h4 class="content_text_1_leftimage">시스템 구성</h4>
+				<p class="content_text_2">이더넷 연결을 기본으로 구성하여 IP/PORT로 이루어진 모든 클라이언트들을 사전에 등록하여, 
+					사전에 설계되어진 특정 프로토콜 패킷을 주고 받을 경우 상태정보 및 제어가 가능하기 때문에
+					클라이언트의 기종에 상관없이 모두 모니터링이 가능한 시스템 입니다.</p>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+								
+				<!-- content -->
+				<div>
+					<div class="content_2column_left_image_35"><img src="/images/iotview.png" alt="시스템구성" style="width: 600px;"></div>
+					<div class="content_2column_right_text_60">
+						<ul>
+							<li>
+								<p class="content_text_3_leftimage">IP, PORT 관리</p>
+								<p class="content_text_4">어떠한 클라이언트라도 IP, PORT로 접속이 가능하다면 관리가 가능합니다.</p>
+							</li>
+							<li>
+								<p class="content_text_3_leftimage">클라이언트 제어</p>
+								<p class="content_text_4">현장에 설치되어 있는 경광등 및 RFID 및 기타 디바이스에 대해 자동 및 수동 제어가 가능합니다.</p>
+							</li>
+							<li>
+								<p class="content_text_3_leftimage">GIS VIEW</p>
+								<p class="content_text_4">자체 개발된 GIS 엔진위에 각 클라이언트들의 아이콘을 손쉽게 이동 및 관리가 가능합니다.</p>
+							</li>
+							<li>
+								<p class="content_text_3_leftimage">DBMS</p>
+								<p class="content_text_4">기본적으로 무료 데이터베이스인 SQLite를 사용하고 있기 때문에 경제적으로 부담이 되지 않는 시스템입니다. 
+									아이오티뷰는 각 기능별로 컴포넌트화하여 개발되어졌기 때문에 사용자의 요청에 따라 다른 데이터베이스로의 변경이 용이합니다.</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div style="clear:both"></div>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+			
+				<!-- content 나눔 -->
+				<div style="clear:both"></div>
+
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				<div class="line_1px_2"></div>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+
+			</div>
+			
+		</div>
+
+		<div class="margin_20px"></div>
+		<div class="margin_20px"></div>
+		
+		<!-- html페이지 로드 -->
+		<div id="footers"></div>
+	</div>
+
+	<!-- dialog -->
+	<div id="dialog_container_main" class="dialog-container"></div>
+	<div id="dialog_messagebox" class="dialog-container"></div>
+</body>
+</html>

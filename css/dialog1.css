@@ -1,0 +1,259 @@
+@charset "utf-8";
+.modal-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	/* background: rgba(0, 0, 0, 0.1); */
+	/* overflow-x: auto; */
+	/* overflow-x: hidden; */
+	margin-bottom: 10px;
+	margin-top: 60px;
+	/* margin: 5px; */
+	/* margin: 55px 5px 5px 5px; */
+	overflow-x: hidden !important;
+}
+.modal-container .modal-window {
+	display: -ms-flexbox;
+	display: flex;
+	flex-direction: column;
+	/* xalign-items: center;
+	xjustify-content: center; */
+	 /* Optional support to confirm scroll behavior makes sense in IE10 */
+	-ms-flex-direction: column;
+	-ms-flex-align: center;
+	-ms-flex-pack: center;
+	height: 100%;
+	overflow-x: hidden !important;
+}
+.modal-container .modal-window .modal-content {
+	/* border: 1px solid #ccc; */
+	border-radius: 4px;
+	background: #fff;
+	width: 95%;
+	max-width: 700px;
+	/* padding: 10px; */
+	margin: auto;
+}
+
+/* 익스플로러일 경우 중앙정렬이 안되기 때문에 따로 설정(margin을0으로 두면 해결됨) */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	.modal-container .modal-window .modal-content {
+		/* border: 1px solid #ccc; */
+		border-radius: 4px;
+		background: #fff;
+		width: 95%;
+		max-width: 700px;
+		/* padding: 10px; */
+		margin: 0;
+	}
+}
+
+
+
+
+
+
+.dialog-container {
+	background: rgba(0, 0, 0, 0.57);
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	pointer-events: none;
+	will-change: opacity;
+	/* -webkit-transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);		//animation
+	transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);  */
+	z-index: 1000;
+	overflow-y: auto;
+	overflow-x: hidden;
+	max-height: 100%;
+	box-sizing: border-box;
+
+	justify-content: center;
+    align-items: center;
+}
+
+.dialog-container--visible {
+	opacity: 1;
+	pointer-events: auto; 
+	z-index: 5001;
+}
+
+.dialog {
+	margin: auto;
+
+	overflow-y: initial;
+	overflow-x: hidden;
+	/* max-height: 100%; */
+	margin: auto 0;
+	/* 화면 중앙 팝업 */
+	/* width:95%;
+	height: 97%;
+	margin-top: -30px; */
+
+	/* 타이틀 아래 팝업 */
+	width:95%;
+	/* height: 89%;
+	margin-top: -5px; */
+
+	max-width: 700px;
+	background: #FFF;
+	border-radius: 2px;
+	box-shadow: 0 0 14px rgba(0, 0, 0, 0.24), 0 14px 28px rgba(0, 0, 0, 0.48);
+
+	/* center point */
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, 0); 
+
+	-webkit-transform: translate(-50%, -50%) translateY(30px);
+	transform: translate(-50%, -50%) translateY(30px);
+	-webkit-transition: -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
+	transition: -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
+	transition: transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s;
+	transition: transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s, -webkit-transform 0.333s cubic-bezier(0, 0, 0.21, 1) 0.05s; 
+}
+	/* .modal-content > div {
+		padding-left: 10px;
+		padding-right: 10px; } */
+		
+.dialog-title {
+	padding-top: 20px;
+	font-size: 1.25em; 
+}
+
+.dialog-body {
+	padding-top: 20px;
+	padding-bottom: 24px; 
+}
+.dialog-body select {
+	width: 100%;
+	font-size: 2em; 
+}
+
+.dialog-buttons {
+	padding: 20px 0px 20px 0px !important;
+	float:right;
+}
+
+.button {
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	border-radius: 3px;
+	width: 80px;
+	height: 35px;
+	border: 1px solid rgb(202, 202, 202);
+}
+.button:hover {
+	background-color: rgb(65, 65, 65);
+	color: white;
+}
+
+.dialog-close {transform: scale(1);}
+.dialog-close hover {text-decoration:none;color:#9b9b9b;}
+.dialog-close:active,
+.dialog-close:focus {transform: scale(0.95);}
+	
+
+  /* .dialog > div {
+	padding-left: 24px;
+	padding-right: 24px; }
+  
+  .dialog-title {
+	padding-top: 20px;
+	font-size: 1.25em; }
+  
+  .dialog-body {
+	padding-top: 20px;
+	padding-bottom: 24px; }
+	.dialog-body select {
+	  width: 100%;
+	  font-size: 2em; 
+	}
+  
+  .dialog-buttons {
+		padding: 20px 0px 20px 0px !important;
+		float: right; 
+}
+	
+  .button {
+	-webkit-transition-duration: 0.4s;
+	transition-duration: 0.4s;
+	border-radius: 3px;
+	width: 80px;
+	height: 35px;
+	border: 1px solid rgb(202, 202, 202);
+  }
+  .button:hover {
+    background-color: rgb(65, 65, 65);
+    color: white;
+  }
+
+  .dialog-close hover {text-decoration:none;color:#9b9b9b;} */
+
+
+
+.font-size-enduser {font-size:23px;}
+.table-row-height-enduser {height:50px;}
+.table-background-height-enduser {height:380px;}
+
+table.table_layout{width:100%;border-bottom: 1px solid #e4e4e4;}
+table.table_layout th{border:1px solid #e4e4e4;line-height:0;padding:5px 5px 5px 20px;background-color:#fbfbfb;color:#444;text-align:left;font-weight:bold;line-height:15px;}
+table.table_layout td{border:1px solid #e4e4e4;padding:6px;}
+table.table_layout td img{vertical-align:middle;}
+input.mustimage{ background:url('/images/must1.png') no-repeat 98% center;background-size: 16px;}
+
+@media screen and (max-width:1024px) {
+	/* 테이블 크기 (반응형 웹) */
+}
+
+@media screen and (max-width:768px) {
+	.font-size-enduser {font-size:18px;}
+	.table-row-height-enduser {height:40px;}
+	.table-background-height-enduser {height:320px;}
+}
+
+@media screen and (max-width:480px) {
+
+	.dialog {
+		/* margin-top:-50px;
+		margin-bottom:70px; */
+		/* margin-top: 100px; */
+		/* height: 85%; */
+	}
+
+	.dialog > div{
+		padding-left: 0px;
+    	padding-right: 0px;
+	}
+	
+	/* 테이블 크기 (반응형 웹) */
+	.font-size-enduser {font-size:13px;}
+	.table-row-height-enduser {height:36px;}
+	.table-background-height-enduser {height:295px;}
+	/* .dialog-title2 {
+		padding-left:16px !important;
+	} */
+
+	/* title, content 가 가로로 나오는 부분을 
+	   title,
+	   content 세로로 나오게 변경
+	table.table_layout {padding:0px;}
+
+	table.table_layout, table.table_layout tbody, table.table_layout tr, table.table_layout td, table.table_layout th {
+			display: block;
+			clear: both;
+			width: 100%;
+	}
+	table.table_layout th{border:1px solid #e4e4e4;border-bottom:none;padding:15px 15px 15px 10px;background-color:#fbfbfb;color:#444;text-align:left;font-weight:bold;font-size:13px;line-height:0px;}
+	table.table_layout td{border:1px solid #e4e4e4;border-bottom:none;padding:6px;}
+	table.table_layout .tr_end{border-bottom: #e4e4e4; border-bottom-style: solid; border-bottom-width: 1px} */
+}
+
+
+

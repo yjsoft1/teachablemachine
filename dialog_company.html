@@ -1,0 +1,867 @@
+<!-- <div class="dialog"> -->
+  <div class="modal-container">
+    <div class="modal-window">
+      <div class="modal-content">
+        <!--페이지 타이틀-->
+        <div class="dialog-title1">
+          <ul>
+            <li>
+                <h5 id="dialog-title1-dialog_container_main">데이터 추가</h5>
+            </li>
+            <li style="float:right">
+                <img id="dialog-close-id_content_company_dialog" class="dialog-close" src="/images/close2.png" />
+            </li>
+          </ul>
+        </div>
+  
+        <div class="margin_33px"></div>
+  
+        <div class="dialog_paddingL10R10">
+          <div class="margin_10px"></div>
+          <!-- <div id="dialog-title2-dialog_container_main" class="dialog-title2">제품의 데이터를 추가하여 주시기 바랍니다.</div> -->
+          <div class="stretch_wrap layout_max1000" style="height:80px;">
+            <div class="stretch_left_100percent" style="right:80px;">
+              <div id="dialog-title2-dialog_container_main" class="dialog-title2">데이터를 추가하여 주시기 바랍니다.</div>
+            </div>
+            <div class="stretch_right_100px" style="max-width:80px">
+              <img id="dialog_write_image_1" src="/images/user3.png" class="round_image" data-magnify="gallery">
+            </div>
+          </div>
+          <div class="margin_10px"></div>
+        </div>
+  
+        <div id="container" class="dialog_paddingL10R10">
+          <!--content//-->
+          <div id="content">
+              <div id="dialog_write">
+                <table cellspacing="0" cellpadding="0" class="table_layout">
+                  <colgroup>
+                    <col width="25%" style="min-width:100px">
+                    <col width="75%">
+                  </colgroup>
+                  
+                <tbody>
+                  <tr>
+                    <th>회사명</th>
+                    <td><input id="dialog_write_name" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr>
+                  <tr>
+                    <th>대표명</th>
+                    <td><input id="dialog_write_name_ceo" type="text" class="inputbox1" maxlength="50"></td>
+                  </tr>
+                  <tr>
+                    <th>이메일</th>
+                    <td><input id="dialog_write_email" type="text" class="inputbox1" maxlength="50"></td>
+                  </tr>
+                  <tr>
+                    <th>전화번호</th>
+                    <td><input id="dialog_write_tel" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr>
+                  <tr>
+                    <th>모바일</th>
+                    <td>
+                      <input id="dialog_write_mobile" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr>
+                  <tr>
+                    <th>우편번호</th>
+                    <td>
+                      <div class="stretch_wrap" style="height:36px">
+                        <div id="dialog_write_post_wrap" class="stretch_left_100percent" style="right:80px;">
+                          <input id="dialog_write_post" type="text" class="inputbox1" maxlength="255">
+  
+  
+                          <!-- 우편번호 -->
+                          <div id="post_div" style="border: 1px solid #d3d3d3;display: none;width:300px;height:40px;line-height: 40px;font-size: 20px;text-indent:5px;">
+                              <div style="background-color:#ffffff;">
+                                <ul >
+                                  <li style="display: inline-block;">
+                                      <h5 id="dialog-title1-dialog_container_main">우편 번호 검색</h5>
+                                  </li>
+                                  <li style="display: inline-block;float:right;">
+                                      <img id="dialog-close-id_content_company_dialog_post" class="dialog-close" src="/images/close2.png" style="margin-top: 0px;">
+                                  </li>
+                                </ul>
+                              </div>
+                              <div id="post_layer" style="position: absolute;margin-left: -1px;">
+                              </div>
+  
+                              <script>
+                                //우편번호 닫기 이벤트
+                                document.getElementById('dialog-close-id_content_company_dialog_post').addEventListener('click', function() {
+                                  closeDaumPostcode();
+  
+                                  //div 보이게 하기
+                                  document.getElementById('post_div').style.display = "none";
+                                }, false);                   
+                                document.getElementById('dialog-close-id_content_company_dialog_post').addEventListener('mouseover', function() {   //mouse 오버시 이미지 변경
+                                  var closeButton = document.getElementById('dialog-close-id_content_company_dialog_post');
+                                  closeButton.src = "/images/close4.png";
+                                });
+  
+                                document.getElementById('dialog-close-id_content_company_dialog_post').addEventListener('mouseleave', function() {
+                                  var closeButton = document.getElementById('dialog-close-id_content_company_dialog_post');
+                                  closeButton.src = "images/close2.png";
+                                });
+          
+          
+  
+                                //찾기 버튼 이벤트
+                                document.getElementById('dialog_write_check_post').addEventListener('click', function() {
+                                  execDaumPostCode();
+  
+                                  //div 보이게 하기
+                                  document.getElementById('post_div').style.display = "block";
+                                }, false);
+              
+                                // 우편번호 찾기 화면을 넣을 element
+                                var element_layer = document.getElementById('post_layer');                  
+                            
+                                function closeDaumPostcode() {
+                                    // iframe을 넣은 element를 안보이게 한다.
+                                    element_layer.style.display = 'none';
+                                }
+                            
+                                function execDaumPostCode() {
+                                    new daum.Postcode({
+                                        oncomplete: function(data) {
+                                            // 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+                            
+                                            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                                            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                                            var fullAddr = data.address; // 최종 주소 변수
+                                            var extraAddr = ''; // 조합형 주소 변수
+                            
+                                            // 기본 주소가 도로명 타입일때 조합한다.
+                                            if(data.addressType === 'R'){
+                                                //법정동명이 있을 경우 추가한다.
+                                                if(data.bname !== ''){
+                                                    extraAddr += data.bname;
+                                                }
+                                                // 건물명이 있을 경우 추가한다.
+                                                if(data.buildingName !== ''){
+                                                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                                                }
+                                                // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                                                fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+                                            }
+                            
+                                            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                                            //document.getElementById('postCode').value = data.zonecode; //5자리 새우편번호 사용
+                                            //document.getElementById('roadAddress').value = fullAddr;
+                                            document.getElementById('dialog_write_post').value = data.zonecode; //5자리 새우편번호 사용
+                                            document.getElementById('dialog_write_addr_1').value = fullAddr;
+              
+                                            //document.getElementById('detailAddress').focus();
+                                            // iframe을 넣은 element를 안보이게 한다.
+                                            // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
+                                            element_layer.style.display = 'none';
+  
+                                            //div 안 보이게 하기                                      
+                                            document.getElementById('post_div').style.display = "none";
+  
+                                        },
+                                        width : '100%',
+                                        height : '100%'
+                                    }).embed(element_layer);
+                            
+                                    // iframe을 넣은 element를 보이게 한다.
+                                    element_layer.style.display = 'block';
+                            
+                                    // iframe을 넣은 element의 위치를 화면의 가운데로 이동시킨다.
+                                    initLayerPosition();
+                                }
+                            
+                                // 브라우저의 크기 변경에 따라 레이어를 가운데로 이동시키고자 하실때에는
+                                // resize이벤트나, orientationchange이벤트를 이용하여 값이 변경될때마다 아래 함수를 실행 시켜 주시거나,
+                                // 직접 element_layer의 top,left값을 수정해 주시면 됩니다.
+                                function initLayerPosition(){
+                                    var width = 300; //우편번호 서비스가 들어갈 element의 width
+                                    var height = 460; //우편번호 서비스가 들어갈 element의 height
+                                    var borderWidth = 1; //샘플에서 사용하는 border의 두께
+                            
+                                    // 위에서 선언한 값들을 실제 element에 넣는다.
+                                    element_layer.style.width = width + 'px';
+                                    element_layer.style.height = height + 'px';
+                                    element_layer.style.border = borderWidth + 'px solid #d3d3d3';
+              
+                                    // 실행되는 순간의 화면 너비와 높이 값을 가져와서 중앙에 뜰 수 있도록 위치를 계산한다.
+                                    var parentElement = document.getElementById('dialog_write_post');
+                                    var parentPos = parentElement.getBoundingClientRect();
+                                    
+                                    //element_layer.style.left += -6 + "px";
+                                    // element_layer.style.top = parentPos.top + "px";
+              
+                                    // element_layer.style.left = (((window.innerWidth || document.documentElement.clientWidth) - width)/2 - borderWidth) + 'px';
+                                    // element_layer.style.top = (((window.innerHeight || document.documentElement.clientHeight) - height)/2 - borderWidth) + 'px';
+                                }
+                              </script>
+                          </div>
+  
+                        </div>
+                        <div id="dialog_write_check_post_warp" class="stretch_right_100px" style="max-width:80px">
+                          <a id="dialog_write_check_post" href="#" class="button_style1">찾기</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>회사주소 1</th>
+                    <td><input id="dialog_write_addr_1" type="text" class="inputbox1" maxlength="255"></td>
+                  </tr>
+                  <tr>
+                    <th>회사주소 2</th>
+                    <td><input id="dialog_write_addr_2" type="text" class="inputbox1" maxlength="255"></td>
+                  </tr>         
+                  <tr style="display:none">
+                    <th>고유번호</th>
+                    <td><input id="dialog_write_no" type="text" class="inputbox1" maxlength="30" readonly></td>
+                  </tr>
+                  <tr>
+                    <th>등록일자</th>
+                    <td><input id="dialog_write_regist_datetime" type="text" class="inputbox1" maxlength="30" readonly></td>
+                  </tr>
+                  <tr>
+                    <th>최종수정일자</th>
+                    <td><input id="dialog_write_lastsave_datetime" type="text" class="inputbox1" maxlength="30" readonly></td>
+                  </tr>
+                  <tr>
+                    <th>SNS</th>
+                    <td><input id="dialog_write_sns" type="text" class="inputbox1" maxlength="30" ></td>
+                  </tr>
+                  <tr>
+                    <th>사업자 번호</th>
+                    <td><input id="dialog_write_business_number" type="text" class="inputbox1" maxlength="255" ></td>
+                  </tr>
+                  <tr>
+                    <th>계좌번호</th>
+                    <td><input id="dialog_write_account" type="text" class="inputbox1" maxlength="255" ></td>
+                  </tr>
+                  <tr>
+                    <th>RFID 코드</th>
+                    <td><input id="dialog_write_code_device" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr>
+                  <tr>
+                    <th>X좌표</th>
+                    <td><input id="dialog_write_x" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr>
+                  <tr>
+                    <th>Y좌표</th>
+                    <td><input id="dialog_write_y" type="text" class="inputbox1" maxlength="30"></td>
+                  </tr>
+                  <tr>
+                    <th>기타</th>
+                    <td><input id="dialog_write_etc" type="text" class="inputbox1" maxlength="255" ></td>
+                  </tr>
+                  <tr>
+                    <th>이미지</th>
+                    <td>
+                      <div class="stretch_wrap" style="height:36px">
+                        <div class="stretch_left_100percent" style="right:36px;margin-right: 3px">
+                          <input id="print_selected_imagename" type="text" class="inputbox1">
+                        </div>
+                        <div class="stretch_right_100px file_find" style="max-width:36px;">
+                          <input id="dialog_write_image" type="file"/>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody></table>
+              </div>
+            
+              <div class="dialog-buttons">
+                <button id="btnSave_content_company_dialog" class="button">저장</button>
+                <button id="btnCancel_content_company_dialog" class="button">취소</button>
+              </div>
+            </div>
+              <!--//content-->
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  
+  
+  <script>
+    //inputbox 포커스
+    $(document).ready(function() {
+  
+      //모바일 화면일 경우 다이어로그가 위로 올라가는 현상 수정 (리사이즈 적용)
+      window.onresize = function(event) {
+        change_top_margin_company();
+      };
+      //모바일 화면일 경우 다이어로그가 위로 올라가는 현상 수정
+      change_top_margin_company();
+  
+  
+      ///////////////////////////////////////////////////////////////////////
+      //이미지 뷰어
+      imageViewer_init();
+      //이미지 추가 이벤트
+      document.getElementById('dialog_write_image').addEventListener('click', function() {
+        this.value = null;      
+      }, false);
+      document.getElementById('dialog_write_image').addEventListener('change', function() {
+        check_image();
+      }, false);
+      // $('#dialog_write_image').change(function(e) {
+      //     check_image();
+      // });
+      function check_image() {
+        var image_name = event.srcElement.value;
+        if((/(.gif|.jpg|.bmp|.png)$/i).test(image_name)){
+          //print file path
+          document.getElementById("print_selected_imagename").value = image_name; //input 이미지 경로
+          //이미지 임시 보기
+          document.getElementById("dialog_write_image_1").src = URL.createObjectURL(document.getElementById("dialog_write_image").files[0]);         //이미지
+          document.getElementById("dialog_write_image_1").classList.add("round_image");
+          
+          $('#dialog_write_image_1').attr('data-src', document.getElementById("dialog_write_image_1").src);  //이미지 확대할 때 소스
+        } else if (image_name == "") {
+        } else {
+          messagebox_show(false, "이미지 저장", "gif, jpg, bmp, png 파일만 저장 가능합니다.", null, false, true);
+        }
+      }
+      ///////////////////////////////////////////////////////////////////////
+  
+  
+      //특수문자 제한
+      document.getElementById('dialog_write_name').addEventListener('input', function(e) {
+        //var result = check_string2(this.value);           //공백, 특수문자 확인
+  
+        if (result != "ok") {
+          messagebox_show(false, "입력값 제한", result, null, false, true);
+          this.value = remove_space_string(this.value);   //공백제거
+          this.value = remove_special_string(this.value); //특수문자 제거
+        }
+      });
+  
+      //데이터 삭제
+      document.getElementById('btnSave_messagebox').addEventListener('click', function() {
+        var title_messagebox = document.getElementById('dialog-title1-messagebox1').textContent;
+        if (title_messagebox != "데이터 삭제") {
+          return;
+        }
+  
+        //체크박스 선택 데이터 가져오기 (app_dialog 변수는 table_company.js 파일에서 전역변수처럼 사용)
+        var sendData = app_dialog.function_getSelectDataValue();
+  
+        //JSON
+        var url = url_json + "jsonservice/rest/company/delete_companyinfo";      //delete
+        JSON_POST(url, sendData, false, sessionStorage.getItem(token_yj_rfms), function (result) {
+          if (result[0] == "ok") {
+            //결과 출력
+            messagebox_show(false, "데이터 삭제 완료", result, null, false, true);
+            //gui 삭제
+            for (var i = 0; i < sendData.length; i++) {
+              for (var k = 0; k < app_dialog.table.rows().count(); k++) {
+                if (sendData[i] == app_dialog.table.rows(k).data()[0].no) {                
+                  app_dialog.table.row(k).remove().draw(false);
+                  k--;
+                }
+              }
+            }
+  
+            //dataSet 삭제
+            for (var i = 0; i < sendData.length; i++) {
+              for (var k = 0; k < app_dialog.dataSet.length; k++) {
+                if (sendData[i] == app_dialog.dataSet[k].no) {                
+                  app_dialog.dataSet.splice(k, 1);
+                  k--;
+                }
+              }            
+            }
+  
+          } else {
+            messagebox_show(false, "데이터 삭제 실패", result, null, false, true);
+          }
+        });
+      });
+  
+  
+      ////////////////////////////
+      //창 종료
+      ////////////////////////////
+      //저장 (확인버튼)
+      document.getElementById('btnSave_content_company_dialog').addEventListener('click', function() {
+        if (document.getElementById('dialog-title1-dialog_container_main').textContent == "회사 정보 추가") {
+          send_info(true);
+        } else if (document.getElementById('dialog-title1-dialog_container_main').textContent == "회사 정보 일괄 수정") {
+          //input text가 존재한다면 배경색을 변경
+          var saveColumnName = check_inputdata();    ////값이 존재하는 db컬럼명 반환
+  
+          //저장 메시지 출력 후 회사가 확인 버튼을 누르면 db에 저장
+          messagebox_show(true, "데이터 저장", "입력하신 정보를 일괄적으로 모두 변경하여 저장합니다. 계속하시겠습니까?", function(e) {
+            if (e == "ok") {
+              //save db
+              //파일 가져오기
+              var getImageFile = document.getElementById("dialog_write_image").files[0];
+  
+              FileToBase64(getImageFile, function(result_image) {
+  
+                var sendData = {
+                  no: parseInt(document.getElementById("dialog_write_no").value) || 0,
+                  //select: false,
+                  co_name: document.getElementById("dialog_write_name").value,
+                  co_name_ceo: document.getElementById("dialog_write_name_ceo").value,
+                  co_email: document.getElementById("dialog_write_email").value,
+                  co_tel: document.getElementById("dialog_write_tel").value,
+                  co_mobile: document.getElementById("dialog_write_mobile").value,
+                  co_post: document.getElementById("dialog_write_post").value,
+                  co_addr_1: document.getElementById("dialog_write_addr_1").value,
+                  co_addr_2: document.getElementById("dialog_write_addr_2").value,                
+                  // co_regist_datetime: "2019-04-20 12:11:11",
+                  // co_out_datetime: "2018-12-20 14:11:11",
+                  //co_regist_datetime: regist_datetime,
+                  co_lastsave_datetime: currentDateTime(),
+                  co_sns: document.getElementById("dialog_write_sns").value,
+                  co_business_number: document.getElementById("dialog_write_business_number").value,
+                  co_account: document.getElementById("dialog_write_account").value,
+                  co_code_device: document.getElementById("dialog_write_code_device").value,
+                  co_x: document.getElementById("dialog_write_x").value,
+                  co_y: document.getElementById("dialog_write_y").value,
+                  co_image: result_image,
+                  co_etc: document.getElementById("dialog_write_etc").value,
+                  batchSaveNo: app_dialog.function_getSelectDataValue(),
+                  batchSaveColumnName: saveColumnName,
+                }
+  
+                //JSON
+                var url = url_json + "jsonservice/rest/company/update_companyinfo_batch";      //batch update              
+                JSON_POST(url, sendData, false, sessionStorage.getItem(token_yj_rfms), function (result) {
+                  if (result[0] == "ok") {
+                    messagebox_show(false, "데이터 저장", result, null, false, true);
+                    
+                    setTimeout(function() {
+                      location.reload(true);
+                    }, 2000);
+                    // //데이터 추가, 수정
+                    //   //gui 수정
+                    //   for (var k = 0; k < app_dialog.table.rows().count(); k++) {
+                    //     if (sendData.no == app_dialog.table.rows(k).data()[0].no) {
+                    //       //app_dialog.table.row(k).data() = sendData;
+                    //       app_dialog.table.row(k).data(sendData);
+  
+                    //       //순차적 인덱스가 삭제되므로 다시 그려줌
+                    //       app_dialog.table.column(app_dialog.index_id_position, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                    //         //cell.innerHTML = i + 1;   //Asc (주석 해제 시 Desc)
+                    //       });
+                    //     }
+                    //   }
+  
+                    //   //dataSet 수정
+                    //   for (var k = 0; k < app_dialog.dataSet.length; k++) {
+                    //     if (sendData.no == app_dialog.dataSet[k].no) {
+                    //       app_dialog.dataSet[k] = sendData;
+                    //     }
+                    //   }
+                    
+                    
+                  } else {
+                    messagebox_show(false, "데이터 저장 실패", result, null, false, true);
+                  }
+                });
+              });
+            }
+          }, false, true);
+        } else {
+          send_info(false);      
+        }
+        //메시지박스 출력
+        //messagebox_show(false, "데이터 저장", "저장되었습니다.", null, false, true);
+        //dialog_close();
+      });
+  
+      //창 닫기 (종료버튼)
+      document.getElementById('btnCancel_content_company_dialog').addEventListener('click', function() {
+        dialog_close();
+      });
+  
+      document.getElementById('dialog-close-id_content_company_dialog').addEventListener('click', function() {
+        dialog_close();
+      });
+  
+      document.getElementById('dialog-close-id_content_company_dialog').addEventListener('mouseover', function() {
+        var closeButton = document.getElementById('dialog-close-id_content_company_dialog');
+        closeButton.src = "/images/close4.png";
+      });
+  
+      document.getElementById('dialog-close-id_content_company_dialog').addEventListener('mouseleave', function() {
+        var closeButton = document.getElementById('dialog-close-id_content_company_dialog');
+        closeButton.src = "/images/close2.png";
+      });
+  
+      //윈도우 닫기 아이콘    
+      window.addEventListener("keydown", function(e){
+        if (e.keyCode == 27) {                    //esc
+          if (check_dialog_visible("dialog_messagebox") == true) {
+            messagebox_close();                   //dialog_messagebox.html 페이지 함수
+          } else {
+            dialog_close();
+          }        
+        }
+      });
+  
+  
+      function change_top_margin_company() {
+        //모바일일 경우 다이어로그 top 변경
+        if (matchMedia("screen and (max-width:480px)").matches) {           //스마트폰이 세로인 경우
+          $("#dialog_container_main .dialog").css("marginTop", "600px");
+        } else {
+          $("#dialog_container_main .dialog").css("marginTop", "20px");
+        }
+        
+        if (matchMedia("screen and (max-height:480px)").matches) {          //스마트폰을 가로로 눕힌 경우
+          $("#dialog_container_main .dialog").css("marginTop", "600px");
+        }
+      }
+  
+      function dialog_close(){
+        //var app = document.querySelector('.dialog-container');
+        var dialog_container_main = document.getElementById("dialog_container_main");
+        if (dialog_container_main != null) {
+          dialog_container_main.classList.remove('dialog-container--visible');                
+  
+          //body scoll on
+          scroll_body_on_off(true);
+        }
+      }
+        
+      function send_info(isAdd) {
+        //파일 가져오기
+        var getImageFile = document.getElementById("dialog_write_image").files[0];
+  
+        //수정일 경우 등록일자 변경하지 않기
+        var regist_datetime = currentDateTime();
+        if (isAdd == false) {
+          regist_datetime = document.getElementById("dialog_write_regist_datetime").value;
+        }
+  
+        FileToBase64(getImageFile, function(result_image) {
+          var sendData = {
+              no: parseInt(document.getElementById("dialog_write_no").value) || 0,
+              select: false,
+  
+              co_name: document.getElementById("dialog_write_name").value,
+              co_name_ceo: document.getElementById("dialog_write_name_ceo").value,
+              co_email: document.getElementById("dialog_write_email").value,
+              co_tel: document.getElementById("dialog_write_tel").value,
+              co_mobile: document.getElementById("dialog_write_mobile").value,
+              co_post: document.getElementById("dialog_write_post").value,
+              co_addr_1: document.getElementById("dialog_write_addr_1").value,
+              co_addr_2: document.getElementById("dialog_write_addr_2").value,                
+              // co_regist_datetime: "2019-04-20 12:11:11",
+              // co_out_datetime: "2018-12-20 14:11:11",
+              co_regist_datetime: regist_datetime,
+              co_lastsave_datetime: currentDateTime(),
+              co_out_datetime: null,
+              co_delete: 1,
+              co_license: 1,
+              //co_license_date: document.getElementById("dialog_write_license_date").value,
+              //co_license_date: "2018-12-28",
+              //co_license_date: currentDate(),
+              co_sns: document.getElementById("dialog_write_sns").value,
+              co_business_number: document.getElementById("dialog_write_business_number").value,
+              co_account: document.getElementById("dialog_write_account").value,
+              co_code_device: document.getElementById("dialog_write_code_device").value,
+              co_x: document.getElementById("dialog_write_x").value,
+              co_y: document.getElementById("dialog_write_y").value,
+              co_image: result_image,
+              co_etc: document.getElementById("dialog_write_etc").value,
+            }
+  
+            if (sendData.co_name.trim() == "") {
+              messagebox_show(false, "데이터 입력", "회사명을 입력하여 주시기 바랍니다.", null, false, true);
+              return;
+            }
+  
+            //JSON
+            var url = url_json + "jsonservice/rest/company/update_companyinfo";      //insert / update 선택
+            if (isAdd) {
+              url = url_json + "jsonservice/rest/company/insert_companyinfo";
+            }
+            //var url = "http://127.0.0.1:31419/jsonservice/rest/company/insert_userinfo";
+            JSON_POST(url, sendData, false, sessionStorage.getItem(token_yj_rfms), function (result) {
+              if (result[0] == "ok") {
+                messagebox_show(false, "데이터 저장", result, null, false, true);
+                
+                //데이터 추가, 수정
+                if (isAdd) {
+                  sendData.no = result[2];                          //서버로부터 반환된 자동증가번호 저장 (고유번호: no)
+                  app_dialog.table.row.add(sendData).draw(false);   //gui 추가
+                  app_dialog.dataSet.push(sendData);                //dataSet 추가
+                } else {
+                  //gui 수정
+                  for (var k = 0; k < app_dialog.table.rows().count(); k++) {
+                    if (sendData.no == app_dialog.table.rows(k).data()[0].no) {
+                      //app_dialog.table.row(k).data() = sendData;
+                      app_dialog.table.row(k).data(sendData);
+  
+                      //순차적 인덱스가 삭제되므로 다시 그려줌
+                      app_dialog.table.column(app_dialog.index_id_position, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                        //cell.innerHTML = i + 1;   //Asc (주석 해제 시 Desc)
+                      });
+                    }
+                  }
+  
+                  //dataSet 수정
+                  for (var k = 0; k < app_dialog.dataSet.length; k++) {
+                    if (sendData.no == app_dialog.dataSet[k].no) {
+                      app_dialog.dataSet[k] = sendData;
+                    }
+                  }
+                }
+            } else {
+              messagebox_show(false, "데이터 저장 실패", result, null, false, true);
+            }
+          });
+        });
+      }
+  
+      
+  
+      function send_checkUser(rValue) {
+          var sendData = document.getElementById("dialog_write_user_id").value;
+          //JSON
+          var url = url_json + "jsonservice/rest/company/check_company";
+          JSON_POST(url, sendData, false, sessionStorage.getItem(token_yj_rfms), function(result) {
+            rValue(result);
+          });
+      }
+  
+      //input text가 변경될 경우 배경색을 변경
+      function setInput_backgroundColor(input_name) {
+        var get_dialog = document.getElementById(input_name);
+        
+        if (get_dialog == null)
+          return;
+  
+        if ((get_dialog.value == null) || (get_dialog.value == '')) {
+          get_dialog.style.backgroundColor = "#ddd";
+        } else {
+          get_dialog.style.backgroundColor = "#fff";
+          return input_name;
+        }      
+      }
+  
+      function setInput_backgroundColor_darkAll() {
+        document.getElementById('dialog_write_name').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_name_ceo').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_email').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_tel').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_mobile').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_post').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_addr_1').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_addr_2').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_no').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_regist_datetime').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_lastsave_datetime').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_sns').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_business_number').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_account').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_code_device').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_x').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_y').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_etc').style.backgroundColor = "#ddd";
+        document.getElementById('dialog_write_image').style.backgroundColor = "#ddd";
+  
+        check_inputdata();
+      }
+  
+      //input text가 존재한다면 배경색을 변경
+      function check_inputdata() {
+        var getValue = new Array();
+        var rValue = new Array();
+        var i = 0;
+        // if (setInput_backgroundColor('dialog_write_user_id') != null) 
+        //   rValue[i++] = 
+  
+        getValue[i++] = setInput_backgroundColor('dialog_write_name');
+        getValue[i++] = setInput_backgroundColor('dialog_write_name_ceo');
+        getValue[i++] = setInput_backgroundColor('dialog_write_email');
+        getValue[i++] = setInput_backgroundColor('dialog_write_tel');
+        getValue[i++] = setInput_backgroundColor('dialog_write_mobile');
+        getValue[i++] = setInput_backgroundColor('dialog_write_post');
+        getValue[i++] = setInput_backgroundColor('dialog_write_addr_1');
+        getValue[i++] = setInput_backgroundColor('dialog_write_addr_2');
+        getValue[i++] = setInput_backgroundColor('dialog_write_no');
+        getValue[i++] = setInput_backgroundColor('dialog_write_regist_datetime');
+        getValue[i++] = setInput_backgroundColor('dialog_write_lastsave_datetime');
+        getValue[i++] = setInput_backgroundColor('dialog_write_sns');
+        getValue[i++] = setInput_backgroundColor('dialog_write_business_number');
+        getValue[i++] = setInput_backgroundColor('dialog_write_account');
+        getValue[i++] = setInput_backgroundColor('dialog_write_code_device');
+        getValue[i++] = setInput_backgroundColor('dialog_write_x');
+        getValue[i++] = setInput_backgroundColor('dialog_write_y');
+        getValue[i++] = setInput_backgroundColor('dialog_write_etc');
+        getValue[i++] = setInput_backgroundColor('dialog_write_image');
+  
+        //값이 존재하는 db컬럼명 반환
+        var j = 0;
+        for (var k = 0; k < getValue.length; k ++) {
+          if (IsNullOrWhiteSpace(getValue[k]) == false) {          
+            var getColumnName = convertColumnName(getValue[k]);
+            if (IsNullOrWhiteSpace(getColumnName) == false) {
+              rValue[j++] = getColumnName;
+            }          
+          }
+        }
+  
+        //마지막 저장일자 저장
+        rValue[j++] = "co_lastsave_datetime";
+  
+        return rValue;
+      }
+  
+      function convertColumnName(input_name) {
+        if (IsNullOrWhiteSpace(input_name) == true) {
+          return null;
+        }
+  
+        var rValue = "";
+        switch (input_name) {
+          case "dialog_write_name":
+            rValue = "co_name";
+            break;
+          case "dialog_write_name_ceo":
+            rValue = "co_name_ceo";
+            break;
+          case "dialog_write_email":
+            rValue = "co_email";
+            break;
+          case "dialog_write_tel":
+            rValue = "co_tel";
+            break;
+          case "dialog_write_mobile":
+            rValue = "co_mobile";
+            break;
+          case "dialog_write_post":
+            rValue = "co_post";
+            break;
+          case "dialog_write_addr_1":
+            rValue = "co_addr_1";
+            break;
+          case "dialog_write_addr_2":
+            rValue = "co_addr_2";
+            break;
+          case "dialog_write_sns":
+            rValue = "co_sns";
+            break;
+          case "dialog_write_business_number":
+            rValue = "co_number";
+            break;
+          case "dialog_write_account":
+            rValue = "coaccount";
+            break;
+          case "dialog_write_code_device":
+            rValue = "co_code_device";
+            break;
+          case "dialog_write_x":
+            rValue = "co_x";
+            break;
+          case "dialog_write_y":
+            rValue = "co_y";
+            break;
+          case "dialog_write_etc":
+            rValue = "co_etc";
+            break;
+          case "dialog_write_image":
+            rValue = "co_image";
+            break;
+        }
+  
+        return rValue;
+      }
+  
+      //일괄 수정시 inputbox에 데이터를 입력할 경우 배경색상 변경
+      function setInput_event(objectName) {
+        document.getElementById(objectName).addEventListener('input', function(e) {
+          if ((e.inputType != "deleteContentBackward") &&
+              (e.inputType != "deleteContentForward"))
+           {   //backspace, delete가 아닐 경우 배경색 변경 체크
+            setInput_backgroundColor(objectName);
+          }        
+        });
+        document.getElementById(objectName).addEventListener('click', function(e) {
+          if (document.getElementById('dialog-title1-dialog_container_main').textContent == "회사 정보 일괄 수정") {
+            setInput_backgroundColor_darkAll();
+            this.style.backgroundColor = "#fff";
+          }
+        });
+      }
+      ////////////////////////////
+      //GUI 일괄 수정 기능
+      ////////////////////////////
+      
+      //일괄 수정시 inputbox에 데이터를 입력할 경우 배경색상 변경
+      setInput_event('dialog_write_name');
+      setInput_event('dialog_write_name_ceo');
+      setInput_event('dialog_write_email');
+      setInput_event('dialog_write_tel');
+      setInput_event('dialog_write_mobile');
+      setInput_event('dialog_write_post');
+      setInput_event('dialog_write_addr_1');
+      setInput_event('dialog_write_addr_2');
+      setInput_event('dialog_write_sns');
+      setInput_event('dialog_write_business_number');
+      setInput_event('dialog_write_account');
+      setInput_event('dialog_write_code_device');
+      setInput_event('dialog_write_x');
+      setInput_event('dialog_write_y');
+      setInput_event('dialog_write_etc');
+      setInput_event('dialog_write_image');
+    });
+    
+  </script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- // Sending and receiving data in JSON format using POST method
+  //
+  var xhr = new XMLHttpRequest();
+  var url = "url";
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+          var json = JSON.parse(xhr.responseText);
+          console.log(json.email + ", " + json.password);
+      }
+  };
+  var data = JSON.stringify({"email": "hey@mail.com", "password": "101010"});
+  xhr.send(data);
+  
+  
+  
+  // Sending a receiving data in JSON format using GET method
+  //      
+  var xhr = new XMLHttpRequest();
+  var url = "url?data=" + encodeURIComponent(JSON.stringify({"email": "hey@mail.com", "password": "101010"}));
+  xhr.open("GET", url, true);
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+          var json = JSON.parse(xhr.responseText);
+          console.log(json.email + ", " + json.password);
+      }
+  };
+  xhr.send();
+  
+  
+  
+  <?php
+  // Handling data in JSON format on the server-side using PHP
+  //
+  header("Content-Type: application/json");
+  // build a PHP variable from JSON sent using POST method
+  $v = json_decode(stripslashes(file_get_contents("php://input")));
+  // build a PHP variable from JSON sent using GET method
+  $v = json_decode(stripslashes($_GET["data"]));
+  // encode the PHP variable to JSON and send it back on client-side
+  echo json_encode($v);
+  ?> -->

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>	
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>http://www.yjsoft.kr</title>
+
+	<!-- default -->
+	<link rel="stylesheet" type="text/css" href="/css/main.css">	
+	<!-- datatables -->	
+	<link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/buttons.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/select.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/editor.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/responsive.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/dialog1.css">	
+	<!--datepicker-->
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-datepicker.css">
+	<!--imageviewer-->
+	<link rel="stylesheet" type="text/css" href="/css/magnify.css">
+
+	<!-- default -->
+	<script src="/js/jquery-3.3.1.min.js"></script>
+	<script src="/js/jquery.easing.1.3.js"></script>
+	<script src="/js/utill.js"></script>
+	
+	<!-- datatables -->
+	<script src="/js/jquery.dataTables.min.js"></script>
+	<script src="/js/dataTables.responsive.min.js"></script>
+	<script src="/js/dataTables.buttons.min.js"></script>	<!-- excel -->
+	<script src="/js/jszip.min.js"></script>				<!-- excel -->
+	<script src="/js/buttons.html5.min.js"></script>  		<!-- excel -->
+	<!-- <script src="/js/table_company.js"></script>	 -->
+	<!-- <script src="/js/dataTables.editor.min.js"></script> -->
+	<!-- <script src="/js/dataTables.select.min.js"></script> -->
+	<!--datepicker-->
+	<script src="/js/bootstrap-datepicker.js"></script>
+	<script src="/js/bootstrap-datepicker.ko-kr.js"></script>
+	<!--imageviewer-->
+	<script src="/js/magnify.js"></script>
+	<!-- 다음 우편번호 -->
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+
+
+	<!-- html페이지 로드 -->
+	<script type="text/javascript">
+		$(function(){
+			$("#headers").load("../header.html", function(e) {
+				$.getScript("/js/header.js", function() {
+					
+				});
+			});
+			$("#footers").load("/footer.html");
+
+			//dialog_container_main
+			$("#dialog_container_main").load("/dialog_company.html");
+			$("#dialog_messagebox").load("/dialog_messagebox.html", function(e) {
+				//messagebox_show(false, "데이터 로딩중", "데이터를 가져오는 중입니다. 잠시만 기다려 주시기 바랍니다.", null, true, true);			
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="frame_content" >
+		<!-- html페이지 로드 -->
+		<div id="headers"></div>
+
+		<div class="margin_91px_overlap"></div>
+		<!-- <div class="margin_50px_overlap"></div>		 -->
+
+		<!--content-->
+		<div id="content" class="layout_max1000">
+
+			<!--content_title-->
+			<!-- <div id="content_title" class="content_title_content_user" > -->
+			<div id="content_title" style="background:url(/images/company_3.png) no-repeat left center;background-size: auto 100%;">
+				<div class="position"><a href="/"><img src="/images/house2_1.png"/></a> 회사소개 > <span class="current">인사말</span></div>
+				<br>
+				<h3>인사말</h3>		
+				<div class="margin_20px"></div>
+				<div class="content_title1" style="color:#3AAAF9;">창조적인 기술개발로 IT분야를 선도하는 기업</div>
+				<div class="content_title2">YJSOFT 방문을 환영합니다.</div>				
+				<div class="m_line"></div>
+			</div>
+
+			<div class="margin_20px" style="border-top-width: 1px;border-top-color: #e4e4e4;border-top-style: solid;"></div>
+
+			<!-- content -->
+			<div class="content_1">
+				<!-- 
+				////////////////////////////////////////////
+					content (left image, right text) 
+				////////////////////////////////////////////
+				-->
+				<!-- title -->
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				<h4 class="content_text_1">소프트웨어 분야에서 창조적인 기술로 미래의 정보기술분야를 선도하는 기업으로 나아가고자 합니다.</h4>
+				<p class="content_text_2"></p>			
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+								
+				<!-- content -->
+				<div>
+					<div class="content_2column_left_image_25" style="border:1px solid #ddd;padding:50px;"><img src="/images/logo_yjsoft_1.png" alt="이미지" ></div>
+					<div class="content_2column_right_text_70" >
+						<ul>
+							<li>
+								<p class="content_text_3_leftimage">인사말</p>
+								<p class="content_text_4">YJSOFT는 부서안내시스템 및 RFID재물관리시스템 분야 및 IoT모니터링시스템 개발을 유기적으로 통합 제공하며, 이러한 솔루션은 조직의 시안성과 생산성을 극대화 시키는 역할을 하며, 고객의 환경에 최적화 되도록 신기술 개발에 항상 노력하고 있습니다.
+									소프트웨어의 분야에서 기술력과 안정성은 빼놓을 수 없는 중요한 요소입니다. 당사는 네이티브 기술과 웹 브라우저 기반 솔루션의 고도화로 인하여 최고 수준의 솔루션을 제공해 드릴 것입니다.</p>
+							</li>
+							<li>
+								<p class="content_text_3_leftimage">주요 분야</p>
+								<p class="content_text_4">
+									부서안내시스템 솔루션<br>
+									RFID물품관리시스템<br>
+									IoT모니터링시스템<br>
+									AUTOCAD자동화<br>
+								</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			
+				<!-- content 나눔 -->
+				<div style="clear:both"></div>
+
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				<div class="line_1px_2"></div>	
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				
+			</div>
+			
+		</div>
+
+		<div class="margin_20px"></div>
+		
+		<!-- html페이지 로드 -->
+		<div id="footers"></div>
+	</div>
+
+	<!-- dialog -->
+	<div id="dialog_container_main" class="dialog-container"></div>
+	<div id="dialog_messagebox" class="dialog-container"></div>
+</body>
+</html>

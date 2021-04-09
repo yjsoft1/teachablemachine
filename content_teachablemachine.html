@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>WEBGUI</title>	
+
+	<!-- default -->
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<!-- datatables -->	
+	<link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/buttons.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/select.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/editor.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/responsive.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/dialog1.css">	
+	<!--datepicker-->
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-datepicker.css">
+	<!--imageviewer-->
+	<link rel="stylesheet" type="text/css" href="/css/magnify.css">
+
+	<!-- default -->
+	<script src="/js/jquery-3.3.1.min.js"></script>
+	<script src="/js/jquery.easing.1.3.js"></script>
+	<script src="/js/utill.js"></script>
+	
+	<!-- datatables -->
+	<script src="/js/jquery.dataTables.min.js"></script>
+	<script src="/js/dataTables.responsive.min.js"></script>
+	<script src="/js/dataTables.buttons.min.js"></script>	<!-- excel -->
+	<script src="/js/jszip.min.js"></script>				<!-- excel -->
+	<script src="/js/buttons.html5.min.js"></script>  		<!-- excel -->
+	<!-- <script src="/js/table_users.js"></script> -->
+	<!-- <script src="/js/dataTables.editor.min.js"></script> -->
+	<!-- <script src="/js/dataTables.select.min.js"></script> -->
+	<!--datepicker-->
+	<script src="/js/bootstrap-datepicker.js"></script>
+	<script src="/js/bootstrap-datepicker.ko-kr.js"></script>
+	<!--imageviewer-->
+	<script src="/js/magnify.js"></script>
+<!--google teachable machine-->
+<!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands@0.4.0/dist/speech-commands.min.js"></script> -->
+	<script src="/js/tf.min.js"></script>
+	<script src="/js/speech-commands.min.js"></script>
+	<!-- <script src="/js/teachablemachine.js"></script> -->
+
+	<!-- html페이지 로드 -->
+	<script type="text/javascript">
+		$(function(){
+			$("#headers").load("../header.html", function(e) {
+				$.getScript("/js/header.js", function() {
+					$("#content_main").load("/dialog_serial.html");
+					
+				});
+			});
+			$("#footers").load("/footer.html");
+
+			// //dialog_container_main
+			 //$("#dialog_container_main").load("/dialog_users.html");			
+			// $("#dialog_password_change").load("/dialog_password_change.html");
+			$("#dialog_messagebox").load("/dialog_messagebox.html", function(e) {
+			//messagebox_show(false, "데이터 로딩중", "데이터를 가져오는 중입니다. 잠시만 기다려 주시기 바랍니다.", null, true, true);			
+			});
+
+
+			// //초기 화면 설정
+			// if ((sessionStorage.getItem(token_yj_rfms) != "") && (sessionStorage.getItem(token_yj_rfms) != null)){		//로그인 후
+			// 	document.getElementById("content_main").innerHTML = "";			//내용 지우기
+			// 	//$("#content_main").load("/main.html");							//main 화면 추가
+			// } else {																									//로그인 전
+			// 	document.getElementById("content_main").innerHTML = "";			//내용 지우기
+			// 	$("#content_main").load("/sign.html");							//sign 화면 추가	
+			// }
+		});
+	</script>
+</head>
+<body>
+	<div id="frame_content">
+		<!-- html페이지 로드 -->
+		<div id="headers"></div>
+
+		<!-- <div class="margin_91px_overlap"></div> -->
+		<div class="margin_50px_overlap"></div>
+
+		<!--content-->
+		<div id="content_main" class="layout_max1000">
+		</div>
+		
+		<!-- html페이지 로드 -->
+		<div id="footers"></div>
+	</div>
+
+	<!-- dialog -->
+	<!-- <div id="dialog_container_main" class="dialog-container"></div> -->
+	<div id="dialog_messagebox" class="dialog-container"></div>
+	<div id="dialog_password_change" class="dialog-container"></div>
+
+</body>
+</html>

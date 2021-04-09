@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>	
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>http://www.yjsoft.kr</title>
+
+	<!-- default -->
+	<link rel="stylesheet" type="text/css" href="/css/main.css">	
+	<!-- datatables -->	
+	<link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/buttons.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/select.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/editor.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/responsive.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/dialog1.css">	
+	<!--datepicker-->
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-datepicker.css">
+	<!--imageviewer-->
+	<link rel="stylesheet" type="text/css" href="/css/magnify.css">
+
+	<!-- default -->
+	<script src="/js/jquery-3.3.1.min.js"></script>
+	<script src="/js/jquery.easing.1.3.js"></script>
+	<script src="/js/utill.js"></script>
+	
+	<!-- datatables -->
+	<script src="/js/jquery.dataTables.min.js"></script>
+	<script src="/js/dataTables.responsive.min.js"></script>
+	<script src="/js/dataTables.buttons.min.js"></script>	<!-- excel -->
+	<script src="/js/jszip.min.js"></script>				<!-- excel -->
+	<script src="/js/buttons.html5.min.js"></script>  		<!-- excel -->
+	<!-- <script src="/js/table_company.js"></script>	 -->
+	<!-- <script src="/js/dataTables.editor.min.js"></script> -->
+	<!-- <script src="/js/dataTables.select.min.js"></script> -->
+	<!--datepicker-->
+	<script src="/js/bootstrap-datepicker.js"></script>
+	<script src="/js/bootstrap-datepicker.ko-kr.js"></script>
+	<!--imageviewer-->
+	<script src="/js/magnify.js"></script>
+	<!-- 다음 우편번호 -->
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+	<!--halftone-->
+	<script src="/js/jquery.halftone.js"></script>
+
+	<!-- html페이지 로드 -->
+	<script type="text/javascript">
+		$(function(){
+			$("#headers").load("../header.html", function(e) {
+				$.getScript("/js/header.js", function() {
+					
+				});
+			});
+			$("#footers").load("/footer.html");
+
+			//dialog_container_main
+			$("#dialog_container_main").load("/dialog_company.html");
+			$("#dialog_messagebox").load("/dialog_messagebox.html", function(e) {
+				//messagebox_show(false, "데이터 로딩중", "데이터를 가져오는 중입니다. 잠시만 기다려 주시기 바랍니다.", null, true, true);			
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="frame_content" >
+		<!-- html페이지 로드 -->
+		<div id="headers"></div>
+
+		<div class="margin_91px_overlap"></div>
+		<!-- <div class="margin_50px_overlap"></div>		 -->
+
+		<!--content-->
+		<div id="content" class="layout_max1000">
+
+			<!--content_title-->
+			<div id="content_title" style="background:url(/images/company_3.png) no-repeat left center;">
+				<div class="position"><a href="/"><img src="/images/house2_1.png"/></a> 솔루션/서비스 > <span class="current">Halftone</span></div>
+				<br>
+				<h3>Halftone </h3>		
+				<div class="margin_20px"></div>
+				<div class="content_title1" style="color:#3AAAF9;">2D Canvas Dot Image</div>
+				<!-- <div class="content_title2">안정성 있는 비동기 소켓서버로 안정화된 시스템을 제공합니다.</div>				 -->
+				<div class="m_line"></div>
+			</div>
+
+			<div class="margin_20px" style="border-top-width: 1px;border-top-color: #e4e4e4;border-top-style: solid;"></div>
+
+			<!-- content 1-->
+			<div class="content_1">
+				<!-- 
+				////////////////////////////////////////////
+					content 1(left image, right text) 
+				////////////////////////////////////////////
+				-->
+				<div class="margin_20px"></div>
+				<h1 style="color:#3AAAF9;">페이스 도장</h1>
+
+				<!-- title -->
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				<h4 class="content_text_1_leftimage">Halftone (dot picture)</h4>
+				<!-- <p class="content_text_2">
+					아이오티뷰는 TCP/IP를 기반으로 접속되는 모든 디바이스의 상태정보를 모니터링 및 제어가 가능하도록 구성되어진 시스템입니다. 
+					자체 개발된 IOCP기반의 소켓 컴포넌트는 모든 기종의 디바이스를 IP/PORT를 기분으로 관리하기 때문에 TCP/IP를 기반으로 접속되는 모든 디바이스의 관리가 가능합니다. 
+					아이오티뷰로 접속되는 디바이스는 하나의 TAG형태로 관리되며 각 디바이스 별 상황정보를 자체개발된 2D GIS 컴포넌트로부터 편리하게 확인할 수 있도록 구성되어 있습니다.
+					디바이스의 이미지를 사용자가 쉽게 변경이 가능하며 안정성있는 소켓서버와 2D GIS 엔진과의 연동을 통하여 각 디바이스들을 시각적으로 편리하게 모니터링이 가능한 시스템 입니다.
+				</p> -->
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+								
+				<!-- content 1 -->
+				<div>
+					<div class="content_2column_left_image_25"><img id="iot4image" src="/images/iot4.png" alt="이미지" style="width: 100%;"></div>
+					<div class="content_2column_right_text_70">
+						<ul>
+							<li>
+								<p class="content_text_3_leftimage">원본</p>
+								<!-- <p class="content_text_4">- 속도 느림</p> -->
+								<!-- <p class="content_text_4">- 각 디바이스의 드래그 앤 드랍을 통한 위치정보 변경</p>
+								<p class="content_text_4">- 각 디바이스의 이미지 변경 및 크기 변경</p>
+								<p class="content_text_4">- GIS 지도를 대처할 수 있는 백그라운드 이미지 등록 기능</p>
+								<p class="content_text_4">- GIS Layer Color, Visible, LineType, LineThickness 등의 레이어 관리</p> -->
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				<br>
+
+				<script type="text/javascript">
+					setTimeout(function() {
+						document.getElementById("myCanvas1").getContext("2d").drawImage(document.getElementById("iot4image"), 0, 0, 250, 160);
+						$('#myCanvas1').halftone({
+							'sample' : 1,
+							'background' : '#000000'
+						});
+
+						document.getElementById("myCanvas2").getContext("2d").drawImage(document.getElementById("iot4image"), 0, 0, 250, 160);
+						$('#myCanvas2').halftone({
+							'sample' : 2,
+							'background' : '#000000'
+						});
+
+						document.getElementById("myCanvas3").getContext("2d").drawImage(document.getElementById("iot4image"), 0, 0, 250, 160);
+						$('#myCanvas3').halftone({
+							'sample' : 3,
+							'background' : '#000000'
+						});
+
+						document.getElementById("myCanvas4").getContext("2d").drawImage(document.getElementById("iot4image"), 0, 0, 250, 160);
+						$('#myCanvas4').halftone({
+							'sample' : 4,
+							'background' : '#000000'
+						});
+
+						document.getElementById("myCanvas5").getContext("2d").drawImage(document.getElementById("iot4image"), 0, 0, 250, 160);
+						$('#myCanvas5').halftone({
+							'sample' : 5,
+							'background' : '#000000'
+						});
+
+						document.getElementById("myCanvas6").getContext("2d").drawImage(document.getElementById("iot4image"), 0, 0, 250, 160);
+						$('#myCanvas6').halftone({
+							'sample' : 6,
+							'background' : '#000000'
+						});
+
+						document.getElementById("myCanvas7").getContext("2d").drawImage(document.getElementById("iot4image"), 0, 0, 250, 160);
+						$('#myCanvas7').halftone({
+							'sample' : 7,
+							'background' : '#000000'
+						});
+
+						document.getElementById("myCanvas8").getContext("2d").drawImage(document.getElementById("iot4image"), 0, 0, 250, 160);
+						$('#myCanvas8').halftone({
+							'sample' : 8,
+							'background' : '#000000'
+						});
+
+						document.getElementById("myCanvas9").getContext("2d").drawImage(document.getElementById("iot4image"), 0, 0, 250, 160);
+						$('#myCanvas9').halftone({
+							'sample' : 9,
+							'background' : '#000000'
+						});
+
+						document.getElementById("myCanvas10").getContext("2d").drawImage(document.getElementById("iot4image"), 0, 0, 250, 160);
+						$('#myCanvas10').halftone({
+							'sample' : 10,
+							'background' : '#000000'
+						});
+                    }, 500);
+					
+				</script>
+
+				<canvas id="myCanvas1" width="250" height="160">Unsupported HTML5 canvas tag.</canvas>
+				<canvas id="myCanvas2" width="250" height="160">Unsupported HTML5 canvas tag.</canvas>
+				<canvas id="myCanvas3" width="250" height="160">Unsupported HTML5 canvas tag.</canvas>
+				<canvas id="myCanvas4" width="250" height="160">Unsupported HTML5 canvas tag.</canvas>
+				<canvas id="myCanvas5" width="250" height="160">Unsupported HTML5 canvas tag.</canvas>
+				<canvas id="myCanvas6" width="250" height="160">Unsupported HTML5 canvas tag.</canvas>
+				<canvas id="myCanvas7" width="250" height="160">Unsupported HTML5 canvas tag.</canvas>
+				<canvas id="myCanvas8" width="250" height="160">Unsupported HTML5 canvas tag.</canvas>
+				<canvas id="myCanvas9" width="250" height="160">Unsupported HTML5 canvas tag.</canvas>
+				<canvas id="myCanvas10" width="250" height="160">Unsupported HTML5 canvas tag.</canvas>
+
+				<div style="clear:both"></div>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+
+				
+
+				<div style="clear:both"></div>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+			
+				<!-- content 나눔 -->
+				<div style="clear:both"></div>
+
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				<div class="line_1px_2"></div>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+
+			</div>
+			
+		</div>
+
+		<div class="margin_20px"></div>
+		<div class="margin_20px"></div>
+		
+		<!-- html페이지 로드 -->
+		<div id="footers"></div>
+	</div>
+
+	<!-- dialog -->
+	<div id="dialog_container_main" class="dialog-container"></div>
+	<div id="dialog_messagebox" class="dialog-container"></div>
+</body>
+</html>

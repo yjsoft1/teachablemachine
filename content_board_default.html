@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>	
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>http://www.yjsoft.kr</title>
+
+	<!-- default -->
+	<link rel="stylesheet" type="text/css" href="/css/main.css">	
+	<!-- datatables -->	
+	<link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/buttons.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/select.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/editor.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/responsive.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/dialog1.css">	
+	<!--datepicker-->
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-datepicker.css">
+	<!--imageviewer-->
+	<link rel="stylesheet" type="text/css" href="/css/magnify.css">
+
+	<!-- default -->
+	<script src="/js/jquery-3.3.1.min.js"></script>
+	<script src="/js/jquery.easing.1.3.js"></script>
+	<script src="/js/utill.js"></script>
+	
+	<!-- datatables -->
+	<script src="/js/jquery.dataTables.min.js"></script>
+	<script src="/js/dataTables.responsive.min.js"></script>
+	<script src="/js/dataTables.buttons.min.js"></script>	<!-- excel -->
+	<script src="/js/jszip.min.js"></script>				<!-- excel -->
+	<script src="/js/buttons.html5.min.js"></script>  		<!-- excel -->
+	<script src="/js/table_board_default.js"></script>	
+	<!-- <script src="/js/dataTables.editor.min.js"></script> -->
+	<!-- <script src="/js/dataTables.select.min.js"></script> -->
+	<!--datepicker-->
+	<script src="/js/bootstrap-datepicker.js"></script>
+	<script src="/js/bootstrap-datepicker.ko-kr.js"></script>
+	<!--imageviewer-->
+	<script src="/js/magnify.js"></script>
+	<!-- 다음 우편번호 -->
+	<!-- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script> -->
+
+
+
+	<!-- html페이지 로드 -->
+	<script type="text/javascript">
+		$(function(){
+			$("#headers").load("../header.html", function(e) {
+				$.getScript("/js/header.js", function() {
+					
+				});
+			});
+			$("#footers").load("/footer.html");
+
+			//dialog_container_main
+			$("#dialog_container_main").load("/dialog_board_default.html");			
+			$("#dialog_messagebox").load("/dialog_messagebox.html", function(e) {
+				//messagebox_show(false, "데이터 로딩중", "데이터를 가져오는 중입니다. 잠시만 기다려 주시기 바랍니다.", null, true, true);			
+			});
+			$("#dialog_fileupload").load("/dialog_fileupload.html");
+			$("#dialog_toggle_date").load("/dialog_toggle_date.html");
+		});
+	</script>
+</head>
+<body>
+	<div id="frame_content" >
+		<!-- html페이지 로드 -->
+		<div id="headers"></div>
+
+		<div class="margin_91px_overlap"></div>
+		<!-- <div class="margin_50px_overlap"></div>		 -->
+
+		<!--content-->
+		<div id="content" class="layout_max1000">
+
+			<!--content_title-->
+			<div id="content_title" style="background:url(/images/license_2.png) no-repeat left center; background-size: auto 100%;">
+				<div class="position"><a href="/"><img src="/images/house2_1.png"/></a> 라이선스 > <span class="current">게시판 관리</span></div>
+				<br>
+				<h3>게시판 관리</h3>		
+				<div class="margin_20px"></div>
+				<div class="content_title1" style="color:#3AAAF9;">관리자일 경우</div>
+				<div class="content_title2">게시판 정보를 관리할 수 있습니다.</div>
+				<div class="m_line"></div>
+			</div>
+
+			<div class="margin_20px"></div>
+
+			<!-- 게시판 -->			
+			<table id="table_main" class="display nowrap" cellspacing="0" width="100%">
+				<div id="content_main"></div>
+				<!-- <thead>
+					<tr>
+						<th>Name</th>
+						<th>Position</th>
+						<th>Office</th>
+						<th>Extn.</th>
+						<th>Start date</th>
+						<th>Salary</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th>Name</th>
+						<th>Position</th>
+						<th>Office</th>
+						<th>Extn.</th>
+						<th>Start date</th>
+						<th>Salary</th>
+					</tr>
+				</tfoot> -->
+				</div>
+			</table>			
+		</div>
+
+		<div class="margin_20px"></div>
+		<div class="margin_20px"></div>
+		
+		<!-- html페이지 로드 -->
+		<div id="footers"></div>
+	</div>
+
+	<!-- dialog -->
+	<div id="dialog_container_main" class="dialog-container"></div>
+	<div id="dialog_messagebox" class="dialog-container"></div>
+	<div id="dialog_fileupload" class="dialog-container"></div>
+	<div id="dialog_toggle_date" style="display:none;"></div>
+</body>
+</html>

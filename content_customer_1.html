@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>	
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>http://www.yjsoft.kr</title>
+
+	<!-- default -->
+	<link rel="stylesheet" type="text/css" href="/css/main.css">	
+	<!-- datatables -->	
+	<link rel="stylesheet" type="text/css" href="/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/buttons.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/select.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/editor.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/responsive.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/dialog1.css">	
+	<!--datepicker-->
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-datepicker.css">
+	<!--imageviewer-->
+	<link rel="stylesheet" type="text/css" href="/css/magnify.css">
+
+	<!-- default -->
+	<script src="/js/jquery-3.3.1.min.js"></script>
+	<script src="/js/jquery.easing.1.3.js"></script>
+	<script src="/js/utill.js"></script>
+	
+	<!-- datatables -->
+	<script src="/js/jquery.dataTables.min.js"></script>
+	<script src="/js/dataTables.responsive.min.js"></script>
+	<script src="/js/dataTables.buttons.min.js"></script>	<!-- excel -->
+	<script src="/js/jszip.min.js"></script>				<!-- excel -->
+	<script src="/js/buttons.html5.min.js"></script>  		<!-- excel -->
+	<!-- <script src="/js/table_company.js"></script>	 -->
+	<!-- <script src="/js/dataTables.editor.min.js"></script> -->
+	<!-- <script src="/js/dataTables.select.min.js"></script> -->
+	<!--datepicker-->
+	<script src="/js/bootstrap-datepicker.js"></script>
+	<script src="/js/bootstrap-datepicker.ko-kr.js"></script>
+	<!--imageviewer-->
+	<script src="/js/magnify.js"></script>
+	<!-- 다음 우편번호 -->
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+
+
+	<!-- html페이지 로드 -->
+	<script type="text/javascript">
+		$(function(){
+			$("#headers").load("../header.html", function(e) {
+				$.getScript("/js/header.js", function() {
+					
+				});
+			});
+			$("#footers").load("/footer.html");
+
+			//dialog_container_main
+			$("#dialog_container_main").load("/dialog_company.html");
+			$("#dialog_messagebox").load("/dialog_messagebox.html", function(e) {
+				//messagebox_show(false, "데이터 로딩중", "데이터를 가져오는 중입니다. 잠시만 기다려 주시기 바랍니다.", null, true, true);			
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="frame_content" >
+		<!-- html페이지 로드 -->
+		<div id="headers"></div>
+
+		<div class="margin_91px_overlap"></div>
+		<!-- <div class="margin_50px_overlap"></div>		 -->
+
+		<!--content-->
+		<div id="content" class="layout_max1000">
+
+			<!--content_title-->
+			<div id="content_title" style="background:url(/images/company_3.png) no-repeat left center;">
+				<div class="position"><a href="/"><img src="/images/house2_1.png"/></a> 솔루션/서비스 > <span class="current">부서안내시스템</span></div>
+				<br>
+				<h3>부서안내시스템</h3>		
+				<div class="margin_20px"></div>
+				<div class="content_title1" style="color:#3AAAF9;">사용자 입장을 고려한 편리한 GUI와</div>
+				<div class="content_title2">지속적인 연구개발로 안정화된 시스템을 제공합니다.</div>				
+				<div class="m_line"></div>
+			</div>
+
+			<div class="margin_20px" style="border-top-width: 1px;border-top-color: #e4e4e4;border-top-style: solid;"></div>
+
+			<!-- content 1-->
+			<div class="content_1">
+				<!-- 
+				////////////////////////////////////////////
+					content 1(left image, right text) 
+				////////////////////////////////////////////
+				-->
+				<div class="margin_20px"></div>
+				<h1 style="color:#3AAAF9;">고객문의</h1>
+
+				<!-- title -->
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+				<h4 class="content_text_1_leftimage">서비스 연락정보</h4>
+				<p class="content_text_2">
+					아래의 연락처로 문의하여 주시면 신속하게 고객님께 답변을 드리도록 하겠습니다.
+					<br>
+					이메일로 문의하시는 경우에는 연락처를 꼭 남겨주시기 바랍니다.
+					<br>
+					감사합니다.
+				</p>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+								
+				<!-- content 1 -->
+				<style>
+				 	.tablecontent_center {text-align:center}
+				</style>
+				<table class="table_2 tablecontent_center">
+					<tbody>
+						<tr>
+							<th class="left">항목</th>
+							<th>전화번호</th>
+							<th class="right">이메일</th>
+					    </tr>
+						<tr>
+							<td class="left">부서서안내시스템</td>
+							<td>043-902-1419</td>
+							<td class="right">sworn_yk@naver.com</td>
+						</tr>
+						<tr>
+							<td class="left">IOT모니터링시스템</td>
+							<td>043-902-1419</td>
+							<td class="right">sworn_yk@naver.com</td>
+					    </tr>
+						<tr>
+					    	<td class="left">RFID재물관리시스템</td>
+							<td>043-902-1419</td>
+							<td class="right">sworn_yk@naver.com</td>
+						</tr>
+						<tr>
+					    	<td class="left">AUTOCAD자동화</td>
+							<td>043-902-1419</td>
+							<td class="right">sworn_yk@naver.com</td>
+						</tr>
+				    </tbody>
+				</table>
+
+				<div style="clear:both"></div>
+				<div class="margin_20px"></div>
+				<div class="margin_20px"></div>
+
+			</div>
+			
+		</div>
+
+		<div class="margin_20px"></div>
+		<div class="margin_20px"></div>
+		
+		<!-- html페이지 로드 -->
+		<div id="footers"></div>
+	</div>
+
+	<!-- dialog -->
+	<div id="dialog_container_main" class="dialog-container"></div>
+	<div id="dialog_messagebox" class="dialog-container"></div>
+</body>
+</html>
